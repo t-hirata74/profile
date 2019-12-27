@@ -15,8 +15,8 @@
 ## 【スキル経験表】
  
 ### プログラミング言語
-- CSS  6年
 - HTML 6年
+- CSS  6年
 - Javascript 6年
 - Java 5年
 - Ruby 2年
