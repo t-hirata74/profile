@@ -73,32 +73,32 @@
 
 ## 【現在案件】
 
-・自動車会社向けIoTシステム開発(2018年5月〜現在)
-- 担当　：フルスタックエンジニア
-- 言語　：Ruby on Rails、Ruby、Javascript、html、css、Mysql、Python
-- その他：AWS(EC2、S3、RDS、Elastic Beanstalk、lambda等)、Docker、CircleCI、Slack、Visual Studio Code、git、Bitbucket、SourceTree
-- 開発手法：スクラム（アジャイル開発）
+- 自動車会社向けIoTシステム開発(2018年5月〜現在)
+  - 担当　：フルスタックエンジニア
+  - 言語　：Ruby on Rails、Ruby、Javascript、html、css、Mysql、Python
+  - その他：AWS(EC2、S3、RDS、Elastic Beanstalk、lambda等)、Docker、CircleCI、Slack、Visual Studio Code、git、Bitbucket、SourceTree
+  - 開発手法：スクラム（アジャイル開発）
 
-・プログラミングスクール学習サポート(2019年5月〜現在)
-- 担当　：メンター
-- 言語　：Ruby on Rails、Ruby、Javascript、html、css、Mysql
-- その他：AWS(EC2、RDS)、git、Vagrant
+- プログラミングスクール学習サポート(2019年5月〜現在)
+  - 担当　：メンター
+  - 言語　：Ruby on Rails、Ruby、Javascript、html、css、Mysql
+  - その他：AWS(EC2、RDS)、git、Vagrant
 
 ## 【過去案件】
-・航空会社向けECサイト開発(7ヶ月)
-- 担当　：システムエンジニア
-- 言語　：Java、Javascript、html、css、Oracle
-- その他：Slack、Redmine、Eclipse、svn
-- 開発手法：ウォーターフォール
+- 航空会社向けECサイト開発(7ヶ月)
+  - 担当　：システムエンジニア
+  - 言語　：Java、Javascript、html、css、Oracle
+  - その他：Slack、Redmine、Eclipse、svn
+  - 開発手法：ウォーターフォール
 
-・全自動倉庫管理システム開発(14ヶ月)
-- 担当　：システムエンジニア
-- 言語　：Java、Javascript、html、css、Oracle
-- その他：Redmine、Eclipse、Spring、svn
-- 開発手法：ウォーターフォール
+- 全自動倉庫管理システム開発(14ヶ月)
+  - 担当　：システムエンジニア
+  - 言語　：Java、Javascript、html、css、Oracle
+  - その他：Redmine、Eclipse、Spring、svn
+  - 開発手法：ウォーターフォール
 
-・製油所向けオフサイトシステム(36ヶ月)
-- 担当　：プログラマー、システムエンジニア
-- 言語　：Java、Javascript、html、css、Oracle
-- その他：Eclipse、svn
-- 開発手法：ウォーターフォール
+- 製油所向けオフサイトシステム(36ヶ月)
+  - 担当　：プログラマー、システムエンジニア
+  - 言語　：Java、Javascript、html、css、Oracle
+  - その他：Eclipse、svn
+  - 開発手法：ウォーターフォール
