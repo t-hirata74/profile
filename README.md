@@ -52,7 +52,7 @@
   - Simple Email Service
 
 ## チーム開発、バージョン管理ツール
-- svn 3年
+- svn 4年
 - Bitbucket 2年
 - Git 2年
 - SourceTree 2年
