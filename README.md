@@ -20,13 +20,13 @@
 - CSS  6年
 - Javascript 6年
 - Java 5年
-- Ruby 2年
+- Ruby 2.5年
 - Python 0.5年
 
 ## ライブラリ、フレームワーク
 - JQuery 5年
+- Ruby on Rails 2.5年
 - Bootstrap 2年
-- Ruby on Rails 2年
 - Spring 1年
 
 ## DB
@@ -80,12 +80,18 @@
   - その他：AWS(EC2、S3、RDS、Elastic Beanstalk、lambda等)、Docker、CircleCI、Slack、Visual Studio Code、git、Bitbucket、SourceTree
   - 開発手法：スクラム（アジャイル開発）
 
-- プログラミングスクール学習サポート(2019年5月〜現在)
+- <副業>エンジニア組織のパフォーマンス最大化サービス(2020年2月〜現在)
+  - 担当　：バックエンドエンジニア
+  - 言語　：Ruby on Rails、Ruby
+  - その他：Docker、Slack、git、github、zenhub
+  - 開発手法：リモート
+
+## 【過去案件】
+- <副業>プログラミングスクール学習サポート(８ヶ月)
   - 担当　：メンター
   - 言語　：Ruby on Rails、Ruby、Javascript、html、css、Mysql
   - その他：AWS(EC2、RDS)、git、Vagrant
 
-## 【過去案件】
 - 航空会社向けECサイト開発(7ヶ月)
   - 担当　：システムエンジニア
   - 言語　：Java、Javascript、html、css、Oracle
