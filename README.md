@@ -77,12 +77,14 @@
   - 担当　：フルスタックエンジニア
   - 言語　：Ruby on Rails、Ruby、Javascript、html、css、Mysql、Python
   - その他：AWS(EC2、S3、RDS、Elastic Beanstalk、lambda等)、Docker、CircleCI、Slack、Visual Studio Code、git、Bitbucket、SourceTree
-  - 開発手法：スクラム（アジャイル開発）
+  - 工程：要件定義〜スケジュール見積もり〜基本設計〜詳細設計〜開発〜単体テスト〜結合テスト〜性能テスト〜セキュリティテスト〜システムテスト〜保守運用
+  - 開発手法：スクラム（アジャイル開発-1週間スプリント）
 
 - <副業>エンジニア組織のパフォーマンス最大化サービス(2020年2月〜現在)
   - 担当　：バックエンドエンジニア
   - 言語　：Ruby on Rails、Ruby
   - その他：Docker、Slack、git、github、zenhub
+  - 工程：詳細設計〜開発
   - 開発手法：リモート
 
 ## 【過去案件】
@@ -95,16 +97,19 @@
   - 担当　：システムエンジニア
   - 言語　：Java、Javascript、html、css、Oracle
   - その他：Slack、Redmine、Eclipse、svn
+  - 工程：詳細設計〜開発〜単体テスト〜結合テスト
   - 開発手法：ウォーターフォール
-
+ 
 - 全自動倉庫管理システム開発(2016年8月〜2017年9月：14ヶ月)
   - 担当　：システムエンジニア
   - 言語　：Java、Javascript、html、css、Oracle
   - その他：Redmine、Eclipse、Spring、svn
+  - 工程：詳細設計〜開発〜単体テスト〜結合テスト
   - 開発手法：ウォーターフォール
 
 - 製油所向けオフサイトシステム(2013年９月〜2016年8月：36ヶ月)
   - 担当　：プログラマー、システムエンジニア
   - 言語　：Java、Javascript、html、css、Oracle
   - その他：Eclipse、svn
+  - 工程：基本設計〜詳細設計〜開発〜単体テスト〜結合テスト〜総合テスト〜保守運用
   - 開発手法：ウォーターフォール
