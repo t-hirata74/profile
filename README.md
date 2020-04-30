@@ -1,4 +1,4 @@
-2020/03 更新
+2020/04 更新
 # スキルシート
 
 ## 【プロフィール】
@@ -15,9 +15,9 @@
 ## 【スキル経験】
  
 ### プログラミング言語
-- HTML 6年
-- CSS  6年
-- Javascript 6年
+- HTML 7年
+- CSS  7年
+- Javascript 7年
 - Java 5年
 - Ruby 2.5年
 - Python 0.5年
@@ -30,7 +30,7 @@
 
 ## DB
 - Oracle 4年
-- MySQL 2年
+- MySQL 2.5年
 
 ## クラウド
 - AWS 2年
@@ -65,6 +65,8 @@
 - CircleCI 2年
 - Terraform 1年
 - Vagrant 1年
+- Zabbix 1年
+- Jmeter 1年
 
 ## 【自己PR】
 フロントエンド及び、サーバサイドについての業務経験がございます。
@@ -76,7 +78,7 @@
 - 自動車会社向けIoTシステム開発(2018年5月〜現在)
   - 担当　：フルスタックエンジニア
   - 言語　：Ruby on Rails、Ruby、Javascript、html、css、Mysql、Python
-  - その他：AWS(EC2、S3、RDS、Elastic Beanstalk、lambda等)、Docker、CircleCI、Slack、Visual Studio Code、git、Bitbucket、SourceTree
+  - その他：AWS(EC2、S3、RDS、Elastic Beanstalk、lambda等)、Docker、CircleCI、Slack、VSCode、git、Bitbucket、SourceTree、Zabbix、Jmeter
   - 工程：要件定義、スケジュール見積もり、基本設計、詳細設計、開発、単体テスト、結合テスト、性能テスト、セキュリティテスト、システムテスト、保守運用
   - 開発手法：スクラム（アジャイル開発-1週間スプリント）
 
@@ -107,7 +109,7 @@
   - 工程：詳細設計、開発、単体テスト、結合テスト
   - 開発手法：ウォーターフォール
 
-- 製油所向けオフサイトシステム(2013年９月〜2016年8月：36ヶ月)
+- 製油所向けオフサイトシステム(2013年9月〜2016年8月：36ヶ月)
   - 担当　：プログラマー、システムエンジニア
   - 言語　：Java、Javascript、html、css、Oracle
   - その他：Eclipse、svn
