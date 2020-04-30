@@ -79,7 +79,7 @@
   - 担当　：フルスタックエンジニア
   - 言語　：Ruby on Rails、Ruby、Javascript、html、css、Mysql、Python
   - その他：AWS(EC2、S3、RDS、Elastic Beanstalk、lambda等)、Docker、CircleCI、Slack、VSCode、git、Bitbucket、SourceTree、Zabbix、Jmeter
-  - 工程：要件定義、スケジュール見積もり、基本設計、詳細設計、開発、単体テスト、結合テスト、性能テスト、セキュリティテスト、システムテスト、障害テスト、保守運用
+  - 工程：要件定義、スケジュール見積もり、タスク見積もり、基本設計、詳細設計、開発、単体テスト、結合テスト、性能テスト、セキュリティテスト、システムテスト、障害テスト、保守運用
   - 開発手法：スクラム（アジャイル開発-1週間スプリント）
 
 - <副業>エンジニア組織のパフォーマンス最大化サービス(2020年2月〜現在)
