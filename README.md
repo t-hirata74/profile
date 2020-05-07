@@ -19,13 +19,13 @@
 - CSS  7年
 - Javascript 7年
 - Java 5年
-- Ruby 2.5年
+- Ruby 3年
 - Python 0.5年
 - PHP 0年(個人学習)
 
 ## ライブラリ、フレームワーク
 - JQuery 5年
-- Ruby on Rails 2.5年
+- Ruby on Rails 3年
 - Bootstrap 2年
 - Spring 1年
 - Vue.js 0年(個人学習)
