@@ -80,14 +80,16 @@
 
 - 自動車会社向けIoTシステムの開発[新規事業] (2018年5月〜現在)
   - 担当　：フルスタックエンジニア
-  - 言語　：Ruby on Rails、Ruby、Javascript、html、css、Mysql、Python
+  - 言語　：Ruby、Javascript、html、css、Mysql、Python
+  - FW　　:Ruby on Rails
   - その他：AWS(EC2、S3、RDS、Elastic Beanstalk、lambda等)、Docker、CircleCI、Slack、VSCode、git、Bitbucket、SourceTree、Terraform、Zabbix、Jmeter
   - 工程：要件定義、スケジュール見積もり、タスク見積もり、基本設計、詳細設計、開発、単体テスト、結合テスト、性能テスト、セキュリティテスト、システムテスト、障害テスト、保守運用
   - 開発手法：スクラム（アジャイル開発-1週間スプリント）
 
 - エンジニア組織のパフォーマンス最大化サービス(2020年2月〜現在)
   - 担当　：バックエンドエンジニア
-  - 言語　：Ruby on Rails、Ruby
+  - 言語　：Ruby
+  - FW　　：Ruby on Rails
   - その他：Docker、Slack、git、github、zenhub
   - 工程：開発、リファクタリング
   - 開発手法：チケット駆動開発（フルリモート）
@@ -95,7 +97,8 @@
 ## 【過去案件】
 - プログラミングスクール学習サポート(2019年5月〜2019年12月：8ヶ月)
   - 担当　：メンター
-  - 言語　：Ruby on Rails、Ruby、Javascript、html、css、Mysql
+  - 言語　：Ruby、Javascript、html、css、Mysql
+  - FW　　：Ruby on Rails
   - その他：AWS(EC2、RDS)、git、Vagrant
 
 - 航空会社向けECサイト開発(2017年10月〜2018年4月：7ヶ月)
@@ -108,7 +111,8 @@
 - 全自動倉庫管理システム開発(2016年8月〜2017年9月：14ヶ月)
   - 担当　：システムエンジニア
   - 言語　：Java、Javascript、html、css、Oracle
-  - その他：Redmine、Eclipse、Spring、svn
+  - FW　　：Spring
+  - その他：Redmine、Eclipse、svn
   - 工程：詳細設計、開発、単体テスト、結合テスト
   - 開発手法：ウォーターフォール
 
