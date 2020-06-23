@@ -82,7 +82,7 @@
   - 担当：フルスタックエンジニア
   - 言語：Ruby、Javascript、html、css、Mysql、Python
   - FW：Ruby on Rails
-  - その他：AWS(EC2、S3、RDS、Elastic Beanstalk、lambda等)、Docker、CircleCI、Slack、VSCode、git、Bitbucket、SourceTree、Terraform、Zabbix、Jmeter
+  - その他：AWS(EC2、S3、RDS、Elastic Beanstalk、lambda等)、Docker、CircleCI、Slack、VSCode、git、Bitbucket、SourceTree、Terraform、Zabbix、Jmeter、Bootstrap
   - 工程：要件定義、スケジュール見積もり、タスク見積もり、基本設計、詳細設計、開発、単体テスト、結合テスト、性能テスト、セキュリティテスト、システムテスト、障害テスト、保守運用
   - 開発手法：スクラム（アジャイル開発-1週間スプリント）
 
@@ -99,7 +99,7 @@
   - 担当：メンター
   - 言語：Ruby、Javascript、html、css、Mysql
   - FW：Ruby on Rails
-  - その他：AWS(EC2、RDS)、git、Vagrant
+  - その他：AWS(EC2、RDS)、git、Vagrant、Bootstrap
 
 - 航空会社向けECサイト開発(2017年10月〜2018年4月：7ヶ月)
   - 担当：システムエンジニア
