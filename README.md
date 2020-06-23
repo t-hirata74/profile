@@ -1,4 +1,4 @@
-2020/05 更新
+2020/06 更新
 # スキルシート
 
 ## 【プロフィール】
@@ -81,7 +81,7 @@
 - 自動車会社向けIoTシステムの開発[新規事業] (2018年5月〜現在)
   - 担当：フルスタックエンジニア
   - 言語：Ruby、Javascript、html、css、Mysql、Python
-  - FW:Ruby on Rails
+  - FW：Ruby on Rails
   - その他：AWS(EC2、S3、RDS、Elastic Beanstalk、lambda等)、Docker、CircleCI、Slack、VSCode、git、Bitbucket、SourceTree、Terraform、Zabbix、Jmeter
   - 工程：要件定義、スケジュール見積もり、タスク見積もり、基本設計、詳細設計、開発、単体テスト、結合テスト、性能テスト、セキュリティテスト、システムテスト、障害テスト、保守運用
   - 開発手法：スクラム（アジャイル開発-1週間スプリント）
