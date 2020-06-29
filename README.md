@@ -77,16 +77,6 @@
 新しい技術を積極的に用いて、より良いシステム作りを作っていけるようにしていきたいと思っております。何卒宜しくお願いいたします。
 
 ## 【現在案件】
-
-- 自動車会社向けIoTシステムの開発[新規事業] (2018年5月〜現在)
-  - 担当：フルスタックエンジニア
-  - 言語：Ruby、Javascript、html、css、Python
-  - FW：Ruby on Rails
-  - DB：Mysql
-  - その他：AWS(EC2、S3、RDS、Elastic Beanstalk、lambda等)、Docker、CircleCI、Slack、VSCode、git、Bitbucket、SourceTree、Terraform、Zabbix、Jmeter、Bootstrap
-  - 工程：要件定義、スケジュール見積もり、タスク見積もり、基本設計、詳細設計、開発、単体テスト、結合テスト、性能テスト、セキュリティテスト、システムテスト、障害テスト、保守運用
-  - 開発手法：スクラム（アジャイル開発-1週間スプリント）
-
 - エンジニア組織のパフォーマンス最大化サービス(2020年2月〜現在)
   - 担当：バックエンドエンジニア
   - 言語：Ruby
@@ -97,6 +87,15 @@
   - 開発手法：チケット駆動開発（フルリモート）
 
 ## 【過去案件】
+- 自動車会社向けIoTシステムの新規事業開発(2018年5月〜2020年6月：26ヶ月)
+  - 担当：フルスタックエンジニア
+  - 言語：Ruby、Javascript、html、css、Python
+  - FW：Ruby on Rails
+  - DB：Mysql
+  - その他：AWS(EC2、S3、RDS、Elastic Beanstalk、lambda等)、Docker、CircleCI、Slack、VSCode、git、Bitbucket、SourceTree、Terraform、Zabbix、Jmeter、Bootstrap
+  - 工程：要件定義、スケジュール見積もり、タスク見積もり、基本設計、詳細設計、開発、単体テスト、結合テスト、性能テスト、セキュリティテスト、システムテスト、障害テスト、保守運用
+  - 開発手法：スクラム（アジャイル開発-1週間スプリント）
+
 - プログラミングスクール学習サポート(2019年5月〜2019年12月：8ヶ月)
   - 担当：メンター
   - 言語：Ruby、Javascript、html、css
