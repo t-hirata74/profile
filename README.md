@@ -34,6 +34,7 @@
 - Bootstrap 2年
 - Spring 1年
 - Vue.js 0年(個人学習)
+- Nuxt.js 0年(個人学習)
 - React 0年(個人学習)
 
 ## DB
@@ -64,6 +65,7 @@
 - Git 2年
 - SourceTree 2年
 - Github 1年
+- Heroku 0年(個人学習)
 
 ## その他ソフトウェアツール
 - Eclipse 4年
