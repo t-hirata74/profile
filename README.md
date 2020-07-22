@@ -27,6 +27,7 @@
 - HTML 7年
 - CSS  7年
 - Javascript 7年
+- SQL 7年
 - Java 5年
 - Ruby 3年
 - Python 0.5年
@@ -71,7 +72,7 @@
 - Github 1年
 - Heroku 0年(個人学習)
 
-## その他ソフトウェアツール
+## その他ソフトウェアツール、サービス
 - Eclipse 4年
 - Slack 3年
 - Redmine 3年
@@ -82,6 +83,7 @@
 - Zabbix 1年
 - Jmeter 1年
 - PyCharm 0年(個人学習)
+- Firebase 0年(個人学習)
 
 ## 【現在案件】
 - エンジニア組織のパフォーマンス最大化サービス(2020年2月〜現在)
