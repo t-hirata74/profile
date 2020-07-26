@@ -71,7 +71,6 @@
 - Git 2年
 - SourceTree 2年
 - Github 1年
-- Heroku 0年(個人学習)
 
 ## その他ソフトウェアツール、サービス
 - Eclipse 4年
@@ -85,6 +84,8 @@
 - Jmeter 1年
 - PyCharm 0年(個人学習)
 - Firebase 0年(個人学習)
+- Heroku 0年(個人学習)
+- TravisCI 0年(個人学習)
 
 ## 【現在案件】
 
