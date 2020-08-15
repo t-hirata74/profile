@@ -103,16 +103,16 @@
 - 自動車会社向けIoTシステムの新規事業開発(2018年5月〜2020年6月：26ヶ月)
   - 担当：フルスタックエンジニア
   - 言語：Ruby、Javascript、html、css、Python
-  - FW：Ruby on Rails
+  - FW：Ruby on Rails、Bootstrap
   - DB：Mysql
-  - その他：AWS(EC2、S3、RDS、Elastic Beanstalk、lambda等)、Docker、CircleCI、Slack、VSCode、git、Bitbucket、SourceTree、Terraform、Zabbix、Jmeter、Bootstrap
+  - その他：AWS(EC2、S3、RDS、Elastic Beanstalk、lambda等)、Docker、CircleCI、Slack、VSCode、git、Bitbucket、SourceTree、Terraform、Zabbix、Jmeter
   - 工程：要件定義、スケジュール見積もり、タスク見積もり、基本設計、詳細設計、開発、単体テスト、結合テスト、性能テスト、セキュリティテスト、システムテスト、障害テスト、保守運用
   - 開発手法：スクラム（アジャイル開発-1週間スプリント）
 
 - プログラミングスクール学習サポート(2019年5月〜2019年12月：8ヶ月) ＜副業＞
   - 担当：メンター
   - 言語：Ruby、Javascript、html、css
-  - FW：Ruby on Rails
+  - FW：Ruby on Rails、Bootstrap
   - DB：Mysql
   - その他：AWS(EC2、RDS)、git、Vagrant、Bootstrap
 
