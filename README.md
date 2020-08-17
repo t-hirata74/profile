@@ -79,6 +79,7 @@
 - Docker 2年
 - CircleCI 2年
 - Terraform 1年
+- Twilio 1年
 - Vagrant 1年
 - Zabbix 1年
 - Jmeter 1年
@@ -105,7 +106,7 @@
   - 言語：Ruby、Javascript、html、css、Python
   - FW：Ruby on Rails、Bootstrap
   - DB：Mysql
-  - その他：AWS(EC2、S3、RDS、Elastic Beanstalk、lambda等)、Docker、CircleCI、Slack、VSCode、git、Bitbucket、SourceTree、Terraform、Zabbix、Jmeter
+  - その他：AWS(EC2、S3、RDS、Elastic Beanstalk、lambda等)、Docker、CircleCI、Slack、VSCode、git、Bitbucket、SourceTree、Terraform、Zabbix、Jmeter、Twilio
   - 工程：要件定義、スケジュール見積もり、タスク見積もり、基本設計、詳細設計、開発、単体テスト、結合テスト、性能テスト、セキュリティテスト、システムテスト、障害テスト、保守運用
   - 開発手法：スクラム（アジャイル開発-1週間スプリント）
 
