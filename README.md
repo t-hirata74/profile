@@ -95,7 +95,7 @@
   - FW：Ruby on Rails、React
   - DB：Mysql
   - その他：Docker、Slack、git、github、CircleCI
-  - 開発手法：フルリモート、issue駆動開発、スクラム（アジャイル開発-1週間スプリント）
+  - 開発手法：フルリモート、issue駆動開発
 
 ## 【過去案件】
 - エンジニア組織のパフォーマンス最大化サービス(2020年2月〜2020年7月:6ヶ月) ＜副業＞
