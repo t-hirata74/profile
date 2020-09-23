@@ -39,9 +39,9 @@
 - Ruby on Rails 3年
 - Bootstrap 2年
 - Spring 1年
+- React 0.5年
 - Vue.js 0年(個人学習)
 - Nuxt.js 0年(個人学習)
-- React 0年(個人学習)
 
 ## DB
 - Oracle 4年
@@ -90,9 +90,9 @@
 
 ## 【現在案件】
 - 医療従事者向けプラットフォーム事業の各種プロダクト開発(2020年8月〜現在)
-  - 担当：バックエンドエンジニア
-  - 言語：Ruby
-  - FW：Ruby on Rails
+  - 担当：Webエンジニア
+  - 言語：Ruby、Javascript、css
+  - FW：Ruby on Rails、React
   - DB：Mysql
   - その他：Docker、Slack、git、github、CircleCI
   - 開発手法：フルリモート、issue駆動開発、スクラム（アジャイル開発-1週間スプリント）
