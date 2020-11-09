@@ -1,4 +1,4 @@
-2020/10 更新
+2020/11 更新
 # スキルシート
 
 ## 【プロフィール】
@@ -40,12 +40,14 @@
 - Bootstrap 2年
 - Spring 1年
 - React 0.5年
+- Django 0.5年
 - Vue.js 0年(個人学習)
 - Nuxt.js 0年(個人学習)
 
 ## DB
 - Oracle 4年
 - MySQL 2.5年
+- PostgreSql 0.5年
 
 ## クラウド
 - AWS 2年
@@ -83,7 +85,6 @@
 - Vagrant 1年
 - Zabbix 1年
 - Jmeter 1年
-- PyCharm 0年(個人学習)
 - Firebase 0年(個人学習)
 - Heroku 0年(個人学習)
 - TravisCI 0年(個人学習)
