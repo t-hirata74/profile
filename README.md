@@ -41,12 +41,13 @@
 - Spring 1年
 - React 0.5年
 - Django 0.5年
+- BULMA 0.5年
 - Vue.js 0年(個人学習)
 - Nuxt.js 0年(個人学習)
 
 ## DB
 - Oracle 4年
-- MySQL 2.5年
+- MySQL 3年
 - PostgreSql 0.5年
 
 ## クラウド
@@ -85,17 +86,18 @@
 - Vagrant 1年
 - Zabbix 1年
 - Jmeter 1年
+- Swagger
 - Firebase 0年(個人学習)
 - Heroku 0年(個人学習)
 - TravisCI 0年(個人学習)
 
 ## 【現在案件】
-- 医療従事者向けプラットフォーム事業の各種プロダクト開発(2020年8月〜現在)
+- 医療従事者向けプラットフォーム事業のマイクロサービス開発(2020年8月〜現在)
   - 担当：Webエンジニア
-  - 言語：Ruby、Javascript、css
-  - FW：Ruby on Rails、React
+  - 言語：Ruby、Javascript、css、TypeScript
+  - FW：Ruby on Rails、React、BULMA
   - DB：Mysql
-  - その他：Docker、Slack、git、github、CircleCI
+  - その他：Docker、Slack、git、github、CircleCI、Swagger、Zoom
   - 工程：タスク見積もり、基本設計、詳細設計、開発、単体テスト、結合テスト
   - 開発手法：フルリモート、issue駆動開発、スクラム（1週間スプリント）
 
@@ -123,7 +125,7 @@
   - 言語：Ruby、Javascript、html、css、Python
   - FW：Ruby on Rails、Bootstrap
   - DB：Mysql
-  - その他：AWS(EC2、S3、RDS、Elastic Beanstalk、lambda等)、Docker、CircleCI、Slack、VSCode、git、Bitbucket、SourceTree、Terraform、Zabbix、Jmeter、Twilio
+  - その他：AWS(EC2、S3、RDS、Elastic Beanstalk、lambda等)、Docker、CircleCI、Slack、VSCode、git、Bitbucket、SourceTree、Terraform、Zabbix、Jmeter、Twilio、Zoom
   - 工程：要件定義、スケジュール見積もり、タスク見積もり、基本設計、詳細設計、開発、単体テスト、結合テスト、性能テスト、セキュリティテスト、システムテスト、障害テスト、保守運用
   - 開発手法：スクラム（1週間スプリント）
 
