@@ -1,4 +1,4 @@
-2020/11 更新
+2020/12 更新
 # スキルシート
 
 ## 【プロフィール】
@@ -86,7 +86,7 @@
 - Vagrant 1年
 - Zabbix 1年
 - Jmeter 1年
-- Swagger
+- Swagger 0.5年
 - Firebase 0年(個人学習)
 - Heroku 0年(個人学習)
 - TravisCI 0年(個人学習)
