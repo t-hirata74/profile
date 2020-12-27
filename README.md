@@ -32,6 +32,7 @@
 - Java 5年
 - Ruby 3年
 - Python 0.5年
+- TypeScript 0.5年
 - PHP 0年(個人学習)
 
 ## ライブラリ、フレームワーク
