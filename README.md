@@ -30,14 +30,14 @@
 - Javascript 8年
 - SQL 8年
 - Java 5年
-- Ruby 3.5年
+- Ruby 3年
 - Python 0.5年
 - TypeScript 0.5年
 - PHP 0年(個人学習)
 
 ## ライブラリ、フレームワーク
 - JQuery 5年
-- Ruby on Rails 3.5年
+- Ruby on Rails 3年
 - Bootstrap 2年
 - Spring 1年
 - React 0.5年
