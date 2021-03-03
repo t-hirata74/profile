@@ -38,6 +38,7 @@
 ## ライブラリ、フレームワーク
 - JQuery 5年
 - Ruby on Rails 3年
+- RSpec 2年
 - Bootstrap 2年
 - Spring 1年
 - React 0.5年
@@ -105,7 +106,7 @@
 - 医療従事者向けプラットフォーム事業のマイクロサービス開発(2020年8月〜2021年1月：６ヶ月)
   - 担当：Webエンジニア
   - 言語：Ruby、Javascript、css、TypeScript
-  - FW：Ruby on Rails、React、BULMA
+  - FW：Ruby on Rails、Rspec、React、BULMA
   - DB：Mysql
   - その他：Docker、Slack、git、github、CircleCI、Swagger、Zoom
   - 工程：タスク見積もり、基本設計、詳細設計、開発、単体テスト、結合テスト
@@ -130,7 +131,7 @@
 - 自動車会社向けIoTシステムの新規事業開発(2018年5月〜2020年6月：26ヶ月)
   - 担当：フルスタックエンジニア
   - 言語：Ruby、Javascript、html、css、Python
-  - FW：Ruby on Rails、Bootstrap
+  - FW：Ruby on Rails、Rspec、Bootstrap
   - DB：Mysql
   - その他：AWS(EC2、S3、RDS、Elastic Beanstalk、lambda等)、Docker、CircleCI、Slack、VSCode、git、Bitbucket、SourceTree、Terraform、Zabbix、Jmeter、Twilio、Zoom
   - 工程：要件定義、スケジュール見積もり、タスク見積もり、基本設計、詳細設計、開発、単体テスト、結合テスト、性能テスト、セキュリティテスト、システムテスト、障害テスト、保守運用
