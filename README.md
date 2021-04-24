@@ -5,7 +5,7 @@
 
 | 項目名 | 内容 |
 |:-----------:|:------------:|
-| 最寄り駅 | 武蔵小杉駅 |
+| 最寄り駅 | 代々木公園駅 |
 | 稼働 | 即日 or 相談 |
 | 性別 | 男性 |
 | 年齢 | 32歳 |
@@ -90,7 +90,15 @@
 - Swagger 0.5年
 
 ## 【現在案件】
-
+- 大手携帯ショップの販売端末価格デジタルサイネージアプリケーションのサーバサイド開発(2021年4月〜現在)
+  - 担当：サーバサイドエンジニア
+  - 言語：Ruby、Javascript、html、css
+  - FW：Ruby on Rails、Rspec、Bootstrap
+  - DB：PostgreSQL
+  - その他：git、github、CircleCI
+  - コミュニケーション：Slack、Microsoft Teams、Zoom、Miro
+  - 工程：タスク見積もり、基本設計、詳細設計、開発、単体テスト、結合テスト
+  - 開発手法：フルリモート、スクラム（1週間スプリント）
 
 ## 【過去案件】
 - 営業支援SaaSのプロダクト開発(2020年10月〜2021年1月：４ヶ月) ＜副業＞
@@ -98,7 +106,8 @@
   - 言語：Python
   - FW：Django
   - DB：PostgreSQL
-  - その他：Docker、Slack、git、github、trello
+  - その他：Docker、git、github
+  - コミュニケーション：Slack、trello
   - 工程：開発
   - 開発手法：フルリモート、issue駆動開発
 
@@ -107,7 +116,8 @@
   - 言語：Ruby、Javascript、css、TypeScript
   - FW：Ruby on Rails、Rspec、React、BULMA
   - DB：Mysql
-  - その他：Docker、Slack、git、github、CircleCI、Swagger、Zoom
+  - その他：Docker、git、github、CircleCI、Swagger
+  - コミュニケーション：Slack、Zoom
   - 工程：タスク見積もり、基本設計、詳細設計、開発、単体テスト、結合テスト
   - 開発手法：フルリモート、issue駆動開発、スクラム（1週間スプリント）
 
@@ -116,7 +126,8 @@
   - 言語：Ruby
   - FW：Ruby on Rails
   - DB：Mysql
-  - その他：Docker、Slack、git、github、zenhub
+  - その他：Docker、git、github、zenhub
+  - コミュニケーション：Slack
   - 工程：開発、リファクタリング
   - 開発手法：フルリモート、issue駆動開発
 
@@ -132,7 +143,8 @@
   - 言語：Ruby、Javascript、html、css、Python
   - FW：Ruby on Rails、Rspec、Bootstrap
   - DB：Mysql
-  - その他：AWS(EC2、S3、RDS、Elastic Beanstalk、lambda等)、Docker、CircleCI、Slack、VSCode、git、Bitbucket、SourceTree、Terraform、Zabbix、Jmeter、Twilio、Zoom
+  - その他：AWS(EC2、S3、RDS、Elastic Beanstalk、lambda等)、Docker、CircleCI、VSCode、git、Bitbucket、SourceTree、Terraform、Zabbix、Jmeter、Twilio
+  - コミュニケーション：Slack、Zoom、Miro
   - 工程：要件定義、スケジュール見積もり、タスク見積もり、基本設計、詳細設計、開発、単体テスト、結合テスト、性能テスト、セキュリティテスト、システムテスト、障害テスト、保守運用
   - 開発手法：スクラム（1週間スプリント）
 
@@ -141,6 +153,7 @@
   - 言語：Java、Javascript、html、css
   - DB：Oracle
   - その他：Slack、Redmine、Eclipse、svn
+  - コミュニケーション：Slack
   - 工程：詳細設計、開発、単体テスト、結合テスト
   - 開発手法：ウォーターフォール
  
