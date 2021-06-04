@@ -1,4 +1,4 @@
-2021/ 更新
+2021/6 更新
 # スキルシート
 
 ## 【プロフィール】
@@ -91,14 +91,14 @@
 
 ## 【現在案件】
 - 大手携帯ショップの販売端末価格デジタルサイネージアプリケーションのサーバサイド開発(2021年4月〜現在)
-  - 担当：サーバサイドエンジニア
-  - 言語：Ruby、Javascript、html、css
-  - FW：Ruby on Rails、Rspec、Bootstrap
+  - 担当：サーバサイドエンジニア → フルスタックエンジニア
+  - 言語：Ruby、Javascript、html、css, kotlin
+  - FW：Ruby on Rails、Rspec、Bootstrap、Vue.js、Nuxt.js
   - DB：PostgreSQL
-  - その他：git、github、CircleCI
-  - コミュニケーション：Slack、Microsoft Teams、Zoom、Miro
-  - 工程：タスク見積もり、基本設計、詳細設計、開発
-  - 開発手法：フルリモート、スクラム（1週間スプリント）
+  - その他：AWS、git、github、Docker、CircleCI、AndroidStujio、terraform
+  - コミュニケーション：Slack、Teams、Zoom、Miro、Jira
+  - 工程：タスク見積もり、設計、開発、単体テスト
+  - 開発手法：フルリモート、スクラム（2週間スプリント）
 
 ## 【過去案件】
 - 営業支援SaaSのプロダクト開発(2020年10月〜2021年1月：４ヶ月) ＜副業＞
