@@ -95,7 +95,7 @@
   - 言語：Ruby、Javascript、html、css, kotlin
   - FW：Ruby on Rails、Rspec、Bootstrap、Vue.js、Nuxt.js
   - DB：PostgreSQL
-  - その他：AWS、git、github、Docker、CircleCI、AndroidStujio、terraform
+  - その他：AWS、git、github、Docker、CircleCI、AndroidStudio、terraform
   - コミュニケーション：Slack、Teams、Zoom、Miro、Jira
   - 工程：タスク見積もり、設計、開発、単体テスト
   - 開発手法：フルリモート、スクラム（2週間スプリント）
