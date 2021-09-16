@@ -32,7 +32,6 @@
 - Ruby 3年
 - Python 0.5年
 - TypeScript 0.5年
-- PHP 0年(個人学習)
 
 ## ライブラリ、フレームワーク
 - JQuery 5年
@@ -43,8 +42,8 @@
 - React 0.5年
 - Django 0.5年
 - BULMA 0.5年
-- Vue.js 0年(個人学習)
-- Nuxt.js 0年(個人学習)
+- Vue.js 0.5年
+- Nuxt.js 0.5年
 
 ## DB
 - Oracle 4年
