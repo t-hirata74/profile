@@ -93,18 +93,18 @@
 
 ## 【現在案件】
 - 大手携帯ショップの販売端末価格デジタルサイネージアプリケーションのサーバサイド開発(2021年4月〜現在)
-  - 担当：サーバサイドエンジニア → フルスタックエンジニア
+  - 担当：フルスタックエンジニア
   - 言語：Ruby、Javascript、html、css, kotlin
   - FW：Ruby on Rails、Rspec、Bootstrap、Vue.js、Nuxt.js
   - DB：PostgreSQL
   - その他：AWS、git、github、Docker、CircleCI、AndroidStudio、terraform
   - コミュニケーション：Slack、Teams、Zoom、Miro、Jira
-  - 工程：タスク見積もり、設計、開発、単体テスト
-  - 開発手法：フルリモート、スクラム（2週間スプリント）、ペアプロ・モブプロ
+  - 工程：タスク見積もり、設計、開発、単体テスト、コードレビュー、商用リリース作業
+  - 開発手法：フルリモート、スクラム（2週間スプリント）、ペアプロ/モブプロ
 
 ## 【過去案件】
 - 営業支援SaaSのプロダクト開発(2020年10月〜2021年1月：４ヶ月) ＜副業＞
-  - 担当：Webエンジニア
+  - 担当：バックエンドエンジニア
   - 言語：Python
   - FW：Django
   - DB：PostgreSQL
@@ -114,7 +114,7 @@
   - 開発手法：フルリモート、issue駆動開発
 
 - 医療従事者向けプラットフォーム事業のマイクロサービス開発(2020年8月〜2021年1月：６ヶ月)
-  - 担当：Webエンジニア
+  - 担当：バックエンドエンジニア
   - 言語：Ruby、Javascript、css、TypeScript
   - FW：Ruby on Rails、Rspec、React、BULMA
   - DB：Mysql
@@ -148,7 +148,7 @@
   - その他：AWS(EC2、S3、RDS、Elastic Beanstalk、lambda等)、Docker、CircleCI、VSCode、git、Bitbucket、SourceTree、Terraform、Zabbix、Jmeter、Twilio
   - コミュニケーション：Slack、Zoom、Miro
   - 工程：要件定義、スケジュール見積もり、タスク見積もり、基本設計、詳細設計、開発、単体テスト、結合テスト、性能テスト、セキュリティテスト、システムテスト、障害テスト、保守運用
-  - 開発手法：スクラム（1週間スプリント）、ペアプロ・モブプロ
+  - 開発手法：スクラム（1週間スプリント）、ペアプロ/モブプロ
 
 - 航空会社向けECサイト開発(2017年10月〜2018年4月：7ヶ月)
   - 担当：システムエンジニア
