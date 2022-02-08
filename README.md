@@ -93,7 +93,7 @@
 
 ## 【現在案件】
 - 大手携帯ショップの販売端末価格デジタルサイネージアプリケーションのサーバサイド開発(2021年4月〜現在)
-  - 担当：フルスタックエンジニア
+  - 担当：フルスタックエンジニア、リードエンジニア
   - 言語：Ruby、Javascript、html、css, kotlin
   - FW：Ruby on Rails、Rspec、Bootstrap、Vue.js、Nuxt.js
   - DB：PostgreSQL
