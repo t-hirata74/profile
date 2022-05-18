@@ -1,4 +1,4 @@
-2022/1 更新
+2022/5 更新
 # スキルシート
 
 ## 【プロフィール】
@@ -54,8 +54,9 @@
 - PostgreSql 0.5年
 
 ## クラウド
-- AWS 2年
+- AWS 3年
   - EC2
+  - ECS
   - RDS
   - S3
   - Lambda
@@ -70,13 +71,15 @@
   - Kinesis
   - Simple Queue Service
   - Simple Email Service
-
+  - CodePipeline
+  - ElastiCache
+  
 ## チーム開発、バージョン管理ツール
 - svn 4年
 - Git 3年
+- GitHub 3年
 - Bitbucket 2年
 - SourceTree 2年
-- Github 2年
 
 ## その他ソフトウェアツール、サービス
 - Eclipse 4年
@@ -90,6 +93,7 @@
 - Zabbix 1年
 - Jmeter 1年
 - Swagger 0.5年
+- GitHubActions 0.5年
 
 ## 【現在案件】
 - 大手携帯ショップの販売端末価格デジタルサイネージアプリケーションのサーバサイド開発(2021年4月〜現在)
@@ -97,7 +101,7 @@
   - 言語：Ruby、Javascript、html、css, kotlin
   - FW：Ruby on Rails、Rspec、Bootstrap、Vue.js、Nuxt.js
   - DB：PostgreSQL
-  - その他：AWS、git、github、Docker、CircleCI、AndroidStudio、terraform
+  - その他：AWS、git、GitHub(enterprise)、Docker、CircleCI、GitHubActions、AndroidStudio、terraform
   - コミュニケーション：Slack、Teams、Zoom、Miro、Jira
   - 工程：タスク見積もり、設計、開発、テスト、コードレビュー、障害対応、リリース作業、エンジニア採用面談対応、オンボーディング対応
   - 開発手法：フルリモート、スクラム（2週間スプリント）、ペアプロ/モブプロ
@@ -108,7 +112,7 @@
   - 言語：Python
   - FW：Django
   - DB：PostgreSQL
-  - その他：Docker、git、github
+  - その他：Docker、git、GitHub
   - コミュニケーション：Slack、trello
   - 工程：開発
   - 開発手法：フルリモート、issue駆動開発
@@ -118,7 +122,7 @@
   - 言語：Ruby、Javascript、css、TypeScript
   - FW：Ruby on Rails、Rspec、React、BULMA
   - DB：Mysql
-  - その他：Docker、git、github、CircleCI、Swagger
+  - その他：Docker、git、GitHub、CircleCI、Swagger
   - コミュニケーション：Slack、Zoom
   - 工程：タスク見積もり、基本設計、詳細設計、開発、単体テスト、結合テスト
   - 開発手法：フルリモート、issue駆動開発、スクラム（1週間スプリント）
@@ -128,7 +132,7 @@
   - 言語：Ruby
   - FW：Ruby on Rails
   - DB：Mysql
-  - その他：Docker、git、github、zenhub
+  - その他：Docker、git、GitHub、zenhub
   - コミュニケーション：Slack
   - 工程：開発、リファクタリング
   - 開発手法：フルリモート、issue駆動開発
