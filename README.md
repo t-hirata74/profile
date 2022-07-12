@@ -35,7 +35,7 @@
 - Ruby 4年
 - Python 0.5年
 - TypeScript 0.5年
-- kotlin 0.5年
+- Kotlin 0.5年
 
 ### ライブラリ、フレームワーク
 - JQuery 5年
