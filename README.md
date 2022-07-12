@@ -37,7 +37,7 @@
 - TypeScript 0.5年
 - kotlin 0.5年
 
-## ライブラリ、フレームワーク
+### ライブラリ、フレームワーク
 - JQuery 5年
 - Ruby on Rails 4年
 - RSpec 2年
@@ -49,12 +49,12 @@
 - Vue.js 0.5年
 - Nuxt.js 0.5年
 
-## DB
+### DB
 - Oracle 4年
 - MySQL 3年
 - PostgreSql 2年
 
-## クラウド
+### クラウド
 - AWS 4年
   - EC2
   - ECS
@@ -75,14 +75,14 @@
   - CodePipeline
   - ElastiCache
   
-## チーム開発、バージョン管理ツール
+### チーム開発、バージョン管理ツール
 - svn 4年
 - Git 4年
 - GitHub 3年
 - Bitbucket 2年
 - SourceTree 2年
 
-## その他ソフトウェアツール、サービス
+### その他ソフトウェアツール、サービス
 - Eclipse 4年
 - Slack 4年
 - Redmine 3年
