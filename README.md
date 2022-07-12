@@ -8,9 +8,9 @@
 | エリア | 神奈川 |
 | 稼働 | 即日 or 相談 |
 | 性別 | 男性 |
-| 年齢 | 33歳 |
+| 年齢 | 34歳 |
 | 所属 | フリーランス |
-| キャリア年数 | 9年目 |
+| キャリア年数 | 10年目 |
 
 ## 【自己PR】
 フロントエンド及び、サーバサイドについての業務経験がございます。  
@@ -27,18 +27,19 @@
 - 認定スクラムマスター(LSM)
 
 ### プログラミング言語
-- HTML 8年
-- CSS  8年
-- Javascript 8年
-- SQL 8年
+- HTML 9年
+- CSS  9年
+- Javascript 9年
+- SQL 9年
 - Java 5年
-- Ruby 3年
+- Ruby 4年
 - Python 0.5年
 - TypeScript 0.5年
+- kotlin 0.5年
 
 ## ライブラリ、フレームワーク
 - JQuery 5年
-- Ruby on Rails 3年
+- Ruby on Rails 4年
 - RSpec 2年
 - Bootstrap 2年
 - Spring 1年
@@ -51,10 +52,10 @@
 ## DB
 - Oracle 4年
 - MySQL 3年
-- PostgreSql 0.5年
+- PostgreSql 2年
 
 ## クラウド
-- AWS 3年
+- AWS 4年
   - EC2
   - ECS
   - RDS
@@ -76,14 +77,14 @@
   
 ## チーム開発、バージョン管理ツール
 - svn 4年
-- Git 3年
+- Git 4年
 - GitHub 3年
 - Bitbucket 2年
 - SourceTree 2年
 
 ## その他ソフトウェアツール、サービス
 - Eclipse 4年
-- Slack 3年
+- Slack 4年
 - Redmine 3年
 - Docker 2年
 - CircleCI 2年
@@ -94,6 +95,7 @@
 - Jmeter 1年
 - Swagger 0.5年
 - GitHubActions 0.5年
+- AndroidStudio 0.5年
 
 ## 【現在案件】
 - 大手携帯ショップの販売端末価格デジタルサイネージアプリケーションのサーバサイド開発(2021年4月〜現在)
