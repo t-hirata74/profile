@@ -1,4 +1,4 @@
-2022/7 更新
+2022/9 更新
 # スキルシート
 
 ## 【プロフィール】
@@ -105,30 +105,10 @@
   - DB：PostgreSQL
   - その他：AWS、git、GitHub(enterprise)、Docker、CircleCI、GitHubActions、AndroidStudio、terraform
   - コミュニケーション：Slack、Teams、Zoom、Miro、Jira
-  - 工程：タスク見積もり、設計、開発、テスト、コードレビュー、障害対応、リリース作業、エンジニア採用面談対応、オンボーディング対応
+  - 工程：タスク見積もり、設計、開発、テスト、コードレビュー、障害対応、リリース作業、エンジニア採用面談対応、オンボーディング対応、ファシリテーション
   - 開発手法：フルリモート、スクラム（2週間スプリント）、ペアプロ/モブプロ
 
-- セールステック領域SaaSのプロダクト開発(2022年4月〜現在) ＜副業＞
-  - 担当：バックエンドエンジニア
-  - 言語：Ruby
-  - FW：Ruby on Rails、Rspec
-  - DB：MySQL
-  - その他：Docker、git、GitHub
-  - コミュニケーション：Slack、Zoom
-  - 工程：開発
-  - 開発手法：フルリモート、チケット駆動開発
-
 ## 【過去案件】
-- 営業支援SaaSのプロダクト開発(2020年10月〜2021年1月：４ヶ月) ＜副業＞
-  - 担当：バックエンドエンジニア
-  - 言語：Python
-  - FW：Django
-  - DB：PostgreSQL
-  - その他：Docker、git、GitHub
-  - コミュニケーション：Slack、trello
-  - 工程：開発
-  - 開発手法：フルリモート、issue駆動開発
-
 - 医療従事者向けプラットフォーム事業のマイクロサービス開発(2020年8月〜2021年1月：６ヶ月)
   - 担当：バックエンドエンジニア
   - 言語：Ruby、Javascript、css、TypeScript
@@ -138,23 +118,6 @@
   - コミュニケーション：Slack、Zoom
   - 工程：タスク見積もり、基本設計、詳細設計、開発、単体テスト、結合テスト
   - 開発手法：フルリモート、issue駆動開発、スクラム（1週間スプリント）
-
-- エンジニア組織のパフォーマンス最大化サービス開発(2020年2月〜2020年7月:6ヶ月) ＜副業＞
-  - 担当：バックエンドエンジニア
-  - 言語：Ruby
-  - FW：Ruby on Rails
-  - DB：Mysql
-  - その他：Docker、git、GitHub、zenhub
-  - コミュニケーション：Slack
-  - 工程：開発、リファクタリング
-  - 開発手法：フルリモート、issue駆動開発
-
-- プログラミングスクール学習サポート(2019年5月〜2019年12月：8ヶ月) ＜副業＞
-  - 担当：メンター
-  - 言語：Ruby、Javascript、html、css
-  - FW：Ruby on Rails、Bootstrap
-  - DB：Mysql
-  - その他：AWS(EC2、RDS)、git、Vagrant、Bootstrap
 
 - 自動車会社向けIoTシステムの新規事業開発(2018年5月〜2020年6月：26ヶ月)
   - 担当：フルスタックエンジニア
@@ -191,3 +154,41 @@
   - その他：Eclipse、svn
   - 工程：基本設計、詳細設計、開発、単体テスト、結合テスト、総合テスト、保守運用
   - 開発手法：ウォーターフォール
+  
+## 【過去案件 ＜副業＞】
+- セールステック領域SaaSのプロダクト開発(2022年4月〜2022年8月：5ヶ月) ＜副業＞
+  - 担当：バックエンドエンジニア
+  - 言語：Ruby
+  - FW：Ruby on Rails、Rspec
+  - DB：MySQL
+  - その他：Docker、git、GitHub
+  - コミュニケーション：Slack、Zoom
+  - 工程：開発
+  - 開発手法：フルリモート、チケット駆動開発
+
+- 営業支援SaaSのプロダクト開発(2020年10月〜2021年1月：４ヶ月) ＜副業＞
+  - 担当：バックエンドエンジニア
+  - 言語：Python
+  - FW：Django
+  - DB：PostgreSQL
+  - その他：Docker、git、GitHub
+  - コミュニケーション：Slack、trello
+  - 工程：開発
+  - 開発手法：フルリモート、issue駆動開発
+  
+- エンジニア組織のパフォーマンス最大化サービス開発(2020年2月〜2020年7月:6ヶ月) ＜副業＞
+  - 担当：バックエンドエンジニア
+  - 言語：Ruby
+  - FW：Ruby on Rails
+  - DB：Mysql
+  - その他：Docker、git、GitHub、zenhub
+  - コミュニケーション：Slack
+  - 工程：開発、リファクタリング
+  - 開発手法：フルリモート、issue駆動開発
+
+- プログラミングスクール学習サポート(2019年5月〜2019年12月：8ヶ月) ＜副業＞
+  - 担当：メンター
+  - 言語：Ruby、Javascript、html、css
+  - FW：Ruby on Rails、Bootstrap
+  - DB：Mysql
+  - その他：AWS(EC2、RDS)、git、Vagrant、Bootstrap
