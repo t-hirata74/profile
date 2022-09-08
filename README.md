@@ -44,11 +44,11 @@
 - RSpec 2年
 - Bootstrap 2年
 - Spring 1年
+- Vue.js 1年
+- Nuxt.js 1年
 - React 0.5年
 - Django 0.5年
 - BULMA 0.5年
-- Vue.js 0.5年
-- Nuxt.js 0.5年
 
 ### DB
 - Oracle 4年
@@ -104,7 +104,7 @@
   - 言語：Ruby、Javascript、html、css, kotlin
   - FW：Ruby on Rails、Rspec、Bootstrap、Vue.js、Nuxt.js
   - DB：PostgreSQL
-  - その他：AWS、git、GitHub(enterprise)、Docker、CircleCI、GitHubActions、AndroidStudio、terraform
+  - その他：AWS、git、GitHub(Enterprise)、Docker、CircleCI、GitHubActions、AndroidStudio、terraform
   - コミュニケーション：Slack、Teams、Zoom、Miro、Jira
   - 工程/作業：タスク見積もり、設計、開発、単体テスト、結合テスト、コードレビュー、障害対応、リリース作業(夜間対応)、エンジニア採用面談対応、オンボーディング対応、ファシリテーション(スクラムイベント、朝会など)
   - 開発手法：フルリモート、スクラム（2週間スプリント）、ペアプロ/モブプロ
@@ -120,7 +120,7 @@
   - コミュニケーション：Slack、Zoom
   - 工程/作業：タスク見積もり、基本設計、詳細設計、開発、単体テスト、結合テスト
   - 開発手法：フルリモート、issue駆動開発、スクラム（1週間スプリント）
-  - チーム体制: PM、リーダー、エンジニア
+  - チーム体制: PM、デザイナー、エンジニア、QA
   
 - 自動車会社向けIoTシステムの新規事業開発(2018年5月〜2020年6月：26ヶ月)
   - 担当：フルスタックエンジニア
