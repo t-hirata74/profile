@@ -1,5 +1,5 @@
 2022/10 更新
-# スキルシート
+# スキルシート(https://github.com/t-hirata74/profile)
 
 ## 【プロフィール】
 
@@ -104,7 +104,7 @@
 - AndroidStudio 0.5年
 
 ## 【現在案件】
-- 大手携帯ショップの販売端末価格デジタルサイネージアプリケーション開発(2021年4月〜2022年10月末予定)
+- 大手携帯ショップの販売端末価格デジタルサイネージアプリケーション開発(2021年4月〜2022年10月終了予定：17ヶ月)
   - 担当：フルスタックエンジニア
   - 言語：Ruby、Javascript、html、css, kotlin
   - FW：Ruby on Rails、Rspec、Bootstrap、Vue.js、Nuxt.js
