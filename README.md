@@ -1,5 +1,5 @@
 2022/10 更新
-# スキルシート(https://github.com/t-hirata74/profile)
+# スキルシート
 
 ## 【プロフィール】
 
