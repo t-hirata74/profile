@@ -52,6 +52,7 @@
 - React 0.5年
 - Django 0.5年
 - BULMA 0.5年
+- Tailwind CSS 0.5年
 
 ### DB
 - Oracle 4年
@@ -193,7 +194,7 @@
 - 営業支援SaaSのプロダクト開発(2020年10月〜2021年1月：４ヶ月) ＜副業＞
   - 担当：バックエンドエンジニア
   - 言語：Python
-  - FW：Django
+  - FW：Django、Tailwind CSS
   - DB：PostgreSQL
   - その他：Docker、git、GitHub
   - コミュニケーション：Slack、trello
