@@ -107,8 +107,8 @@
 ## 【現在案件】
 - ブロックチェーンを活用したクラウドファンディングサービスのサーバーサイド開発(2022年12月〜)
   - 担当：webエンジニア
-  - 言語：Ruby
-  - FW：Ruby on Rails、Rspec
+  - 言語：Ruby、Javascript
+  - FW：Ruby on Rails、Rspec、React
   - DB：MySQL
   - その他：AWS、git、GitHub、Docker、CircleCI
   - コミュニケーション：Slack、Google Meet、Zoom
