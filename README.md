@@ -106,7 +106,7 @@
 - AndroidStudio 0.5年
 
 ## 【現在案件】
-- ブロックチェーンを活用したクラウドファンディングサービスのサーバーサイド開発(2022年12月〜)
+- [ブロックチェーンを活用したクラウドファンディングサービスのサーバーサイド開発(2022年12月〜)](https://github.com/t-hirata74/profile/blob/master/project/main-job/202212-.md)
   - 担当：webエンジニア
   - 言語：Ruby、Javascript
   - FW：Ruby on Rails、Rspec、React
@@ -118,7 +118,7 @@
   - チーム体制: PM、エンジニア
 
 ## 【過去案件】
-- 大手携帯ショップの販売端末価格デジタルサイネージアプリケーション開発(2021年4月〜2022年10月：19ヶ月)
+- [大手携帯ショップの販売端末価格デジタルサイネージアプリケーション開発(2021年4月〜2022年10月：19ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/202104-202210.md)
   - 担当：フルスタックエンジニア
   - 言語：Ruby、Javascript、html、css, kotlin
   - FW：Ruby on Rails、Rspec、Bootstrap、Vue.js、Nuxt.js
@@ -129,7 +129,7 @@
   - 開発手法：フルリモート、スクラム（2週間スプリント）、ペアプロ/モブプロ
   - チーム体制: PO、SM、デザイナー、エンジニア、QA
 
-- 医療従事者向けプラットフォーム事業のマイクロサービス開発(2020年8月〜2021年1月：６ヶ月)
+- [医療従事者向けプラットフォーム事業のマイクロサービス開発(2020年8月〜2021年1月：６ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/202008-202101.md)
   - 担当：バックエンドエンジニア
   - 言語：Ruby、Javascript、css、TypeScript
   - FW：Ruby on Rails、Rspec、React、BULMA
@@ -140,7 +140,7 @@
   - 開発手法：フルリモート、issue駆動開発、スクラム（1週間スプリント）
   - チーム体制: PM、デザイナー、エンジニア、QA
   
-- 自動車会社向けIoTシステムの新規事業開発(2018年5月〜2020年6月：26ヶ月)
+- [自動車会社向けIoTシステムの新規事業開発(2018年5月〜2020年6月：26ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/201805-202006.md)
   - 担当：フルスタックエンジニア
   - 言語：Ruby、Javascript、html、css、Python
   - FW：Ruby on Rails、Rspec、Bootstrap
@@ -151,7 +151,7 @@
   - 開発手法：スクラム（1週間スプリント）、ペアプロ/モブプロ
   - チーム体制: PO、SM、エンジニア
 
-- 航空会社向けECサイト開発(2017年10月〜2018年4月：7ヶ月)
+- [航空会社向けECサイト開発(2017年10月〜2018年4月：7ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/201710-201804.md)
   - 担当：システムエンジニア
   - 言語：Java、Javascript、html、css
   - DB：Oracle
@@ -161,7 +161,7 @@
   - 開発手法：ウォーターフォール
   - チーム体制: PM、エンジニア、テスター
  
-- 全自動倉庫管理システム開発(2016年8月〜2017年9月：14ヶ月)
+- [全自動倉庫管理システム開発(2016年8月〜2017年9月：14ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/201608-201709.md)
   - 担当：システムエンジニア
   - 言語：Java、Javascript、html、css
   - FW：Spring
@@ -171,7 +171,7 @@
   - 開発手法：ウォーターフォール
   - チーム体制: PM、リーダー、エンジニア
 
-- 製油所向けオフサイトシステム(2013年9月〜2016年8月：36ヶ月)
+- [製油所向けオフサイトシステム(2013年9月〜2016年8月：36ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/201309-201608.md)
   - 担当：プログラマー、システムエンジニア
   - 言語：Java、Javascript、html、css
   - DB：Oracle
@@ -181,7 +181,7 @@
   - チーム体制: PM、リーダー、エンジニア
   
 ## 【過去案件 ＜副業＞】
-- セールステック領域SaaSのプロダクト開発(2022年4月〜2022年8月：5ヶ月) ＜副業＞
+- [セールステック領域SaaSのプロダクト開発(2022年4月〜2022年8月：5ヶ月) ＜副業＞](https://github.com/t-hirata74/profile/blob/master/project/side-job/202204-202208.md)
   - 担当：バックエンドエンジニア
   - 言語：Ruby
   - FW：Ruby on Rails、Rspec
@@ -192,7 +192,7 @@
   - 開発手法：フルリモート、チケット駆動開発
   - チーム体制: リードエンジニア、エンジニア
 
-- 営業支援SaaSのプロダクト開発(2020年10月〜2021年1月：４ヶ月) ＜副業＞
+- [営業支援SaaSのプロダクト開発(2020年10月〜2021年1月：４ヶ月) ＜副業＞](https://github.com/t-hirata74/profile/blob/master/project/side-job/202010-202104.md)
   - 担当：バックエンドエンジニア
   - 言語：Python
   - FW：Django、Tailwind CSS
@@ -203,7 +203,7 @@
   - 開発手法：フルリモート、issue駆動開発
   - チーム体制: リードエンジニア、エンジニア
   
-- エンジニア組織のパフォーマンス最大化サービス開発(2020年2月〜2020年7月:6ヶ月) ＜副業＞
+- [エンジニア組織のパフォーマンス最大化サービス開発(2020年2月〜2020年7月:6ヶ月) ＜副業＞](https://github.com/t-hirata74/profile/blob/master/project/side-job/202002-202007.md)
   - 担当：バックエンドエンジニア
   - 言語：Ruby
   - FW：Ruby on Rails
@@ -214,7 +214,7 @@
   - 開発手法：フルリモート、issue駆動開発
   - チーム体制: リードエンジニア、エンジニア
 
-- プログラミングスクール学習サポート(2019年5月〜2019年12月：8ヶ月) ＜副業＞
+- [プログラミングスクール学習サポート(2019年5月〜2019年12月：8ヶ月) ＜副業＞](https://github.com/t-hirata74/profile/blob/master/project/side-job/201905-201912.md)
   - 担当：メンター
   - 言語：Ruby、Javascript、html、css
   - FW：Ruby on Rails、Bootstrap
