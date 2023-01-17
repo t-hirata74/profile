@@ -108,14 +108,14 @@
 ## 【現在案件】
 - [ブロックチェーンを活用したクラウドファンディングサービスのサーバーサイド開発(2022年12月〜)](https://github.com/t-hirata74/profile/blob/master/project/main-job/202212-.md)
   - 担当：webエンジニア
-  - 言語：Ruby、Javascript
-  - FW：Ruby on Rails、Rspec、React
+  - 言語：Ruby、Javascript、TypeScript、Solidity
+  - FW：Ruby on Rails、Rspec、React、Next.js
   - DB：MySQL
-  - その他：AWS、git、GitHub、Docker、CircleCI
+  - その他：git、GitHub、CircleCI、Github Actions、Firebase、ブロックチェーン
   - コミュニケーション：Slack、Google Meet、Zoom
   - 工程/作業：設計、開発、単体テスト、結合テスト、コードレビュー
   - 開発手法：フルリモート、issue駆動開発
-  - チーム体制: PM、エンジニア
+  - チーム体制: PM、リードエンジニア、エンジニア
 
 ## 【過去案件】
 - [大手携帯ショップの販売端末価格デジタルサイネージアプリケーション開発(2021年4月〜2022年10月：19ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/202104-202210.md)
