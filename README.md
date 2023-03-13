@@ -1,4 +1,4 @@
-2023/01 更新
+2023/03 更新
 # スキルシート
 
 ## 【プロフィール】
@@ -109,9 +109,9 @@
 - [ブロックチェーンを活用したクラウドファンディングサービスのサーバーサイド開発(2022年12月〜)](https://github.com/t-hirata74/profile/blob/master/project/main-job/202212-.md)
   - 担当：webエンジニア
   - 言語：Ruby、Javascript、TypeScript、Solidity
-  - FW：Ruby on Rails、Rspec、React、Next.js
-  - DB：MySQL
-  - その他：git、GitHub、CircleCI、Github Actions、Firebase、ブロックチェーン
+  - FW：Ruby on Rails、Rspec、React、Next.js、Jest
+  - DB：MySQL、Firestore
+  - その他：git、GitHub、CircleCI、Github Actions、ブロックチェーン、Google Analytics
   - コミュニケーション：Slack、Google Meet、Zoom
   - 工程/作業：設計、開発、単体テスト、結合テスト、コードレビュー
   - 開発手法：フルリモート、issue駆動開発
