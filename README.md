@@ -51,6 +51,7 @@
 - Vue.js 1年
 - Nuxt.js 1年
 - React 0.5年
+- Next.js 0.5年
 - Django 0.5年
 - BULMA 0.5年
 - Tailwind CSS 0.5年
@@ -101,6 +102,7 @@
 - Vagrant 1年
 - Zabbix 1年
 - Jmeter 1年
+- Google Analytics 1年
 - Swagger 0.5年
 - GitHubActions 0.5年
 - AndroidStudio 0.5年
