@@ -1,4 +1,4 @@
-2023/03 更新
+2023/05 更新
 # スキルシート
 
 ## 【プロフィール】
@@ -37,29 +37,31 @@
 - Javascript 9年
 - SQL 9年
 - Java 5年
-- Ruby 4年
-- Python 0.5年
-- TypeScript 0.5年
-- Kotlin 0.5年
+- Ruby 5年
+- Python 1年
+- TypeScript 1年未満
+- Kotlin 1年未満
 
 ### ライブラリ、フレームワーク
 - JQuery 5年
-- Ruby on Rails 4年
-- RSpec 2年
+- Ruby on Rails 5年
+- RSpec 3年
 - Bootstrap 2年
 - Spring 1年
 - Vue.js 1年
 - Nuxt.js 1年
-- React 0.5年
-- Next.js 0.5年
-- Django 0.5年
-- BULMA 0.5年
-- Tailwind CSS 0.5年
+- React 1年
+- Next.js 1年未満
+- Django 1年未満
+- BULMA 1年未満
+- Tailwind CSS 1年未満
+- Jest 1年未満
 
 ### DB
 - Oracle 4年
 - MySQL 3年
 - PostgreSql 2年
+- Firestore 1年未満
 
 ### クラウド
 - AWS 4年
@@ -83,8 +85,8 @@
   - ElastiCache
   
 ### チーム開発、バージョン管理ツール
+- Git 5年
 - SVN 4年
-- Git 4年
 - GitHub 3年
 - Bitbucket 2年
 - SourceTree 2年
@@ -93,8 +95,9 @@
 - Eclipse 4年
 - Slack 4年
 - Redmine 3年
-- Docker 2年
+- Docker 3年
 - CircleCI 2年
+- Google Analytics 2年
 - Jira 1.5年
 - Confluence 1.5年
 - Terraform 1年
@@ -102,10 +105,9 @@
 - Vagrant 1年
 - Zabbix 1年
 - Jmeter 1年
-- Google Analytics 1年
-- Swagger 0.5年
-- GitHubActions 0.5年
-- AndroidStudio 0.5年
+- Swagger 1年
+- GitHubActions 1年
+- AndroidStudio 1年未満
 
 ## 【現在案件】
 - [ブロックチェーンを活用したクラウドファンディングサービスのサーバーサイド開発(2022年12月〜)](https://github.com/t-hirata74/profile/blob/master/project/main-job/202212-.md)
