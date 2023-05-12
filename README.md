@@ -124,7 +124,7 @@
 ## 【過去案件】
 - [大手携帯ショップの販売端末価格デジタルサイネージアプリケーション開発(2021年4月〜2022年10月：19ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/202104-202210.md)
   - 担当：フルスタックエンジニア
-  - 言語：Ruby、Javascript、html、css, kotlin
+  - 言語：Ruby、Javascript、html、css、 kotlin
   - FW：Ruby on Rails、Rspec、Bootstrap、Vue.js、Nuxt.js
   - DB：PostgreSQL
   - その他：AWS、git、GitHub(Enterprise)、Docker、CircleCI、GitHubActions、AndroidStudio、terraform
