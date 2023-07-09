@@ -1,4 +1,4 @@
-2023/05 更新
+2023/07 更新
 # スキルシート
 
 ## 【プロフィール】
@@ -8,7 +8,7 @@
 | エリア | 神奈川 |
 | 稼働時期 | 即日 or 相談 |
 | 性別 | 男性 |
-| 年齢 | 34歳 |
+| 年齢 | 35歳 |
 | 所属 | フリーランス |
 | キャリア年数 | 11年目 |
 | 稼働希望 | 基本リモート(必要に応じて出社) |
@@ -109,8 +109,31 @@
 - GitHubActions 1年
 - AndroidStudio 1年未満
 
-## 【現在案件】
-- [ブロックチェーンを活用したクラウドファンディングサービスのサーバーサイド開発(2022年12月〜)](https://github.com/t-hirata74/profile/blob/master/project/main-job/202212-.md)
+## 【現在案件(内容は随時更新)】
+- 不動産テックのsaasプロダクト開発(2023年7月〜)
+  - 担当：webエンジニア
+  - 言語：Ruby、Javascript
+  - FW：Ruby on Rails、Rspec
+  - DB：MySQL
+  - その他：git、GitHub、CircleCI、Docker、docker-compose
+  - コミュニケーション：Slack、Google Meet
+  - 工程/作業：設計、開発、単体テスト、結合テスト、コードレビュー
+  - 開発手法：リモート(週2出社)、アジャイル開発
+  - チーム体制: PM、エンジニア
+
+ - 不動産テックのsaasプロダクト開発＜副業＞(2023年7月〜)
+  - 担当：webエンジニア
+  - 言語：python
+  - FW：Django
+  - DB：MySQL
+  - その他：git、GitHub、CircleCI、、Docker、docker-compose
+  - コミュニケーション：Slack、Google Meet
+  - 工程/作業：設計、開発、単体テスト、結合テスト、コードレビュー
+  - 開発手法：フルリモート、アジャイル開発
+  - チーム体制: PM、エンジニア
+
+## 【過去案件】
+- [ブロックチェーンを活用したクラウドファンディングサービスのサーバーサイド開発(2022年12月〜2023年6月:7ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/202212-.md)
   - 担当：webエンジニア
   - 言語：Ruby、Javascript、TypeScript、Solidity
   - FW：Ruby on Rails、Rspec、React、Next.js、Jest
@@ -121,7 +144,6 @@
   - 開発手法：フルリモート、issue駆動開発
   - チーム体制: PM、エンジニア
 
-## 【過去案件】
 - [大手携帯ショップの販売端末価格デジタルサイネージアプリケーション開発(2021年4月〜2022年10月：19ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/202104-202210.md)
   - 担当：フルスタックエンジニア
   - 言語：Ruby、Javascript、html、css、 kotlin
