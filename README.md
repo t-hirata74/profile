@@ -110,7 +110,7 @@
 - AndroidStudio 1年未満
 
 ## 【現在案件(内容は随時更新)】
-- 不動産テックのsaasプロダクト開発(2023年7月〜)
+- 不動産テックのSaaSプロダクト開発(2023年7月〜)
   - 担当：webエンジニア
   - 言語：Ruby、Javascript
   - FW：Ruby on Rails、Rspec
@@ -118,10 +118,10 @@
   - その他：git、GitHub、CircleCI、Docker、docker-compose
   - コミュニケーション：Slack、Google Meet
   - 工程/作業：設計、開発、単体テスト、結合テスト、コードレビュー
-  - 開発手法：リモート(週2出社)、アジャイル開発
+  - 開発手法：一部リモート、アジャイル開発
   - チーム体制: PM、エンジニア
 
-- 不動産テックのsaasプロダクト開発＜副業＞(2023年7月〜)
+- 医療機器管理IoTのSaaSシステム開発＜副業＞(2023年7月〜)
   - 担当：webエンジニア
   - 言語：python
   - FW：Django
