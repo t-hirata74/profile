@@ -121,17 +121,6 @@
   - 開発手法：一部リモート、アジャイル開発
   - チーム体制: PM、エンジニア
 
-- 医療機器管理IoTのSaaSシステム開発＜副業＞(2023年7月〜)
-  - 担当：webエンジニア
-  - 言語：python
-  - FW：Django
-  - DB：MySQL
-  - その他：git、GitHub、CircleCI、、Docker、docker-compose
-  - コミュニケーション：Slack、Google Meet
-  - 工程/作業：設計、開発、単体テスト、結合テスト、コードレビュー
-  - 開発手法：フルリモート、アジャイル開発
-  - チーム体制: PM、エンジニア
-
 ## 【過去案件】
 - [ブロックチェーンを活用したクラウドファンディングサービスのサーバーサイド開発(2022年12月〜2023年6月:7ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/202212-.md)
   - 担当：webエンジニア
