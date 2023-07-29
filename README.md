@@ -122,7 +122,7 @@
   - チーム体制: PM、エンジニア
 
 ## 【過去案件】
-- [ブロックチェーンを活用したクラウドファンディングサービスのサーバーサイド開発(2022年12月〜2023年6月:7ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/202212-.md)
+- [ブロックチェーンを活用したクラウドファンディングサービスのサーバーサイド開発(2022年12月〜2023年6月:7ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/202212-202306.md)
   - 担当：webエンジニア
   - 言語：Ruby、Javascript、TypeScript、Solidity
   - FW：Ruby on Rails、Rspec、React、Next.js、Jest
