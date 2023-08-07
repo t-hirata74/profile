@@ -110,7 +110,7 @@
 - AndroidStudio 1年未満
 
 ## 【現在案件(内容は随時更新)】
-- 不動産テックのSaaSプロダクト開発(2023年7月〜)
+- 不動産テックのバーティカルSaaSプロダクト開発(2023年7月〜)
   - 担当：webエンジニア
   - 言語：Ruby、Javascript
   - FW：Ruby on Rails、Rspec
