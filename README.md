@@ -1,4 +1,4 @@
-2023/07 更新
+2023/11更新
 # スキルシート
 
 ## 【プロフィール】
@@ -113,11 +113,11 @@
 - 不動産テックのバーティカルSaaSプロダクト開発(2023年7月〜)
   - 担当：webエンジニア
   - 言語：Ruby、Javascript
-  - FW：Ruby on Rails、Rspec
+  - FW：Ruby on Rails、Rspec, React
   - DB：MySQL
-  - その他：git、GitHub、CircleCI、Docker、docker-compose
+  - その他：git、GitHub、CircleCI、Docker、docker-compose, sentry
   - コミュニケーション：Slack、Google Meet
-  - 工程/作業：設計、開発、単体テスト、結合テスト、コードレビュー
+  - 工程/作業：設計、開発、単体テスト、結合テスト リリース作業
   - 開発手法：一部リモート、アジャイル開発
   - チーム体制: PM、エンジニア
 
@@ -203,7 +203,7 @@
   - DB：MySQL
   - その他：Docker、git、GitHub
   - コミュニケーション：Slack、Zoom
-  - 工程/作業：開発
+  - 工程/作業：開発,コードレビュー
   - 開発手法：フルリモート、チケット駆動開発
   - チーム体制: リードエンジニア、エンジニア
 
