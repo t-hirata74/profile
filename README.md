@@ -39,19 +39,19 @@
 - Java 5年
 - Ruby 5年
 - Python 1年
-- TypeScript 1年未満
+- TypeScript 1年
 - Kotlin 1年未満
 
 ### ライブラリ、フレームワーク
-- JQuery 5年
 - Ruby on Rails 5年
+- JQuery 5年
 - RSpec 3年
 - Bootstrap 2年
 - Spring 1年
 - Vue.js 1年
 - Nuxt.js 1年
 - React 1年
-- Next.js 1年未満
+- Next.js 1年
 - Django 1年未満
 - BULMA 1年未満
 - Tailwind CSS 1年未満
@@ -92,13 +92,13 @@
 - SourceTree 2年
 
 ### その他ソフトウェアツール、サービス
+- Slack 5年
 - Eclipse 4年
-- Slack 4年
 - Redmine 3年
 - Docker 3年
 - CircleCI 2年
 - Google Analytics 2年
-- Jira 1.5年
+- Jira 2年
 - Confluence 1.5年
 - Terraform 1年
 - Twilio 1年
@@ -112,8 +112,8 @@
 ## 【現在案件(内容は随時更新)】
 - 不動産テックのバーティカルSaaSプロダクト開発(2023年7月〜)
   - 担当：webエンジニア
-  - 言語：Ruby、Javascript
-  - FW：Ruby on Rails、Rspec, React
+  - 言語：Ruby、Javascript, TypeScript
+  - FW：Ruby on Rails、Rspec, React, Next.js
   - DB：MySQL
   - その他：git、GitHub、CircleCI、Docker、docker-compose, sentry
   - コミュニケーション：Slack、Google Meet
