@@ -112,10 +112,10 @@
 ## 【現在案件(内容は随時更新)】
 - 不動産テックのバーティカルSaaSプロダクト開発(2023年7月〜)
   - 担当：webエンジニア
-  - 言語：Ruby、Javascript, TypeScript
-  - FW：Ruby on Rails、Rspec, React, Next.js
+  - 言語：Ruby、Javascript、 TypeScript
+  - FW：Ruby on Rails、Rspec、 React、 Next.js
   - DB：MySQL
-  - その他：git、GitHub、CircleCI、Docker、docker-compose, sentry
+  - その他：git、GitHub、CircleCI、Docker、docker-compose、 sentry
   - コミュニケーション：Slack、Google Meet
   - 工程/作業：設計、開発、単体テスト、結合テスト リリース作業
   - 開発手法：リモート及び出社、アジャイル開発
