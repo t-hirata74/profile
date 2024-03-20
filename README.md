@@ -44,8 +44,8 @@
 
 ### ライブラリ、フレームワーク
 - Ruby on Rails 5年
+- RSpec 5年
 - JQuery 5年
-- RSpec 3年
 - Bootstrap 2年
 - React 1.5年
 - Next.js 1.5年
@@ -59,7 +59,7 @@
 
 ### DB
 - Oracle 4年
-- MySQL 3年
+- MySQL 4年
 - PostgreSql 2年
 - Firestore 1年未満
 
