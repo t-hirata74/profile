@@ -1,4 +1,4 @@
-2024/1更新
+2024/3更新
 # スキルシート
 
 ## 【プロフィール】
@@ -47,11 +47,11 @@
 - JQuery 5年
 - RSpec 3年
 - Bootstrap 2年
+- React 1.5年
+- Next.js 1.5年
 - Spring 1年
 - Vue.js 1年
 - Nuxt.js 1年
-- React 1年
-- Next.js 1年
 - Django 1年未満
 - BULMA 1年未満
 - Tailwind CSS 1年未満
@@ -109,13 +109,14 @@
 - GitHubActions 1年
 - AndroidStudio 1年未満
 
-## 【現在案件(内容は随時更新)】
-- 不動産テックのバーティカルSaaSプロダクト開発(2023年7月〜)
+## 【現在案件】
+- [不動産テックのバーティカルSaaSプロダクト開発(2023年7月〜2023年3月：9ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/202307-202403.md)
   - 担当：webエンジニア
   - 言語：Ruby、Javascript、 TypeScript
   - FW：Ruby on Rails、Rspec、 React、 Next.js
   - DB：MySQL
-  - その他：git、GitHub、CircleCI、Docker、docker-compose、 sentry
+  - インフラ：AWS
+  - その他：git、GitHub、CircleCI、Docker、sentry、
   - コミュニケーション：Slack、Google Meet
   - 工程/作業：設計、開発、単体テスト、結合テスト リリース作業
   - 開発手法：リモート及び出社、アジャイル開発
@@ -127,6 +128,7 @@
   - 言語：Ruby、Javascript、TypeScript、Solidity
   - FW：Ruby on Rails、Rspec、React、Next.js、Jest
   - DB：MySQL、Firestore
+  - インフラ：GCP
   - その他：git、GitHub、CircleCI、Github Actions、ブロックチェーン、Google Analytics
   - コミュニケーション：Slack、Google Meet、Zoom
   - 工程/作業：設計、開発、単体テスト、結合テスト、コードレビュー
@@ -138,7 +140,8 @@
   - 言語：Ruby、Javascript、html、css、 kotlin
   - FW：Ruby on Rails、Rspec、Bootstrap、Vue.js、Nuxt.js
   - DB：PostgreSQL
-  - その他：AWS、git、GitHub(Enterprise)、Docker、CircleCI、GitHubActions、AndroidStudio、terraform
+  - インフラ：AWS
+  - その他：git、GitHub(Enterprise)、Docker、CircleCI、GitHubActions、AndroidStudio、terraform
   - コミュニケーション：Slack、Teams、Zoom、Miro、Jira
   - 工程/作業：タスク見積もり、設計、開発、単体テスト、結合テスト、コードレビュー、障害対応、リリース作業(夜間対応)、エンジニア採用面談対応、オンボーディング対応、ファシリテーション(スクラムイベント、朝会など)
   - 開発手法：フルリモート、スクラム（2週間スプリント）、ペアプロ/モブプロ
@@ -149,6 +152,7 @@
   - 言語：Ruby、Javascript、css、TypeScript
   - FW：Ruby on Rails、Rspec、React、BULMA
   - DB：Mysql
+  - インフラ：AWS
   - その他：Docker、git、GitHub、CircleCI、Swagger
   - コミュニケーション：Slack、Zoom
   - 工程/作業：タスク見積もり、基本設計、詳細設計、開発、単体テスト、結合テスト
@@ -160,7 +164,8 @@
   - 言語：Ruby、Javascript、html、css、Python
   - FW：Ruby on Rails、Rspec、Bootstrap
   - DB：Mysql
-  - その他：AWS(EC2、S3、RDS、Elastic Beanstalk、lambda等)、Docker、CircleCI、VSCode、git、Bitbucket、SourceTree、Terraform、Zabbix、Jmeter、Twilio
+  - インフラ：AWS
+  - その他：Docker、git、Bitbucket、CircleCI、VSCode、SourceTree、Terraform、Zabbix、Jmeter、Twilio
   - コミュニケーション：Slack、Zoom、Miro
   - 工程/作業：要件定義、スケジュール見積もり、タスク見積もり、基本設計、詳細設計、開発、単体テスト、結合テスト、性能テスト、セキュリティテスト、E2Eテスト、保守運用、コードレビュー
   - 開発手法：スクラム（1週間スプリント）、ペアプロ/モブプロ
@@ -234,5 +239,6 @@
   - 言語：Ruby、Javascript、html、css
   - FW：Ruby on Rails、Bootstrap
   - DB：Mysql
-  - その他：AWS(EC2、RDS)、git、Vagrant、Bootstrap
+  - インフラ：AWS
+  - その他：git、Vagrant、Bootstrap
   - 工程/作業: 受講生サポート、コードレビュー
