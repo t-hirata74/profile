@@ -110,6 +110,19 @@
 - AndroidStudio 1年未満
 
 ## 【現在案件】
+- 電気自動車のEV充電ローミングプロジェクトの新規開発(2024/4月〜随時更新)
+  - 担当：リードエンジニア
+  - 言語：Ruby
+  - FW：Ruby on Rails、Rspec
+  - DB：PostgreSQL
+  - インフラ：AWS
+  - その他：git、GitHub
+  - コミュニケーション：Slack、Google Meet
+  - 工程/作業：要件定義、アーキテクチャ設計
+  - 開発手法：リモート、ハイブリッド開発（要件定義〜基本設計：ウォーターフォール、開発以降：アジャイル）
+  - チーム体制:PM、エンジニア
+
+## 【過去案件】
 - [不動産テックのバーティカルSaaSプロダクト開発(2023年7月〜2023年3月：9ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/202307-202403.md)
   - 担当：webエンジニア
   - 言語：Ruby、Javascript、 TypeScript
@@ -122,7 +135,6 @@
   - 開発手法：リモート及び出社、アジャイル開発
   - チーム体制: PM、エンジニア
 
-## 【過去案件】
 - [ブロックチェーンを活用したクラウドファンディングサービスのサーバーサイド開発(2022年12月〜2023年6月:7ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/202212-202306.md)
   - 担当：webエンジニア
   - 言語：Ruby、Javascript、TypeScript、Solidity
