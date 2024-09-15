@@ -1,4 +1,4 @@
-2024/8更新
+2024/9更新
 # スキルシート
 
 ## 【プロフィール】
@@ -36,14 +36,14 @@
 - CSS  9年
 - Javascript 9年
 - SQL 9年
+- Ruby 6年
 - Java 5年
-- Ruby 5年
 - Python 1年
 - TypeScript 1年
 - Kotlin 1年未満
 
 ### ライブラリ、フレームワーク
-- Ruby on Rails 5年
+- Ruby on Rails 6年
 - RSpec 5年
 - JQuery 5年
 - Bootstrap 2年
@@ -83,6 +83,7 @@
   - Simple Email Service
   - CodePipeline
   - ElastiCache
+  - など
   
 ### チーム開発、バージョン管理ツール
 - Git 5年
@@ -94,23 +95,23 @@
 ### その他ソフトウェアツール、サービス
 - Slack 5年
 - Eclipse 4年
+- Docker 4年
 - Redmine 3年
-- Docker 3年
 - CircleCI 2年
+- Swagger 2年
 - Google Analytics 2年
 - Jira 2年
 - Confluence 1.5年
-- Terraform 1年
+- Terraform 1.5年
 - Twilio 1年
 - Vagrant 1年
 - Zabbix 1年
 - Jmeter 1年
-- Swagger 1年
 - GitHubActions 1年
 - AndroidStudio 1年未満
 
 ## 【案件】
-- 電気自動車のEV充電ローミングプロジェクトの新規開発(2024年4月〜2024年8月：5ヶ月)
+- [電気自動車のEV充電ローミングプロジェクトの新規開発(2024年4月〜2024年8月：5ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/202404-202408.md)
   - 担当：リードエンジニア
   - 言語：Ruby
   - FW：Ruby on Rails、Rspec
