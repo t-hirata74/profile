@@ -30,6 +30,7 @@
 ### 業務資格
 - 認定スクラムマスター(LSM)
 - 基本情報技術者
+- Ruby Association Certified Ruby Programmer Gold Version 3
 
 ### プログラミング言語
 - HTML 9年
