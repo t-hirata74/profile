@@ -112,6 +112,18 @@
 - AndroidStudio 1年未満
 
 ## 【案件】
+- 自治体連携DX推進支援プラットフォームの開発(2024年10月開始、随時追記）
+  - 担当：リードエンジニア
+  - 言語：Ruby, Javascript
+  - FW：Ruby on Rails, React, Typescript, GraphQL
+  - DB：MySQL
+  - インフラ：AWS
+  - その他：git, GitHub、Docker, terraform
+  - コミュニケーション：Slack, Jira, Notion
+  - 工程/作業：
+  - 開発手法：フルリモート
+  - チーム体制:PM、エンジニア
+
 - [電気自動車のEV充電ローミングプロジェクトの新規開発(2024年4月〜2024年8月：5ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/202404-202408.md)
   - 担当：リードエンジニア
   - 言語：Ruby
