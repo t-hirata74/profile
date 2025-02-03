@@ -112,15 +112,15 @@
 - AndroidStudio 1年未満
 
 ## 【案件】
-- 自治体連携DX推進支援プラットフォームの開発(2024年10月開始、随時追記）
+- 自治体連携DX推進支援プラットフォームの開発(2024年10月〜、随時更新）
   - 担当：リードエンジニア
   - 言語：Ruby, Javascript
   - FW：Ruby on Rails, React, Typescript, GraphQL
   - DB：MySQL
   - インフラ：AWS
-  - その他：git, GitHub、Docker, terraform
+  - その他：git, GitHub、Docker
   - コミュニケーション：Slack, Jira, Notion
-  - 工程/作業：
+  - 工程/作業： 
   - 開発手法：フルリモート
   - チーム体制:PM、エンジニア
 
