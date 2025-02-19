@@ -114,8 +114,8 @@
 ## 【案件】
 - 自治体連携DX推進支援プラットフォームの開発(2024年10月〜、随時更新）
   - 担当：リードエンジニア
-  - 言語：Ruby, Javascript
-  - FW：Ruby on Rails, React, Typescript, GraphQL
+  - 言語：Ruby, Javascript, TypeScript
+  - FW：Ruby on Rails, React, GraphQL
   - DB：MySQL
   - インフラ：AWS
   - その他：git, GitHub、Docker
