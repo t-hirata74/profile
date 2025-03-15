@@ -76,7 +76,7 @@
   - CloudFront
   - Route 53
   - CloudWatch
-  - CloudTrail
+  - Clrail
   - Systems Manager
   - IAM
   - Kinesis
@@ -124,7 +124,7 @@
   - 開発手法：フルリモート
   - チーム体制:PM、エンジニア
  
-- パスキーサービスを管理するのユーザー向けWebコンソールサイトの開発(2025年3月〜、随時更新）＜副業＞
+- パスキーサービスを管理するユーザー向けWebコンソールサイトの開発(2025年3月〜、随時更新）＜副業＞
   - 担当：エンジニア
   - 言語：Ruby
   - FW：Ruby on Rails
