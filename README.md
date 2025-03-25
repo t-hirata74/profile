@@ -43,7 +43,7 @@
 - TypeScript 1年
 - Kotlin 1年未満
 
-### ライブラリ、フレームワーク
+### FW/ライブラリ
 - Ruby on Rails 6年
 - RSpec 5年
 - JQuery 5年
@@ -115,7 +115,7 @@
 - 自治体連携DX推進支援プラットフォームの開発(2024年10月〜、随時更新）
   - 担当：リードエンジニア
   - 言語：Ruby, Javascript, TypeScript
-  - FW：Ruby on Rails, React
+  - FW/ライブラリ：Ruby on Rails, React
   - DB：MySQL
   - インフラ：AWS
   - その他：git, GitHub、Docker, GraphQL
@@ -124,11 +124,11 @@
   - 開発手法：フルリモート
   - チーム体制:PM、エンジニア
  
-- パスキー認証システムを提供サービスの開発(2025年3月〜、随時更新）＜副業＞
+- パスキー認証システムの管理サービス開発(2025年3月〜、随時更新）＜副業＞
   - 担当：エンジニア
   - 言語：Ruby
-  - FW：Ruby on Rails
-  - DB：
+  - FW/ライブラリ：Ruby on Rails
+  - DB：MySQL
   - インフラ：
   - その他：git, GitHub、Docker
   - コミュニケーション：Slack
@@ -139,7 +139,7 @@
 - [電気自動車のEV充電ローミングプロジェクトの新規開発(2024年4月〜2024年8月：5ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/202404-202408.md)
   - 担当：リードエンジニア
   - 言語：Ruby
-  - FW：Ruby on Rails、Rspec
+  - FW/ライブラリ：Ruby on Rails、Rspec
   - DB：PostgreSQL
   - インフラ：AWS
   - その他：git、GitHub、Docker、terraform
@@ -151,7 +151,7 @@
 - [不動産テックのバーティカルSaaSプロダクト開発(2023年7月〜2023年3月：9ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/202307-202403.md)
   - 担当：webエンジニア
   - 言語：Ruby、Javascript、 TypeScript
-  - FW：Ruby on Rails、Rspec、 React、 Next.js
+  - FW/ライブラリ：Ruby on Rails、Rspec、 React、 Next.js
   - DB：MySQL
   - インフラ：AWS
   - その他：git、GitHub、CircleCI、Docker、sentry
@@ -163,7 +163,7 @@
 - [ブロックチェーンを活用したクラウドファンディングサービスのサーバーサイド開発(2022年12月〜2023年6月:7ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/202212-202306.md)
   - 担当：webエンジニア
   - 言語：Ruby、Javascript、TypeScript、Solidity
-  - FW：Ruby on Rails、Rspec、React、Next.js、Jest
+  - FW/ライブラリ：Ruby on Rails、Rspec、React、Next.js、Jest
   - DB：MySQL、Firestore
   - インフラ：GCP
   - その他：git、GitHub、CircleCI、Github Actions、ブロックチェーン、Google Analytics
@@ -175,7 +175,7 @@
 - [大手携帯ショップの販売端末価格デジタルサイネージアプリケーション開発(2021年4月〜2022年10月：19ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/202104-202210.md)
   - 担当：フルスタックエンジニア
   - 言語：Ruby、Javascript、html、css、 kotlin
-  - FW：Ruby on Rails、Rspec、Bootstrap、Vue.js、Nuxt.js
+  - FW/ライブラリ：Ruby on Rails、Rspec、Bootstrap、Vue.js、Nuxt.js
   - DB：PostgreSQL
   - インフラ：AWS
   - その他：git、GitHub(Enterprise)、Docker、CircleCI、GitHubActions、AndroidStudio、terraform
@@ -187,7 +187,7 @@
 - [医療従事者向けプラットフォーム事業のマイクロサービス開発(2020年8月〜2021年1月：６ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/202008-202101.md)
   - 担当：バックエンドエンジニア
   - 言語：Ruby、Javascript、css、TypeScript
-  - FW：Ruby on Rails、Rspec、React、BULMA
+  - FW/ライブラリ：Ruby on Rails、Rspec、React、BULMA
   - DB：Mysql
   - インフラ：AWS
   - その他：Docker、git、GitHub、CircleCI、Swagger
@@ -199,7 +199,7 @@
 - [自動車会社向けIoTシステムの新規事業開発(2018年5月〜2020年6月：26ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/201805-202006.md)
   - 担当：フルスタックエンジニア
   - 言語：Ruby、Javascript、html、css、Python
-  - FW：Ruby on Rails、Rspec、Bootstrap
+  - FW/ライブラリ：Ruby on Rails、Rspec、Bootstrap
   - DB：Mysql
   - インフラ：AWS
   - その他：Docker、git、Bitbucket、CircleCI、VSCode、SourceTree、Terraform、Zabbix、Jmeter、Twilio
@@ -221,7 +221,7 @@
 - [全自動倉庫管理システム開発(2016年8月〜2017年9月：14ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/201608-201709.md)
   - 担当：システムエンジニア
   - 言語：Java、Javascript、html、css
-  - FW：Spring
+  - FW/ライブラリ：Spring
   - DB：Oracle
   - その他：Redmine、Eclipse、svn
   - 工程/作業：詳細設計、開発、単体テスト、結合テスト
@@ -241,7 +241,7 @@
 - [セールステック領域SaaSのプロダクト開発(2022年4月〜2022年8月：5ヶ月) ＜副業＞](https://github.com/t-hirata74/profile/blob/master/project/side-job/202204-202208.md)
   - 担当：バックエンドエンジニア
   - 言語：Ruby
-  - FW：Ruby on Rails、Rspec
+  - FW/ライブラリ：Ruby on Rails、Rspec
   - DB：MySQL
   - その他：Docker、git、GitHub
   - コミュニケーション：Slack、Zoom
@@ -252,7 +252,7 @@
 - [営業支援SaaSのプロダクト開発(2020年10月〜2021年1月：４ヶ月) ＜副業＞](https://github.com/t-hirata74/profile/blob/master/project/side-job/202010-202104.md)
   - 担当：バックエンドエンジニア
   - 言語：Python
-  - FW：Django、Tailwind CSS
+  - FW/ライブラリ：Django、Tailwind CSS
   - DB：PostgreSQL
   - その他：Docker、git、GitHub
   - コミュニケーション：Slack、trello
@@ -263,7 +263,7 @@
 - [エンジニア組織のパフォーマンス最大化サービス開発(2020年2月〜2020年7月:6ヶ月) ＜副業＞](https://github.com/t-hirata74/profile/blob/master/project/side-job/202002-202007.md)
   - 担当：バックエンドエンジニア
   - 言語：Ruby
-  - FW：Ruby on Rails
+  - FW/ライブラリ：Ruby on Rails
   - DB：Mysql
   - その他：Docker、git、GitHub、zenhub
   - コミュニケーション：Slack
@@ -274,7 +274,7 @@
 - [プログラミングスクール学習サポート(2019年5月〜2019年12月：8ヶ月) ＜副業＞](https://github.com/t-hirata74/profile/blob/master/project/side-job/201905-201912.md)
   - 担当：メンター
   - 言語：Ruby、Javascript、html、css
-  - FW：Ruby on Rails、Bootstrap
+  - FW/ライブラリ：Ruby on Rails、Bootstrap
   - DB：Mysql
   - インフラ：AWS
   - その他：git、Vagrant、Bootstrap
