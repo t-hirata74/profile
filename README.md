@@ -118,7 +118,7 @@
   - FW/ライブラリ：Ruby on Rails, React
   - DB：MySQL
   - インフラ：AWS
-  - その他：git, GitHub、Docker, GraphQL
+  - その他：git, GitHub、Docker, GraphQL、Rollbar
   - コミュニケーション：Slack, Jira, Notion
   - 工程/作業：機能チケット作成、見積、設計、開発、リファクタリング、単体テスト、結合テスト、コードレビュー、リリース
   - 開発手法：フルリモート
