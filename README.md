@@ -1,4 +1,4 @@
-2025/2更新
+2025/4 更新
 # スキルシート
 
 ## 【プロフィール】
@@ -37,18 +37,18 @@
 - CSS  9年
 - Javascript 9年
 - SQL 9年
-- Ruby 6年
+- Ruby 7年
 - Java 5年
 - Python 1年
 - TypeScript 1年
 - Kotlin 1年未満
 
 ### FW/ライブラリ
-- Ruby on Rails 6年
-- RSpec 5年
+- Ruby on Rails 7年
+- RSpec 7年
 - JQuery 5年
 - Bootstrap 2年
-- React 1.5年
+- React 2年
 - Next.js 1.5年
 - Spring 1年
 - Vue.js 1年
@@ -65,7 +65,7 @@
 - Firestore 1年未満
 
 ### クラウド
-- AWS 4年
+- AWS 5年
   - EC2
   - ECS
   - RDS
@@ -87,16 +87,16 @@
   - など
   
 ### チーム開発、バージョン管理ツール
-- Git 5年
+- Git 7年
+- GitHub 5年
 - SVN 4年
-- GitHub 3年
 - Bitbucket 2年
 - SourceTree 2年
 
 ### その他ソフトウェアツール、サービス
-- Slack 5年
+- Slack 7年
+- Docker 5年
 - Eclipse 4年
-- Docker 4年
 - Redmine 3年
 - CircleCI 2年
 - Swagger 2年
@@ -120,7 +120,7 @@
   - インフラ：AWS
   - その他：git、GitHub、Docker、GraphQL、Rollbar
   - コミュニケーション：Slack、Jira、Notion
-  - 工程/作業：機能チケット作成、見積、設計、開発、リファクタリング、単体テスト、結合テスト、コードレビュー、リリース
+  - 工程/作業：機能チケット作成、見積、設計、開発、リファクタリング、単体テスト、結合テスト、コードレビュー、リリース、障害対応
   - 開発手法：フルリモート
   - チーム体制:PM、エンジニア
  
