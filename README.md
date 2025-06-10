@@ -118,6 +118,7 @@
   - FW/ライブラリ：Ruby on Rails、React
   - DB：MySQL
   - インフラ：AWS
+  - エディタ/IDE：Cursor
   - その他：git、GitHub、Docker、GraphQL、Rollbar
   - コミュニケーション：Slack、Jira、Notion
   - 工程/作業：機能チケット作成、見積、設計、開発、リファクタリング、単体テスト、結合テスト、コードレビュー、リリース、障害対応
@@ -130,6 +131,7 @@
   - FW/ライブラリ：Ruby on Rails
   - DB：MySQL
   - インフラ：
+  - エディタ/IDE：Cursor
   - その他：git, GitHub、Docker
   - コミュニケーション：Slack
   - 工程/作業：開発
@@ -143,6 +145,7 @@
   - FW/ライブラリ：Ruby on Rails、Rspec
   - DB：PostgreSQL
   - インフラ：AWS
+  - エディタ/IDE：VSCode
   - その他：git、GitHub、Docker、terraform
   - コミュニケーション：Slack、Google Meet
   - 工程/作業：基本設計、アーキテクチャ設計(モジュラーモノリス)、インフラ設計、チケット見積もり、開発ハンドリング(チケット作成、アサイン割り振りなど)、開発、コードレビュー
@@ -155,6 +158,7 @@
   - FW/ライブラリ：Ruby on Rails、Rspec、 React、 Next.js
   - DB：MySQL
   - インフラ：AWS
+  - エディタ/IDE：VSCode
   - その他：git、GitHub、CircleCI、Docker、sentry
   - コミュニケーション：Slack、Google Meet
   - 工程/作業：設計、開発、単体テスト、結合テスト リリース作業
@@ -167,6 +171,7 @@
   - FW/ライブラリ：Ruby on Rails、Rspec、React、Next.js、Jest
   - DB：MySQL、Firestore
   - インフラ：GCP
+  - エディタ/IDE：VSCode
   - その他：git、GitHub、CircleCI、Github Actions、ブロックチェーン、Google Analytics
   - コミュニケーション：Slack、Google Meet、Zoom
   - 工程/作業：設計、開発、単体テスト、結合テスト、コードレビュー
@@ -179,7 +184,8 @@
   - FW/ライブラリ：Ruby on Rails、Rspec、Bootstrap、Vue.js、Nuxt.js
   - DB：PostgreSQL
   - インフラ：AWS
-  - その他：git、GitHub(Enterprise)、Docker、CircleCI、GitHubActions、AndroidStudio、terraform
+  - エディタ/IDE：VSCode、AndroidStudio
+  - その他：git、GitHub(Enterprise)、Docker、CircleCI、GitHubActions、terraform
   - コミュニケーション：Slack、Teams、Zoom、Miro、Jira
   - 工程/作業：タスク見積もり、設計、開発、単体テスト、結合テスト、コードレビュー、障害対応、リリース作業(夜間対応)、エンジニア採用面談対応、オンボーディング対応、ファシリテーション(スクラムイベント、朝会など)
   - 開発手法：フルリモート、スクラム（2週間スプリント）、ペアプロ/モブプロ
@@ -191,6 +197,7 @@
   - FW/ライブラリ：Ruby on Rails、Rspec、React、BULMA
   - DB：Mysql
   - インフラ：AWS
+  - エディタ/IDE：VSCode
   - その他：Docker、git、GitHub、CircleCI、Swagger
   - コミュニケーション：Slack、Zoom
   - 工程/作業：タスク見積もり、基本設計、詳細設計、開発、単体テスト、結合テスト
@@ -203,7 +210,8 @@
   - FW/ライブラリ：Ruby on Rails、Rspec、Bootstrap
   - DB：Mysql
   - インフラ：AWS
-  - その他：Docker、git、Bitbucket、CircleCI、VSCode、SourceTree、Terraform、Zabbix、Jmeter、Twilio
+  - エディタ/IDE：VSCode
+  - その他：Docker、git、Bitbucket、CircleCI、SourceTree、Terraform、Zabbix、Jmeter、Twilio
   - コミュニケーション：Slack、Zoom、Miro
   - 工程/作業：要件定義、スケジュール見積もり、タスク見積もり、基本設計、詳細設計、開発、単体テスト、結合テスト、性能テスト、セキュリティテスト、E2Eテスト、保守運用、コードレビュー
   - 開発手法：スクラム（1週間スプリント）、ペアプロ/モブプロ
@@ -213,7 +221,8 @@
   - 担当：システムエンジニア
   - 言語：Java、Javascript、html、css
   - DB：Oracle
-  - その他：Slack、Redmine、Eclipse、svn
+  - エディタ/IDE：Eclipse
+  - その他：Slack、Redmine、svn
   - コミュニケーション：Slack
   - 工程/作業：詳細設計、開発、単体テスト、結合テスト
   - 開発手法：ウォーターフォール
@@ -224,7 +233,8 @@
   - 言語：Java、Javascript、html、css
   - FW/ライブラリ：Spring
   - DB：Oracle
-  - その他：Redmine、Eclipse、svn
+  - エディタ/IDE：Eclipse
+  - その他：Redmine、svn
   - 工程/作業：詳細設計、開発、単体テスト、結合テスト
   - 開発手法：ウォーターフォール
   - チーム体制: PM、リーダー、エンジニア
@@ -233,7 +243,8 @@
   - 担当：プログラマー、システムエンジニア
   - 言語：Java、Javascript、html、css
   - DB：Oracle
-  - その他：Eclipse、svn
+  - エディタ/IDE：Eclipse
+  - その他：svn
   - 工程/作業：基本設計、詳細設計、開発、単体テスト、結合テスト、総合テスト、保守運用
   - 開発手法：ウォーターフォール
   - チーム体制: PM、リーダー、エンジニア
@@ -244,6 +255,7 @@
   - 言語：Ruby
   - FW/ライブラリ：Ruby on Rails、Rspec
   - DB：MySQL
+  - エディタ/IDE：VSCode
   - その他：Docker、git、GitHub
   - コミュニケーション：Slack、Zoom
   - 工程/作業：開発,コードレビュー
@@ -255,6 +267,7 @@
   - 言語：Python
   - FW/ライブラリ：Django、Tailwind CSS
   - DB：PostgreSQL
+  - エディタ/IDE：VSCode
   - その他：Docker、git、GitHub
   - コミュニケーション：Slack、trello
   - 工程/作業：開発
@@ -266,6 +279,7 @@
   - 言語：Ruby
   - FW/ライブラリ：Ruby on Rails
   - DB：Mysql
+  - エディタ/IDE：VSCode
   - その他：Docker、git、GitHub、zenhub
   - コミュニケーション：Slack
   - 工程/作業：開発、リファクタリング
@@ -278,5 +292,6 @@
   - FW/ライブラリ：Ruby on Rails、Bootstrap
   - DB：Mysql
   - インフラ：AWS
+  - エディタ/IDE：VSCode
   - その他：git、Vagrant、Bootstrap
   - 工程/作業: 受講生サポート、コードレビュー
