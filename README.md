@@ -119,6 +119,7 @@
   - DB：MySQL
   - インフラ：AWS
   - エディタ/IDE：Cursor
+  - AIエージェント：Cursor, Claude Code
   - その他：git、GitHub、Docker、GraphQL、Rollbar
   - コミュニケーション：Slack、Jira、Notion
   - 工程/作業：機能チケット作成、見積、設計、開発、リファクタリング、単体テスト、結合テスト、コードレビュー、リリース、障害対応
