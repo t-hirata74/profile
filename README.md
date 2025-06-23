@@ -28,7 +28,7 @@
 - ソフトウェア会社(正社員) 2013/04 ~ 2017/09
 
 ### 業務資格
-- 認定スクラムマスター(LSM)
+- 認定スクラムマスター(LSM) 有効期限:2022/12
 - 基本情報技術者
 - Ruby Association Certified Ruby Programmer Gold Version 3
 
