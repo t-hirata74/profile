@@ -128,6 +128,20 @@
   - 開発手法：フルリモート
   - チーム体制:PM、PdM、エンジニア、SRE、デザイナー、QA
 
+- 富裕層向けの旅行代事業のCRM新規開発(2025年8月〜、随時更新）
+  - 担当：フルスタックエンジニア
+  - 言語：Ruby、Javascript、TypeScript
+  - FW/ライブラリ：Ruby on Rails、Next.js
+  - DB：PostgreSQL
+  - インフラ：AWS
+  - エディタ/IDE：Cursor
+  - AIエージェント：Cursor, Claude Code
+  - その他：git、GitHub、Docker
+  - コミュニケーション：Slack、Notion
+  - 工程/作業：開発、コードレビュー
+  - 開発手法：フルリモート
+  - チーム体制:PM、エンジニア、デザイナー
+
 ## 【過去案件】
 - [電気自動車のEV充電ローミングプロジェクトの新規開発(2024年4月〜2024年8月：5ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/202404-202408.md)
   - 担当：リードエンジニア
