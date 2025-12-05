@@ -156,7 +156,7 @@
   - 開発手法：リモート、ウォーターフォール開発
   - チーム体制:PM、エンジニア
 
-- [不動産テックのバーティカルSaaSプロダクト開発(2023年7月〜2023年3月：9ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/202307-202403.md)
+- [不動産テックのバーティカルSaaSプロダクト開発(2023年7月〜2024年3月：9ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/202307-202403.md)
   - 担当：webエンジニア
   - 言語：Ruby、Javascript、 TypeScript
   - FW/ライブラリ：Ruby on Rails、Rspec、 React、 Next.js
