@@ -1,4 +1,4 @@
-2025/8 更新
+2026/1 更新
 # スキルシート
 
 ## 【プロフィール】
@@ -35,39 +35,38 @@
 - Ruby Association Certified Ruby Programmer Gold Version 3
 
 ### プログラミング言語
-- HTML 9年
-- CSS  9年
-- Javascript 9年
-- SQL 9年
-- Ruby 7年
+- HTML 10年
+- CSS  10年
+- Javascript 10年
+- SQL 10年
+- Ruby 8年
 - Java 5年
-- TypeScript 2.5年
-- Python 1年
+- TypeScript 3年
+- Python 2年
 - Kotlin 1年未満
 
 ### FW/ライブラリ
-- Ruby on Rails 7年
-- RSpec 7年
+- Ruby on Rails 8年
+- RSpec 8年
 - JQuery 5年
-- Bootstrap 2年
-- React 2年
-- Next.js 1.5年
+- Bootstrap 3年
+- React 3年
+- Next.js 2年
 - Spring 1年
 - Vue.js 1年
 - Nuxt.js 1年
+- Tailwind CSS 1年
 - Django 1年未満
 - BULMA 1年未満
-- Tailwind CSS 1年未満
 - Jest 1年未満
 
 ### DB
 - Oracle 4年
-- MySQL 4年
-- PostgreSql 2年
-- Firestore 1年未満
+- MySQL 6年
+- PostgreSQL 4年
 
 ### クラウド
-- AWS 5年
+- AWS 6年
   - EC2
   - ECS
   - RDS
@@ -86,42 +85,46 @@
   - Simple Email Service
   - CodePipeline
   - ElastiCache
+  - Amazon Connect
+  - Amazon WorkMail
+  - Amazon Bedrock
   - など
   
 ### チーム開発、バージョン管理ツール
-- Git 7年
-- GitHub 5年
+- Git 8年
+- GitHub 6年
 - SVN 4年
 - Bitbucket 2年
 - SourceTree 2年
 
 ### その他ソフトウェアツール、サービス
-- Slack 7年
-- Docker 5年
+- Slack 8年
+- Docker 6年
 - Eclipse 4年
 - Redmine 3年
-- CircleCI 2年
-- Swagger 2年
+- CircleCI 3年
+- Swagger 3年
 - Google Analytics 2年
-- Jira 2年
-- Confluence 1.5年
-- Terraform 1.5年
+- Jira 3年
+- Confluence 2年
+- Terraform 2年
 - Twilio 1年
 - Vagrant 1年
 - Zabbix 1年
 - Jmeter 1年
-- GitHubActions 1年
-- AndroidStudio 1年未満
+- GitHubActions 2年
+- AndroidStudio 1年
 
 ## 【現案件】
 - 自治体連携DX推進支援プラットフォームの開発(2024年10月〜、随時更新）
   - 担当：リードエンジニア
-  - 言語：Ruby、Javascript、TypeScript
+  - 言語：Ruby、Javascript、TypeScript, Python
   - FW/ライブラリ：Ruby on Rails、React
   - DB：MySQL
   - インフラ：AWS
   - エディタ/IDE：Cursor
   - AIエージェント：Cursor, Claude Code
+  - 生成AI：Amazon Bedrock
   - その他：git、GitHub、Docker、GraphQL、Rollbar
   - コミュニケーション：Slack、Jira、Notion
   - 工程/作業：機能チケット作成、見積、設計、開発、リファクタリング、単体テスト、結合テスト、コードレビュー、リリース、障害対応
