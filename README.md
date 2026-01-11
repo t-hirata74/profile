@@ -190,8 +190,9 @@
   - FW/ライブラリ：Ruby on Rails、Rspec、Bootstrap、Vue.js、Nuxt.js
   - DB：PostgreSQL
   - インフラ：AWS
+  - アプリ：PWA
   - エディタ/IDE：VSCode、AndroidStudio
-  - その他：git、GitHub(Enterprise)、Docker、CircleCI、GitHubActions、terraform
+  - その他：git、GitHub(Enterprise)、Docker、CircleCI、GitHubActions、terraform、PWA
   - コミュニケーション：Slack、Teams、Zoom、Miro、Jira
   - 工程/作業：タスク見積もり、設計、開発、単体テスト、結合テスト、コードレビュー、障害対応、リリース作業(夜間対応)、エンジニア採用面談対応、オンボーディング対応、ファシリテーション(スクラムイベント、朝会など)
   - 開発手法：フルリモート、スクラム（2週間スプリント）、ペアプロ/モブプロ
