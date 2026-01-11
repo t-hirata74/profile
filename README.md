@@ -52,17 +52,16 @@
 - Bootstrap 3年
 - React 3年
 - Next.js 2年
+- Tailwind CSS 2年
 - Spring 1年
 - Vue.js 1年
 - Nuxt.js 1年
-- Tailwind CSS 1年
 - Django 1年未満
-- BULMA 1年未満
 - Jest 1年未満
 
 ### DB
-- Oracle 4年
 - MySQL 6年
+- Oracle 4年
 - PostgreSQL 4年
 
 ### クラウド
@@ -108,11 +107,11 @@
 - Jira 3年
 - Confluence 2年
 - Terraform 2年
+- GitHubActions 2年
 - Twilio 1年
 - Vagrant 1年
 - Zabbix 1年
 - Jmeter 1年
-- GitHubActions 2年
 - AndroidStudio 1年
 
 ## 【現案件】
