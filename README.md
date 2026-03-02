@@ -1,4 +1,4 @@
-2026/1 更新
+2026/3 更新
 # スキルシート
 
 ## 【プロフィール】
@@ -87,6 +87,7 @@
   - Amazon Connect
   - Amazon WorkMail
   - Amazon Bedrock
+  - Amazon Transcribe
   - など
   
 ### チーム開発、バージョン管理ツール
