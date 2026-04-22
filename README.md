@@ -124,8 +124,8 @@
   - インフラ：AWS
   - エディタ/IDE：Cursor
   - AIエージェント：Cursor, Claude Code
-  - 生成AI：Amazon Bedrock
-  - その他：git、GitHub、Docker、GraphQL、Rollbar
+  - 生成AI：Amazon Bedrock(Claude)
+  - その他：Git、GitHub、Docker、GraphQL、Rollbar、Langfuse
   - コミュニケーション：Slack、Jira、Notion
   - 工程/作業：機能チケット作成、見積、設計、開発、リファクタリング、単体テスト、結合テスト、コードレビュー、リリース、障害対応
   - 開発手法：フルリモート
@@ -139,53 +139,53 @@
   - インフラ：AWS
   - エディタ/IDE：Cursor
   - AIエージェント：Cursor, Claude Code
-  - その他：git、GitHub、Docker
+  - その他：Git、GitHub、Docker
   - コミュニケーション：Slack、Notion
   - 工程/作業：開発、コードレビュー
   - 開発手法：フルリモート
   - チーム体制:PM、エンジニア、デザイナー
 
 ## 【過去案件】
-- [電気自動車のEV充電ローミングプロジェクトの新規開発(2024年4月〜2024年8月：5ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/202404-202408.md)
+- [電気自動車のEV充電ローミングプロジェクトの新規開発(2024年4月〜2024年8月：5ヶ月)](https://Github.com/t-hirata74/profile/blob/master/project/main-job/202404-202408.md)
   - 担当：リードエンジニア
   - 言語：Ruby
   - FW/ライブラリ：Ruby on Rails、Rspec
   - DB：PostgreSQL
   - インフラ：AWS
   - エディタ/IDE：VSCode
-  - その他：git、GitHub、Docker、terraform
+  - その他：Git、GitHub、Docker、terraform
   - コミュニケーション：Slack、Google Meet
   - 工程/作業：基本設計、アーキテクチャ設計(モジュラーモノリス)、インフラ設計、チケット見積もり、開発ハンドリング(チケット作成、アサイン割り振りなど)、開発、コードレビュー
   - 開発手法：リモート、ウォーターフォール開発
   - チーム体制:PM、エンジニア
 
-- [不動産テックのバーティカルSaaSプロダクト開発(2023年7月〜2024年3月：9ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/202307-202403.md)
+- [不動産テックのバーティカルSaaSプロダクト開発(2023年7月〜2024年3月：9ヶ月)](https://Github.com/t-hirata74/profile/blob/master/project/main-job/202307-202403.md)
   - 担当：webエンジニア
   - 言語：Ruby、Javascript、 TypeScript
   - FW/ライブラリ：Ruby on Rails、Rspec、 React、 Next.js
   - DB：MySQL
   - インフラ：AWS
   - エディタ/IDE：VSCode
-  - その他：git、GitHub、CircleCI、Docker、sentry
+  - その他：Git、GitHub、CircleCI、Docker、sentry
   - コミュニケーション：Slack、Google Meet
   - 工程/作業：設計、開発、単体テスト、結合テスト リリース作業
   - 開発手法：リモート及び出社、アジャイル開発
   - チーム体制: PM、エンジニア
 
-- [ブロックチェーンを活用したクラウドファンディングサービスのサーバーサイド開発(2022年12月〜2023年6月:7ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/202212-202306.md)
+- [ブロックチェーンを活用したクラウドファンディングサービスのサーバーサイド開発(2022年12月〜2023年6月:7ヶ月)](https://Github.com/t-hirata74/profile/blob/master/project/main-job/202212-202306.md)
   - 担当：webエンジニア
   - 言語：Ruby、Javascript、TypeScript、Solidity
   - FW/ライブラリ：Ruby on Rails、Rspec、React、Next.js、Jest
   - DB：MySQL、Firestore
   - インフラ：GCP
   - エディタ/IDE：VSCode
-  - その他：git、GitHub、CircleCI、Github Actions、ブロックチェーン、Google Analytics
+  - その他：Git、GitHub、CircleCI、Github Actions、ブロックチェーン、Google Analytics
   - コミュニケーション：Slack、Google Meet、Zoom
   - 工程/作業：設計、開発、単体テスト、結合テスト、コードレビュー
   - 開発手法：フルリモート、issue駆動開発
   - チーム体制: PM、エンジニア
 
-- [大手携帯ショップの販売端末価格デジタルサイネージアプリケーション開発(2021年4月〜2022年10月：19ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/202104-202210.md)
+- [大手携帯ショップの販売端末価格デジタルサイネージアプリケーション開発(2021年4月〜2022年10月：19ヶ月)](https://Github.com/t-hirata74/profile/blob/master/project/main-job/202104-202210.md)
   - 担当：フルスタックエンジニア
   - 言語：Ruby、Javascript、html、css、 kotlin
   - FW/ライブラリ：Ruby on Rails、Rspec、Bootstrap、Vue.js、Nuxt.js
@@ -193,39 +193,39 @@
   - インフラ：AWS
   - アプリ：PWA
   - エディタ/IDE：VSCode、AndroidStudio
-  - その他：git、GitHub(Enterprise)、Docker、CircleCI、GitHubActions、terraform、PWA
+  - その他：Git、GitHub(Enterprise)、Docker、CircleCI、GitHubActions、terraform、PWA
   - コミュニケーション：Slack、Teams、Zoom、Miro、Jira
   - 工程/作業：タスク見積もり、設計、開発、単体テスト、結合テスト、コードレビュー、障害対応、リリース作業(夜間対応)、エンジニア採用面談対応、オンボーディング対応、ファシリテーション(スクラムイベント、朝会など)
   - 開発手法：フルリモート、スクラム（2週間スプリント）、ペアプロ/モブプロ
   - チーム体制: PO、SM、デザイナー、エンジニア、QA
 
-- [医療従事者向けプラットフォーム事業のマイクロサービス開発(2020年8月〜2021年1月：６ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/202008-202101.md)
+- [医療従事者向けプラットフォーム事業のマイクロサービス開発(2020年8月〜2021年1月：６ヶ月)](https://Github.com/t-hirata74/profile/blob/master/project/main-job/202008-202101.md)
   - 担当：バックエンドエンジニア
   - 言語：Ruby、Javascript、css、TypeScript
   - FW/ライブラリ：Ruby on Rails、Rspec、React、BULMA
   - DB：Mysql
   - インフラ：AWS
   - エディタ/IDE：VSCode
-  - その他：Docker、git、GitHub、CircleCI、Swagger
+  - その他：Docker、Git、GitHub、CircleCI、Swagger
   - コミュニケーション：Slack、Zoom
   - 工程/作業：タスク見積もり、基本設計、詳細設計、開発、単体テスト、結合テスト
   - 開発手法：フルリモート、issue駆動開発、スクラム（1週間スプリント）
   - チーム体制: PM、デザイナー、エンジニア、QA
   
-- [自動車会社向けIoTシステムの新規事業開発(2018年5月〜2020年6月：26ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/201805-202006.md)
+- [自動車会社向けIoTシステムの新規事業開発(2018年5月〜2020年6月：26ヶ月)](https://Github.com/t-hirata74/profile/blob/master/project/main-job/201805-202006.md)
   - 担当：フルスタックエンジニア
   - 言語：Ruby、Javascript、html、css、Python
   - FW/ライブラリ：Ruby on Rails、Rspec、Bootstrap
   - DB：Mysql
   - インフラ：AWS
   - エディタ/IDE：VSCode
-  - その他：Docker、git、Bitbucket、CircleCI、SourceTree、Terraform、Zabbix、Jmeter、Twilio
+  - その他：Docker、Git、Bitbucket、CircleCI、SourceTree、Terraform、Zabbix、Jmeter、Twilio
   - コミュニケーション：Slack、Zoom、Miro
   - 工程/作業：要件定義、スケジュール見積もり、タスク見積もり、基本設計、詳細設計、開発、単体テスト、結合テスト、性能テスト、セキュリティテスト、E2Eテスト、保守運用、コードレビュー
   - 開発手法：スクラム（1週間スプリント）、ペアプロ/モブプロ
   - チーム体制: PO、SM、エンジニア
 
-- [航空会社向けECサイト開発(2017年10月〜2018年4月：7ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/201710-201804.md)
+- [航空会社向けECサイト開発(2017年10月〜2018年4月：7ヶ月)](https://Github.com/t-hirata74/profile/blob/master/project/main-job/201710-201804.md)
   - 担当：システムエンジニア
   - 言語：Java、Javascript、html、css
   - DB：Oracle
@@ -236,7 +236,7 @@
   - 開発手法：ウォーターフォール
   - チーム体制: PM、エンジニア、テスター
  
-- [全自動倉庫管理システム開発(2016年8月〜2017年9月：14ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/201608-201709.md)
+- [全自動倉庫管理システム開発(2016年8月〜2017年9月：14ヶ月)](https://Github.com/t-hirata74/profile/blob/master/project/main-job/201608-201709.md)
   - 担当：システムエンジニア
   - 言語：Java、Javascript、html、css
   - FW/ライブラリ：Spring
@@ -247,7 +247,7 @@
   - 開発手法：ウォーターフォール
   - チーム体制: PM、リーダー、エンジニア
 
-- [製油所向けオフサイトシステム(2013年9月〜2016年8月：36ヶ月)](https://github.com/t-hirata74/profile/blob/master/project/main-job/201309-201608.md)
+- [製油所向けオフサイトシステム(2013年9月〜2016年8月：36ヶ月)](https://Github.com/t-hirata74/profile/blob/master/project/main-job/201309-201608.md)
   - 担当：プログラマー、システムエンジニア
   - 言語：Java、Javascript、html、css
   - DB：Oracle
@@ -258,7 +258,7 @@
   - チーム体制: PM、リーダー、エンジニア
 
 ## 【過去案件 ＜副業＞】
-- [パスキー認証システムの管理サービス開発(2025年3月〜2025年7月：5ヶ月）＜副業＞](https://github.com/t-hirata74/profile/blob/master/project/side-job/202503-202507.md)
+- [パスキー認証システムの管理サービス開発(2025年3月〜2025年7月：5ヶ月）＜副業＞](https://Github.com/t-hirata74/profile/blob/master/project/side-job/202503-202507.md)
   - 担当：エンジニア
   - 言語：Ruby
   - FW/ライブラリ：Ruby on Rails
@@ -266,56 +266,56 @@
   - インフラ：
   - エディタ/IDE：Cursor
   - AIエージェント：Cursor, Claude Code
-  - その他：git, GitHub、Docker
+  - その他：Git, GitHub、Docker
   - コミュニケーション：Slack
   - 工程/作業：開発
   - 開発手法：フルリモート
   - チーム体制:PM、エンジニア
 
-- [セールステック領域SaaSのプロダクト開発(2022年4月〜2022年8月：5ヶ月) ＜副業＞](https://github.com/t-hirata74/profile/blob/master/project/side-job/202204-202208.md)
+- [セールステック領域SaaSのプロダクト開発(2022年4月〜2022年8月：5ヶ月) ＜副業＞](https://Github.com/t-hirata74/profile/blob/master/project/side-job/202204-202208.md)
   - 担当：バックエンドエンジニア
   - 言語：Ruby
   - FW/ライブラリ：Ruby on Rails、Rspec
   - DB：MySQL
   - エディタ/IDE：VSCode
-  - その他：Docker、git、GitHub
+  - その他：Docker、Git、GitHub
   - コミュニケーション：Slack、Zoom
   - 工程/作業：開発,コードレビュー
   - 開発手法：フルリモート、チケット駆動開発
   - チーム体制: リードエンジニア、エンジニア
 
-- [営業支援SaaSのプロダクト開発(2020年10月〜2021年1月：４ヶ月) ＜副業＞](https://github.com/t-hirata74/profile/blob/master/project/side-job/202010-202104.md)
+- [営業支援SaaSのプロダクト開発(2020年10月〜2021年1月：４ヶ月) ＜副業＞](https://Github.com/t-hirata74/profile/blob/master/project/side-job/202010-202104.md)
   - 担当：バックエンドエンジニア
   - 言語：Python
   - FW/ライブラリ：Django、Tailwind CSS
   - DB：PostgreSQL
   - エディタ/IDE：VSCode
-  - その他：Docker、git、GitHub
+  - その他：Docker、Git、GitHub
   - コミュニケーション：Slack、trello
   - 工程/作業：開発
   - 開発手法：フルリモート、issue駆動開発
   - チーム体制: リードエンジニア、エンジニア
   
-- [エンジニア組織のパフォーマンス最大化サービス開発(2020年2月〜2020年7月:6ヶ月) ＜副業＞](https://github.com/t-hirata74/profile/blob/master/project/side-job/202002-202007.md)
+- [エンジニア組織のパフォーマンス最大化サービス開発(2020年2月〜2020年7月:6ヶ月) ＜副業＞](https://Github.com/t-hirata74/profile/blob/master/project/side-job/202002-202007.md)
   - 担当：バックエンドエンジニア
   - 言語：Ruby
   - FW/ライブラリ：Ruby on Rails
   - DB：Mysql
   - エディタ/IDE：VSCode
-  - その他：Docker、git、GitHub、zenhub
+  - その他：Docker、Git、GitHub、zenhub
   - コミュニケーション：Slack
   - 工程/作業：開発、リファクタリング
   - 開発手法：フルリモート、issue駆動開発
   - チーム体制: リードエンジニア、エンジニア
 
-- [プログラミングスクール学習サポート(2019年5月〜2019年12月：8ヶ月) ＜副業＞](https://github.com/t-hirata74/profile/blob/master/project/side-job/201905-201912.md)
+- [プログラミングスクール学習サポート(2019年5月〜2019年12月：8ヶ月) ＜副業＞](https://Github.com/t-hirata74/profile/blob/master/project/side-job/201905-201912.md)
   - 担当：メンター
   - 言語：Ruby、Javascript、html、css
   - FW/ライブラリ：Ruby on Rails、Bootstrap
   - DB：Mysql
   - インフラ：AWS
   - エディタ/IDE：VSCode
-  - その他：git、Vagrant、Bootstrap
+  - その他：Git、Vagrant、Bootstrap
   - 工程/作業: 受講生サポート、コードレビュー
 
 ※ こちらは副業稼働による過去案件の経歴になります。フルタイム稼働の過去案件の経歴は「過去案件 ＜副業＞」から上を参照してください
