@@ -1,4 +1,4 @@
-2026/6 更新
+2026/7 更新
 # スキルシート
 
 ## 【プロフィール】
@@ -131,21 +131,7 @@
   - 開発手法：フルリモート
   - チーム体制:PM、PdM、エンジニア、SRE、デザイナー、QA
 
-- 富裕層向けの旅行代事業のCRM新規開発(2025年8月〜、随時更新）
-  - 担当：フルスタックエンジニア
-  - 言語：Ruby、Javascript、TypeScript
-  - FW/ライブラリ：Ruby on Rails、Next.js
-  - DB：PostgreSQL
-  - インフラ：AWS
-  - エディタ/IDE：Cursor
-  - AIエージェント：Cursor, Claude Code
-  - その他：Git、GitHub、Docker
-  - コミュニケーション：Slack、Notion
-  - 工程/作業：開発、コードレビュー
-  - 開発手法：フルリモート
-  - チーム体制:PM、エンジニア、デザイナー
-
-## 【過去案件】
+## 【過去案件: フルタイム案件】
 - [電気自動車のEV充電ローミングプロジェクトの新規開発(2024年4月〜2024年8月：5ヶ月)](https://Github.com/t-hirata74/profile/blob/master/project/main-job/202404-202408.md)
   - 担当：リードエンジニア
   - 言語：Ruby
@@ -257,7 +243,21 @@
   - 開発手法：ウォーターフォール
   - チーム体制: PM、リーダー、エンジニア
 
-## 【過去案件 ＜副業＞】
+## 【過去案件: 副業案件】
+- 富裕層向けの旅行代事業のCRM新規開発(2025年8月〜2026年6月：11ヶ月）
+  - 担当：フルスタックエンジニア
+  - 言語：Ruby、Javascript、TypeScript
+  - FW/ライブラリ：Ruby on Rails、Next.js
+  - DB：PostgreSQL
+  - インフラ：AWS
+  - エディタ/IDE：Cursor
+  - AIエージェント：Cursor, Claude Code
+  - その他：Git、GitHub、Docker
+  - コミュニケーション：Slack、Notion
+  - 工程/作業：開発、コードレビュー
+  - 開発手法：フルリモート
+  - チーム体制:PM、エンジニア、デザイナー
+
 - [パスキー認証システムの管理サービス開発(2025年3月〜2025年7月：5ヶ月）＜副業＞](https://Github.com/t-hirata74/profile/blob/master/project/side-job/202503-202507.md)
   - 担当：エンジニア
   - 言語：Ruby
@@ -317,5 +317,3 @@
   - エディタ/IDE：VSCode
   - その他：Git、Vagrant、Bootstrap
   - 工程/作業: 受講生サポート、コードレビュー
-
-※ こちらは副業稼働による過去案件の経歴になります。フルタイム稼働の過去案件の経歴は「過去案件 ＜副業＞」から上を参照してください
