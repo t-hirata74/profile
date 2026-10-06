@@ -25,6 +25,7 @@ from openpyxl.cell.cell import ILLEGAL_CHARACTERS_RE, MergedCell
 from openpyxl.packaging.core import DocumentProperties
 from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils.cell import range_boundaries
+from openpyxl.worksheet.datavalidation import DataValidationList
 from openpyxl.worksheet.page import PageMargins
 from openpyxl.worksheet.pagebreak import Break, RowBreak
 
@@ -44,6 +45,8 @@ PROFILE_CELLS = {
 }
 TECH_FIELDS = {"FW/ライブラリ", "エディタ/IDE", "AIエージェント", "生成AI",
                "その他", "コミュニケーション", "アプリ"}
+PHASE_HEADERS = ("要件\n定義", "基本\n設計", "詳細\n設計", "実装",
+                 "単体\nテスト", "結合\nテスト", "総合\nテスト", "保守\n運用")
 FIXED_TIME = datetime(2000, 1, 1)
 XSI_TYPE = "{http://www.w3.org/2001/XMLSchema-instance}type"
 
@@ -329,10 +332,30 @@ def prepare_template(wb):
         if row >= 14:
             del ws.row_dimensions[row]
     ws.row_breaks = RowBreak()
+    # 提出用シートに入力用プルダウンを残さず、選択中も丸印を隠さない。
+    ws.data_validations = DataValidationList()
     for address, label in {"H12": "言語", "J12": "機種\n・\nOS", "O13": "実装",
                            "P13": "単体テスト"}.items():
         put(ws, address, label)
     return ws, styles, merges
+
+
+def style_phase_header(ws) -> None:
+    """担当工程を回転なしで読める列幅と2行見出しにする。"""
+    for index, (column, label) in enumerate(zip("LMNOPQRS", PHASE_HEADERS), 12):
+        # 原本のL:Sは1つの列幅グループなので、各列の範囲を明示する。
+        dimension = ws.column_dimensions[column]
+        dimension.min = index
+        dimension.max = index
+        dimension.width = 8.5
+        ws.cell(12, index).fill = PatternFill("solid", fgColor="17365D")
+        cell = put(ws, f"{column}13", label)
+        cell.font = Font(name="メイリオ", size=11, bold=True, color="17365D")
+        cell.fill = PatternFill("solid", fgColor="E9F1F8")
+        cell.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True,
+                                   textRotation=0, shrink_to_fit=False)
+    ws["L12"].font = Font(name="メイリオ", size=12, bold=True, color="FFFFFF")
+    ws["L12"].alignment = Alignment(horizontal="center", vertical="center")
 
 
 def engineer_sheet(wb, updated: str, sections: dict[str, str]) -> None:
@@ -345,6 +368,7 @@ def engineer_sheet(wb, updated: str, sections: dict[str, str]) -> None:
         raise ValueError("README に案件がありません")
     projects = [entry for entry in entries if not entry.side_job] + [entry for entry in entries if entry.side_job]
     ws, styles, merges = prepare_template(wb)
+    style_phase_header(ws)
     ws.merge_cells("M1:S1")
     put(ws, "M1", updated)
     ws["M1"].font = Font(name="メイリオ", size=11)
@@ -365,10 +389,8 @@ def engineer_sheet(wb, updated: str, sections: dict[str, str]) -> None:
                                text_height(ws, ws[f"I{row}"].value, 9, 19)))
     for row in (8, 9, 10):
         row_height(ws, row, text_height(ws, ws[f"D{row}"].value, 4, 19))
-    for row, height in ((1, 24), (7, 10), (11, 10), (12, 26), (13, 105)):
+    for row, height in ((1, 24), (7, 10), (11, 10), (12, 26), (13, 46)):
         row_height(ws, row, height)
-    for column in range(12, 20):
-        ws.cell(13, column).alignment = Alignment(horizontal="center", vertical="center", textRotation=90)
 
     # A3 横で幅を1ページに収める。3行の案件ブロックをページの途中で切らない。
     scale = min(1.0, (1190.55 - 36) / column_points(ws, 2, 19))
@@ -416,7 +438,11 @@ def engineer_sheet(wb, updated: str, sections: dict[str, str]) -> None:
         put(ws, f"C{row + 2}", project.duration)
         for column, marked in zip("LMNOPQRS", phase_marks(fields["工程/作業"])):
             cell = put(ws, f"{column}{row}", "●" if marked else None)
+            cell.font = Font(name="メイリオ", size=18, bold=True, color="000000")
             cell.alignment = Alignment(horizontal="center", vertical="center")
+            fill = PatternFill("solid", fgColor="E9F1F8" if marked else "FFFFFF")
+            for offset in range(3):
+                ws[f"{column}{row + offset}"].fill = fill
         for column in "FG":
             cell = ws[f"{column}{row}"]
             cell.fill = PatternFill("solid", fgColor="EDF3F8")

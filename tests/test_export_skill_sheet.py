@@ -136,6 +136,8 @@ class ExportSkillSheetTest(unittest.TestCase):
         self.assertEqual(result.sheetnames, ["スキルシート（エンジニア）"])
         sheet = result.active
         for column, dimension in source.active.column_dimensions.items():
+            if dimension.min >= 12:
+                continue  # 担当工程の列幅は横書きの見出しに合わせて拡張する。
             actual = sheet.column_dimensions[column]
             self.assertEqual((actual.width, actual.min, actual.max),
                              (dimension.width, dimension.min, dimension.max))
@@ -143,7 +145,8 @@ class ExportSkillSheetTest(unittest.TestCase):
             self.assertIn(region, {str(value) for value in sheet.merged_cells.ranges})
         self.assertEqual(sheet['H12'].value, '言語')
         self.assertEqual(sheet['O13'].value, '実装')
-        self.assertEqual(sheet['P13'].value, '単体テスト')
+        self.assertEqual(sheet['P13'].value.replace('\n', ''), '単体テスト')
+        self.assertEqual(len(sheet.data_validations.dataValidation), 0)
         self.assertNotIn('言語ゲンゴ', all_text(sheet))
         self.assertTrue(sheet.print_area)
         source.close()
