@@ -157,7 +157,8 @@ class ExportSkillSheetTest(unittest.TestCase):
         sheet = book.active
         self.assertEqual(sheet['D4'].value, 'テスト 太郎')
         self.assertEqual(sheet['I5'].value, '38歳')
-        self.assertEqual(sheet['I3'].value, '14年目')
+        self.assertEqual(sheet['I3'].value, '14年目（フリーランス 2017/10 ~ 現在）')
+        self.assertNotIn('フリーランス 2017/10 ~ 現在', sheet['D10'].value)
         content = all_text(sheet)
         self.assertIn('2026/10 更新', content)
         self.assertNotIn('基本リモード', content)

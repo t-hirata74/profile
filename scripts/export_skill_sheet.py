@@ -450,12 +450,16 @@ def engineer_sheet(wb, updated: str, sections: dict[str, str]) -> None:
     ws["M1"].alignment = Alignment(horizontal="right", vertical="center")
     for address, key in PROFILE_CELLS.items():
         put(ws, address, profile[key])
+    career = skills.get("キャリア", [])
+    if career:
+        put(ws, "I3", profile["キャリア年数"] + "（" + "、".join(career) + "）")
     put(ws, "D5", profile["最寄駅"] + " / " + profile["稼働希望"])
     put(ws, "D6", "\n".join(skills["業務資格"]))
     put(ws, "D8", plain(sections[SECTIONS[1]]))
     put(ws, "D9", plain(sections[SECTIONS[2]]))
     put(ws, "D10", "\n".join("・" + category + "：" + "、".join(items)
-                              for category, items in skills.items() if category != "業務資格"))
+                              for category, items in skills.items()
+                              if category not in {"業務資格", "キャリア"}))
     for row in (3, 4, 5, 6):
         row_height(ws, row, max(text_height(ws, ws[f"D{row}"].value, 4, 6),
                                text_height(ws, ws[f"I{row}"].value, 9, 19)))
