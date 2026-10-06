@@ -1,28 +1,17 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Claude Codeは、作業前に[AGENTS.md](AGENTS.md)を読み、共通のコンテンツ規約・正本の扱い・GitHub操作方針に従う。
 
 ## リポジトリ概要
 
-このリポジトリは**職務経歴書（スキルシート）**を管理するためのものです。アプリケーションコードやビルドシステム、テストスイートは含まれておらず、すべてMarkdownで記述されています。
+このリポジトリは日本語の職務経歴書（スキルシート）を管理する。Markdownを正本とし、指定のExcel書式へ転記するPythonスクリプトと検証用テストを含む。
 
-## 構成
+## 作業の進め方
 
-- `README.md` — メインのスキルシート。プロフィール、スキル一覧、案件経歴を記載
-- `project/main-job/` — 本業案件の詳細（ファイル名は `YYYYMM-YYYYMM.md` の期間形式）
-- `project/side-job/` — 副業案件の詳細（同上の命名規則）
+1. プロフィール・スキル・案件の要約は`README.md`、案件詳細は`project/main-job/`または`project/side-job/`で更新する。
+2. READMEの更新年月、案件の期間・区分・詳細リンクを確認する。経験年数や担当工程は記載された事実に基づく。
+3. `python scripts/export_skill_sheet.py`で`excel/skill-sheet.xlsx`を再生成する。
+4. `python scripts/export_skill_sheet.py --check`と`python -m unittest discover -s tests -v`を実行し、Excelの表示も確認する。
+5. 正本と生成Excelを同じPRに含める。
 
-## コンテンツの規約
-
-- すべて**日本語**で記述する
-- プロジェクトファイルは開始〜終了の期間で命名: `YYYYMM-YYYYMM.md`
-- READMEの案件一覧は新しい順に並べ、`project/`配下の詳細ファイルへリンクする
-- スキルレベルは経験年数で表記する
-- READMEの先頭行に更新日スタンプを記載する（例: `2026/3 更新`）
-
-## 編集ガイドライン
-
-- README更新時は先頭の更新日スタンプを現在の日付に合わせる
-- 進行中の案件は`【現案件】`セクションに記載し、終了後は`【過去案件】`へ移動して詳細ファイルへのリンクを付ける
-- 案件情報のフォーマットは既存エントリに合わせる（担当、言語、FW/ライブラリ、DB、インフラ、その他、コミュニケーション、工程/作業、開発手法、チーム体制）
-- 年齢（年齢）やキャリア年数（キャリア年数）は必要に応じて更新する
+原本Excelは過去の経歴を含む書式見本として保持し、最新経歴の情報源にしない。セットアップ、項目追加、案件終了時の手順は[スキルシート管理ガイド](docs/skill-sheet-management.md)を参照する。
