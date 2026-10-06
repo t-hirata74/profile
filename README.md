@@ -1,4 +1,4 @@
-2026/7 更新
+2026/10 更新
 # スキルシート
 
 ## 【プロフィール】
@@ -122,7 +122,7 @@
   - FW/ライブラリ：Ruby on Rails、React
   - DB：MySQL
   - インフラ：AWS
-  - エディタ/IDE：Cursor
+  - エディタ/IDE：Cursor、Orca
   - AIエージェント：Cursor, Claude Code
   - 生成AI：Amazon Bedrock(Claude)
   - その他：Git、GitHub、Docker、GraphQL、Rollbar、Langfuse
