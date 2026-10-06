@@ -6,7 +6,7 @@ on:
     paths:
       - 'README.md'
       - 'project/**'
-      - 'excel/skill-sheet.xlsx'
+      - 'excel/**'
       - 'scripts/**'
       - 'tests/**'
       - 'requirements.txt'
@@ -16,7 +16,7 @@ on:
     paths:
       - 'README.md'
       - 'project/**'
-      - 'excel/skill-sheet.xlsx'
+      - 'excel/**'
       - 'scripts/**'
       - 'tests/**'
       - 'requirements.txt'

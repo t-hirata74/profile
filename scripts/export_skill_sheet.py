@@ -10,11 +10,13 @@ from io import BytesIO
 from pathlib import Path
 from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 
-from openpyxl import Workbook
+from openpyxl import load_workbook
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.pagebreak import Break
 from openpyxl.worksheet.page import PageMargins
+from openpyxl.cell.cell import MergedCell
+from copy import copy
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "excel/skill-sheet.xlsx"
@@ -142,51 +144,6 @@ def wrapped_lines(text, width):
                for line in str(text or "").split("\n"))
 
 
-def overview(wb, updated, sections):
-    ws = wb.create_sheet("スキルシート")
-    for column, width in zip("ABCD", (17, 39, 17, 39)):
-        ws.column_dimensions[column].width = width
-    # 新規シートの空 A1 は意図的に使い、タイトルを先頭へ配置する。
-    styled_cell(ws, 1, 1, "スキルシート", header=True)
-    ws.merge_cells("A1:D1")
-    ws.row_dimensions[1].height = 34
-    merged_row(ws, updated, 4, height=24)
-    profile = {}
-    for line in sections[SECTIONS[0]].splitlines():
-        if line.strip().startswith("|"):
-            cells = [plain(c.strip()) for c in line.strip().strip("|").split("|")]
-            if len(cells) != 2:
-                raise ValueError("プロフィール表は2列で記述してください")
-            if cells[0] != "項目名" and not re.fullmatch(r":?-+:?", cells[0]):
-                profile[cells[0]] = cells[1]
-    rows = [(("氏名", profile.get("氏名")), ("フリガナ", profile.get("フリガナ"))),
-            (("最寄駅", profile.get("最寄駅")), ("学歴", profile.get("学歴")))]
-    pairs = list(profile.items())
-    rows += [(pairs[i], pairs[i + 1] if i + 1 < len(pairs) else ("", None))
-             for i in range(0, len(pairs), 2)]
-    for left, right in rows:
-        row = ws.max_row + 1
-        for col, (label, value) in zip((1, 3), (left, right)):
-            styled_cell(ws, row, col, label, shade=True)
-            styled_cell(ws, row, col + 1, value)
-        ws.row_dimensions[row].height = max(30, max(wrapped_lines(p[1], 36) for p in (left, right)) * 17 + 10)
-    merged_row(ws, "空欄はMarkdownに情報がない項目です。", 4, height=24)
-    parts = re.split(r"^### (.+)\s*$", sections[SECTIONS[2]], flags=re.MULTILINE)
-    skill_parts = dict(zip(parts[1::2], parts[2::2]))
-    for title in ("キャリア", "業務資格"):
-        merged_row(ws, title, 4, header=True)
-        for line in skill_parts.get(title, "").splitlines():
-            if line.strip():
-                merged_row(ws, plain(line.strip().removeprefix("- ")), 4, height=26)
-    merged_row(ws, "職務要約・自己PR", 4, header=True)
-    for paragraph in sections[SECTIONS[1]].strip().split("\n\n"):
-        text = plain(paragraph.strip())
-        if text:
-            merged_row(ws, text, 4, height=wrapped_lines(text, 103) * 17 + 12)
-    merged_row(ws, "本業経歴 / 副業経歴 / スキル一覧 / 案件詳細 を別シートに掲載しています。", 4, height=28)
-    return ws
-
-
 def projects(text):
     result = []
     for line in text.splitlines():
@@ -203,69 +160,166 @@ def projects(text):
     return result
 
 
-def careers(wb, name, updated, entries):
-    ws = wb.create_sheet(name)
-    widths = (17, 54, 18, 16, 13, 22, 28)
-    for column, width in zip("ABCDEFG", widths):
-        ws.column_dimensions[column].width = width
-    styled_cell(ws, 1, 1, name + " — " + updated, header=True)
-    ws.merge_cells("A1:G1")
-    ws.row_dimensions[1].height = 32
-    merged_row(ws, "期間・経験・担当工程はMarkdownの記載を使用。詳細な取り組みは「案件詳細」を参照。", 7, height=26)
-    page_height = 26
-    for index, entry in enumerate(entries, 1):
+def engineer_sheet(wb, updated, sections):
+    """指定された2026年5月版のセル配置・結合を保って最新情報を転記する。"""
+    ws = wb.active
+    ws.title = "スキルシート（エンジニア）"
+    profile = {}
+    for line in sections[SECTIONS[0]].splitlines():
+        if not line.strip().startswith("|"):
+            continue
+        cells = [plain(c.strip()) for c in line.strip().strip("|").split("|")]
+        if len(cells) != 2:
+            raise ValueError("プロフィール表は2列で記述してください")
+        if cells[0] != "項目名" and not re.fullmatch(r":?-+:?", cells[0]):
+            profile[cells[0]] = cells[1]
+    placements = {"D3": "フリガナ", "D4": "氏名", "I3": "キャリア年数",
+                  "I4": "性別", "I5": "年齢", "I6": "学歴"}
+    for cell, key in placements.items():
+        ws[cell] = profile.get(key, "")
+    ws["D5"] = " / ".join(filter(None, (profile.get("最寄駅"), profile.get("稼働希望"))))
+    ws.merge_cells("M1:S1")
+    ws["M1"] = updated
+    ws["M1"].font = Font(name="メイリオ", size=11)
+    ws["M1"].alignment = Alignment(horizontal="right", vertical="center")
+    ws.row_dimensions[1].height = 24
+    parts = re.split(r"^### (.+)\s*$", sections[SECTIONS[2]], flags=re.MULTILINE)
+    categories = dict(zip(parts[1::2], parts[2::2]))
+    ws["D6"] = "\n".join(plain(line.strip()[2:]) for line in categories.get("業務資格", "").splitlines()
+                           if line.strip().startswith("- "))
+    ws["D8"] = plain(sections[SECTIONS[1]].strip())
+    # 新たな自己評価は作らず、現在案件の担当・技術とプロフィールを要点として表示。
+    current = projects(sections[SECTIONS[3]])
+    fields = dict(current[0]["fields"]) if current else {}
+    strengths = ["担当：" + fields.get("担当", "記載なし"),
+                 "言語：" + fields.get("言語", "記載なし"),
+                 "FW/ライブラリ：" + fields.get("FW/ライブラリ", "記載なし"),
+                 "インフラ：" + fields.get("インフラ", "記載なし")]
+    strengths += [key + "：" + value for key, value in profile.items()
+                  if key not in set(placements.values()) | {"最寄駅", "稼働希望"}]
+    ws["D9"] = "\n".join(strengths)
+    skill_lines = []
+    for category, content in categories.items():
+        if category in ("キャリア", "業務資格"):
+            continue
+        items = [plain(line.strip()[2:]) for line in content.splitlines() if line.strip().startswith("- ")]
+        skill_lines.append("・" + category + "：" + "、".join(items))
+    ws["D10"] = "\n".join(skill_lines)
+    ws["B9"] = "得意分野・現案件"
+    for row, cell in [(6, "D6"), (8, "D8"), (9, "D9"), (10, "D10")]:
+        width = 82 if row == 6 else 198
+        height = wrapped_lines(ws[cell].value, width) * 14 + 12
+        if height > 409:
+            raise ValueError(f"概要の表示量が行高上限を超えています: {cell}")
+        ws.row_dimensions[row].height = max(32, height)
+    ws.row_dimensions[10].height = max(180, ws.row_dimensions[10].height + 35)
+    for row in (3, 4, 5):
+        ws.row_dimensions[row].height = 32
+    ws.row_dimensions[13].height = 92
+    for col in range(12, 20):
+        ws.cell(13, col).alignment = Alignment(horizontal="center", vertical="center", textRotation=90)
+    # 空テンプレートの1案件分のスタイルを取り、案件数に応じて同じ構造を複製する。
+    block_cells = [(r - 14, c.column, c.value, copy(c._style))
+                   for r in range(14, 17) for c in ws[r] if not isinstance(c, MergedCell)]
+    merges = [(m.min_row - 14, m.max_row - 14, m.min_col, m.max_col)
+              for m in ws.merged_cells.ranges if m.min_row >= 14]
+    main = current + projects(sections[SECTIONS[4]])
+    side = projects(sections[SECTIONS[5]])
+    row = 14
+    # 印刷時に概要と経歴を分け、各ページで表の見出しを繰り返す。
+    ws.row_breaks.append(Break(id=11))
+    page_height = 0
+    for index, entry in enumerate(main + side, 1):
+        if index == len(main) + 1:
+            for col in range(2, 20):
+                styled_cell(ws, row, col, None, header=True)
+            ws.merge_cells(start_row=row, start_column=2, end_row=row, end_column=19)
+            ws.cell(row, 2, "以降は副業案件です")
+            ws.row_dimensions[row].height = 30
+            ws.row_breaks.append(Break(id=row - 1))
+            row += 1
+            page_height = 30
+        if row != 14:
+            for offset, col, value, style in block_cells:
+                cell = ws.cell(row + offset, col, value)
+                cell._style = copy(style)
+            for first, last, start, end in merges:
+                ws.merge_cells(start_row=row + first, end_row=row + last,
+                               start_column=start, end_column=end)
         fields = dict(entry["fields"])
         title = entry["title"]
         period = re.search(r"[（(](\d{4}年.+?)[）)]", title)
-        body = "担当業務\n" + fields.get("工程/作業", "記載なし")
-        body += "\n\n開発手法\n" + fields.get("開発手法", "記載なし")
-        role = fields.get("担当", "記載なし")
-        if fields.get("チーム体制"):
-            role += "\n\nチーム構成\n" + fields["チーム体制"]
-        tools = []
+        dates = re.findall(r"(\d{4})年(\d+)月", period[1] if period else "")
+        start = "/".join((dates[0][0], dates[0][1].zfill(2))) if dates else ""
+        end = "/".join((dates[1][0], dates[1][1].zfill(2))) if len(dates) > 1 else "現在" if dates else ""
+        duration = re.search(r"[：:]([０-９0-9]+ヶ月)", period[1] if period else "")
+        project_name = title[:period.start()] if period else title
+        # タイトル・期間の原文も本文に保持し、推測で月数を計算しない。
+        narrative = "≪プロジェクト内容≫\n" + title
+        narrative += "\n\n≪担当業務≫\n" + fields.get("工程/作業", "記載なし")
+        if fields.get("開発手法"):
+            narrative += "\n\n≪開発手法≫\n" + fields["開発手法"]
         consumed = {"担当", "言語", "DB", "インフラ", "工程/作業", "開発手法", "チーム体制"}
-        for key, value in entry["fields"]:
-            if key not in consumed:
-                tools.append(key + "：" + (value or "記載なし"))
-        values = [period[1] if period else "記載なし", body, role,
-                  fields.get("言語", "記載なし"), fields.get("DB", "記載なし"),
-                  fields.get("インフラ", "") or "記載なし", "\n".join(tools)]
-        # 項目内の列挙だけ改行し、各値の単語・表記は変更しない。
-        for i in (2, 3, 4, 5):
-            values[i] = values[i].replace("、", "、\n")
-        height = max(125, max(wrapped_lines(v, w - 2) for v, w in zip(values, widths)) * 15 + 16)
-        # 単一行の高さ上限による表示切れを事前に検知する。
-        if height > 400:
-            raise ValueError(f"案件の表示量が1行の上限を超えています。行分割が必要です: {title}")
-        heading_height = max(32, wrapped_lines(title, 150) * 17 + 10)
-        phase_height = max(32, wrapped_lines(fields.get("工程/作業", ""), 140) * 17 + 10)
-        card_height = height + heading_height + 30 + phase_height + (22 if entry["url"] else 0) + 12
-        if page_height + card_height > 490 and page_height > 26:
-            ws.row_breaks.append(Break(id=ws.max_row))
+        tools = "\n".join(key + "：" + value for key, value in entry["fields"] if key not in consumed)
+        values = {"B": index, "C": start, "D": "−", "E": end,
+                  "F": "■" + project_name, "G": fields.get("担当", ""),
+                  "H": fields.get("言語", ""), "I": fields.get("DB", ""),
+                  "J": fields.get("インフラ", "") or "—", "K": tools}
+        for col, value in values.items():
+            ws[f"{col}{row}"] = value
+        ws[f"F{row+1}"] = narrative
+        ws[f"G{row+1}"] = "チーム構成\n" + fields.get("チーム体制", "記載なし")
+        ws[f"C{row+2}"] = duration[1] if duration else "随時更新" if end == "現在" else ""
+        phase_text = fields.get("工程/作業", "")
+        phase_tokens = re.split(r"[、,]", phase_text)
+        phase_checks = ["要件定義" in phase_text, "基本設計" in phase_text,
+                        "詳細設計" in phase_text, any(t.strip() in ("開発", "実装") for t in phase_tokens),
+                        "単体テスト" in phase_text, "結合テスト" in phase_text,
+                        "総合テスト" in phase_text, "保守運用" in phase_text or "保守・運用" in phase_text]
+        for col, experienced in enumerate(phase_checks, 12):
+            cell = ws.cell(row, col, "●" if experienced else None)
+            cell.alignment = Alignment(horizontal="center", vertical="center")
+        title_height = max(36, wrapped_lines(project_name, 70) * 14 + 10,
+                           wrapped_lines(fields.get("担当", ""), 16) * 14 + 10)
+        technical_height = max(wrapped_lines(values[col], width) for col, width in
+                               [("H", 19), ("I", 17), ("J", 8), ("K", 18)]) * 14 + 10
+        body_height = max(wrapped_lines(narrative, 70) * 14 + 10,
+                          wrapped_lines(ws[f"G{row+1}"].value, 16) * 14 + 10,
+                          technical_height - title_height - 24)
+        if body_height > 409:
+            raise ValueError(f"案件の行高上限を超えています: {title}")
+        total = title_height + body_height + 24
+        if page_height and page_height + total > 590:
+            ws.row_breaks.append(Break(id=row - 1))
             page_height = 0
-        heading = merged_row(ws, f"{index:02d}  {title}", 7, header=True,
-                             height=heading_height)
-        row = ws.max_row + 1
-        for col, label in enumerate(("期間", "業務内容", "役割・体制", "言語", "DB", "インフラ", "FW・ツール等"), 1):
-            styled_cell(ws, row, col, label, header=True)
-        ws.row_dimensions[row].height = 30
-        row += 1
-        for col, value in enumerate(values, 1):
-            styled_cell(ws, row, col, value, shade=index % 2 == 0)
-        ws.row_dimensions[row].height = height
-        row += 1
-        styled_cell(ws, row, 1, "担当工程", shade=True)
-        styled_cell(ws, row, 2, fields.get("工程/作業", "記載なし"))
-        ws.merge_cells(start_row=row, start_column=2, end_row=row, end_column=7)
-        ws.row_dimensions[row].height = phase_height
+        ws.row_dimensions[row].height = title_height
+        ws.row_dimensions[row+1].height = body_height
+        ws.row_dimensions[row+2].height = 24
+        for c in (f"F{row}", f"G{row}"):
+            ws[c].fill = PatternFill("solid", fgColor="EDF3F8")
+            ws[c].font = Font(name="メイリオ", size=11, bold=True, color="17365D")
         if entry["url"]:
-            link_row = merged_row(ws, "案件詳細をGitHubで開く", 7, height=22)
-            ws.cell(link_row, 1).hyperlink = entry["url"]
-            ws.cell(link_row, 1).font = Font(name="Yu Gothic", size=10, color="0563C1", underline="single")
-        ws.append([None])
-        ws.row_dimensions[ws.max_row].height = 12
-        page_height += card_height
+            ws[f"F{row}"].hyperlink = entry["url"]
+        page_height += total
+        row += 3
+    ws.merge_cells(start_row=row, start_column=2, end_row=row, end_column=19)
+    ws.cell(row, 2, "●：Markdownに明記された担当工程。空欄：未記載（経験なしを意味しません）。")
+    ws.row_dimensions[row].height = 26
+    # 全セルを文字列として保持し、結合セルを含めて書式を整える。
+    for cells in ws:
+        for cell in cells:
+            if isinstance(cell.value, str):
+                cell.data_type = "s"
+            if not isinstance(cell, MergedCell) and cell.row != 13 and not (cell.row >= 14 and cell.column >= 12):
+                original = cell.alignment
+                cell.alignment = Alignment(horizontal=original.horizontal or "left",
+                                           vertical="top", wrap_text=True,
+                                           textRotation=original.textRotation or 0)
     ws.page_setup.orientation = "landscape"
+    ws.page_setup.paperSize = ws.PAPERSIZE_A3
+    ws.print_title_rows = "12:13"
+    ws.print_area = f"B1:S{row}"
+    ws.freeze_panes = "F14"
     return ws
 
 
@@ -294,16 +348,13 @@ def skills(wb, updated, text):
 
 def workbook_bytes(root=ROOT):
     updated, sections, details = sources(root)
-    wb = Workbook()
-    wb.remove(wb.active)
+    wb = load_workbook(root / "excel/templates/skill-sheet-template.xlsx")
     wb.properties.creator = "profile"
     wb.properties.title = "スキルシート"
     wb.properties.created = FIXED_TIME
     wb.properties.modified = FIXED_TIME
 
-    overview(wb, updated, sections)
-    careers(wb, "本業経歴", updated, projects(sections[SECTIONS[3]]) + projects(sections[SECTIONS[4]]))
-    careers(wb, "副業経歴", updated, projects(sections[SECTIONS[5]]))
+    engineer_sheet(wb, updated, sections)
     skills(wb, updated, sections[SECTIONS[2]])
 
     ws = wb.create_sheet("案件詳細")
@@ -317,11 +368,18 @@ def workbook_bytes(root=ROOT):
     ws.column_dimensions["A"].width = 28
     ws.column_dimensions["B"].width = 95
     for ws in wb:
+        if ws.title == "スキルシート（エンジニア）":
+            ws.sheet_view.showGridLines = False
+            ws.sheet_properties.pageSetUpPr.fitToPage = True
+            ws.page_setup.fitToWidth = 1
+            ws.page_setup.fitToHeight = 0
+            ws.page_margins = PageMargins(left=0.25, right=0.25, top=0.4, bottom=0.4, header=0.15, footer=0.15)
+            ws.oddFooter.center.text = "&P / &N"
+            continue
         ws.freeze_panes = "B2"
         ws.sheet_view.showGridLines = False
         ws.sheet_properties.pageSetUpPr.fitToPage = True
-        if ws.title not in ("本業経歴", "副業経歴"):
-            ws.page_setup.orientation = "portrait"
+        ws.page_setup.orientation = "portrait"
         ws.page_setup.paperSize = ws.PAPERSIZE_A4
         ws.page_setup.fitToWidth = 1
         ws.page_setup.fitToHeight = 0

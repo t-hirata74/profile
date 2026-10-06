@@ -9,12 +9,16 @@
 - `project/main-job/`、`project/side-job/`: 案件詳細（`YYYYMM-YYYYMM.md`）
 - `excel/skill-sheet.xlsx`: 提出用の標準 Excel（Git 管理する）
 - `scripts/export_skill_sheet.py`: Markdown から標準 Excel を生成
+- `excel/templates/skill-sheet-template.xlsx`: 個人情報・経歴を含まない指定書式の空テンプレート
 - `requirements.txt`: Excel 生成の依存関係
 - `docs/skill-sheet-management.md`: 更新手順、提出先指定フォーマットの扱い
 
-標準Excelはアイデンティティーのエンジニア用スキルシートを参考にした5シート構成。
-本業・副業を分け、期間・業務内容・役割・技術・担当工程を表形式で出力する。
-参考ファイルの見本データは使わず、氏名等の未記載項目や工程の経験を推測で補わない。
+標準Excelの主シートは、ユーザー指定の
+`スキルシート_当てはめ済み_202605_最寄駅修正.xlsx` の書式を使う。
+セル配置・結合・列幅と担当工程の8列を維持し、シート内で本業と副業を区分する。
+`excel/templates/skill-sheet-template.xlsx` は経歴と個人情報を除いた書式だけのテンプレート。
+補助シートはスキル一覧と案件詳細の2つ。5月版の古い年齢・期間は引き継がない。
+氏名・最寄駅等もREADMEを正本とし、担当工程の丸印はMarkdownに明記された内容だけに付ける。
 書式改善の際もMarkdownにある経歴情報を欠落させない。
 
 ## 経歴編集のルール

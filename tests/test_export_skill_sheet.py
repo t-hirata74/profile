@@ -1,6 +1,7 @@
 import importlib.util
 import re
 import tempfile
+import shutil
 import unittest
 from io import BytesIO
 from pathlib import Path
@@ -16,7 +17,7 @@ spec.loader.exec_module(exporter)
 class ExportTest(unittest.TestCase):
     def test_all_source_lines_and_project_links_are_preserved(self):
         wb = load_workbook(BytesIO(exporter.workbook_bytes()))
-        self.assertEqual(wb.sheetnames, ["スキルシート", "本業経歴", "副業経歴", "スキル一覧", "案件詳細"])
+        self.assertEqual(wb.sheetnames, ["スキルシート（エンジニア）", "スキル一覧", "案件詳細"])
         values = [str(c.value) for ws in wb for row in ws for c in row if c.value is not None]
         all_text = "\n".join(values)
         _, sections, details = exporter.sources(ROOT)
@@ -42,21 +43,23 @@ class ExportTest(unittest.TestCase):
                 self.assertIn(normalized, re.sub(r"[\s:：]", "", all_text))
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
         links = [url for _, url in exporter.LINK.findall(readme) if "/project/" in url]
-        actual = [c.hyperlink.target for name in ("本業経歴", "副業経歴") for row in wb[name] for c in row if c.hyperlink]
+        actual = [c.hyperlink.target for row in wb.active for c in row if c.hyperlink]
         self.assertEqual(actual, links)
         for path in details:
             self.assertIn(path.relative_to(ROOT).as_posix(), values)
         for ws in wb:
             self.assertTrue(ws.print_area)
             self.assertEqual(ws.page_setup.fitToWidth, 1)
-            self.assertEqual(ws.freeze_panes, "B2")
-        profile = wb["スキルシート"]
-        self.assertEqual(profile["A3"].value, "氏名")
-        self.assertIsNone(profile["B3"].value)
-        self.assertIsNone(profile["D3"].value)
-        self.assertEqual(wb["本業経歴"].page_setup.orientation, "landscape")
-        self.assertEqual(wb["副業経歴"].page_setup.orientation, "landscape")
-        self.assertTrue(wb["本業経歴"].row_breaks.brk)
+        profile = wb.active
+        self.assertEqual(profile["D3"].value, "ヒラタ トモアキ")
+        self.assertEqual(profile["D4"].value, "平田 智昭")
+        self.assertIn("東海道線 平塚駅", profile["D5"].value)
+        self.assertEqual(profile["I5"].value, "38歳")
+        self.assertEqual(profile["I3"].value, "14年目")
+        self.assertEqual(profile.page_setup.orientation, "landscape")
+        self.assertEqual(profile.freeze_panes, "F14")
+        self.assertIn("D3:F3", list(map(str, profile.merged_cells.ranges)))
+        self.assertTrue(profile.row_breaks.brk)
         self.assertTrue(wb["スキル一覧"].auto_filter.ref)
         self.assertNotIn("テクフリ 太郎", all_text)
 
@@ -67,6 +70,7 @@ class ExportTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             (root / "project").mkdir()
+            shutil.copytree(ROOT / "excel/templates", root / "excel/templates")
             readme = (ROOT / "README.md").read_text(encoding="utf-8")
             (root / "README.md").write_text(readme, encoding="utf-8")
             detail = root / "project/test.md"
@@ -87,6 +91,22 @@ class ExportTest(unittest.TestCase):
         self.assertEqual(loaded.active["A1"].value, "=1+1")
         self.assertEqual(loaded.active["A1"].data_type, "s")
         self.assertEqual(loaded.active["B2"].data_type, "s")
+
+    def test_completed_side_job_and_explicit_phase_marks(self):
+        ws = load_workbook(BytesIO(exporter.workbook_bytes())).active
+        # 5月版にあったCRMの「現在」を引き継がず、最新の終了日と副業区分を使用する。
+        self.assertEqual(ws["B44"].value, "以降は副業案件です")
+        self.assertIn("CRM", ws["F45"].value)
+        self.assertEqual(ws["E45"].value, "2026/06")
+        self.assertEqual(ws["C47"].value, "11ヶ月")
+        # 現案件の「設計」だけで基本設計・詳細設計に丸を付けない。
+        self.assertIsNone(ws["M14"].value)
+        self.assertIsNone(ws["N14"].value)
+        self.assertEqual([ws[f"{c}14"].value for c in "OPQ"], ["●", "●", "●"])
+        template = load_workbook(ROOT / "excel/templates/skill-sheet-template.xlsx").active
+        self.assertIsNone(template["D4"].value)
+        self.assertIsNone(template["F14"].value)
+        self.assertTrue(all(c.data_type != "f" for row in ws for c in row))
 
 
 if __name__ == "__main__":
