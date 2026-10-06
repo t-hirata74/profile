@@ -16,10 +16,15 @@ spec.loader.exec_module(exporter)
 class ExportTest(unittest.TestCase):
     def test_all_source_lines_and_project_links_are_preserved(self):
         wb = load_workbook(BytesIO(exporter.workbook_bytes()))
-        self.assertEqual(wb.sheetnames, ["プロフィール・自己PR", "スキル経験", "案件経歴", "案件詳細"])
+        self.assertEqual(wb.sheetnames, ["スキルシート", "本業経歴", "副業経歴", "スキル一覧", "案件詳細"])
         values = [str(c.value) for ws in wb for row in ws for c in row if c.value is not None]
         all_text = "\n".join(values)
         _, sections, details = exporter.sources(ROOT)
+        for line in sections[exporter.SECTIONS[0]].splitlines():
+            if line.strip().startswith("|"):
+                cells = [c.strip() for c in line.strip().strip("|").split("|")]
+                if cells[0] != "項目名" and not re.fullmatch(r":?-+:?", cells[0]):
+                    self.assertIn(cells[1], all_text)
         texts = [sections[name] for name in exporter.SECTIONS]
         texts += [p.read_text(encoding="utf-8") for p in details]
         for text in texts:
@@ -29,12 +34,15 @@ class ExportTest(unittest.TestCase):
                     continue
                 line = re.sub(r"^#+\s*|^-\s*", "", line)
                 line = exporter.plain(line)
+                # 案件のラベルは表見出しへ集約し、値が保持されることを確認する。
+                if re.match(r"^[^:：()（）]+[:：]", line):
+                    line = re.split(r"[:：]", line, maxsplit=1)[1]
                 # 項目ラベルと値のセル分割を許容して、本文の欠落を検出する。
                 normalized = re.sub(r"[\s:：]", "", line)
                 self.assertIn(normalized, re.sub(r"[\s:：]", "", all_text))
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
         links = [url for _, url in exporter.LINK.findall(readme) if "/project/" in url]
-        actual = [c.hyperlink.target for row in wb["案件経歴"] for c in row if c.hyperlink]
+        actual = [c.hyperlink.target for name in ("本業経歴", "副業経歴") for row in wb[name] for c in row if c.hyperlink]
         self.assertEqual(actual, links)
         for path in details:
             self.assertIn(path.relative_to(ROOT).as_posix(), values)
@@ -42,6 +50,15 @@ class ExportTest(unittest.TestCase):
             self.assertTrue(ws.print_area)
             self.assertEqual(ws.page_setup.fitToWidth, 1)
             self.assertEqual(ws.freeze_panes, "B2")
+        profile = wb["スキルシート"]
+        self.assertEqual(profile["A3"].value, "氏名")
+        self.assertIsNone(profile["B3"].value)
+        self.assertIsNone(profile["D3"].value)
+        self.assertEqual(wb["本業経歴"].page_setup.orientation, "landscape")
+        self.assertEqual(wb["副業経歴"].page_setup.orientation, "landscape")
+        self.assertTrue(wb["本業経歴"].row_breaks.brk)
+        self.assertTrue(wb["スキル一覧"].auto_filter.ref)
+        self.assertNotIn("テクフリ 太郎", all_text)
 
     def test_same_sources_are_reproducible(self):
         self.assertEqual(exporter.workbook_bytes(), exporter.workbook_bytes())

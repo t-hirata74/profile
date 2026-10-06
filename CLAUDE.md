@@ -5,6 +5,9 @@
 
 @AGENTS.md
 
+標準Excelはエンジニア用の参考書式に基づく5シート構成です。
+書式・項目対応と未記載情報の扱いは `docs/skill-sheet-management.md` を参照してください。
+
 ## Claude Code の作業手順
 
 - 経歴の正本は `README.md` と `project/` 配下の Markdown です。
