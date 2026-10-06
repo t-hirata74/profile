@@ -317,3 +317,10 @@
   - エディタ/IDE：VSCode
   - その他：Git、Vagrant、Bootstrap
   - 工程/作業: 受講生サポート、コードレビュー
+
+## スキルシートのファイル管理
+
+- **Markdown**: この README と `project/` 配下の案件詳細が経歴情報の正本です。
+- **Excel**: [標準スキルシート](excel/skill-sheet.xlsx)をダウンロードして使用できます。
+- 更新時は `python scripts/export_skill_sheet.py` で Excel を再生成し、両形式を同じ PR で更新します。
+- セットアップ・検証・提出先指定フォーマットの扱いは[管理手順](docs/skill-sheet-management.md)を参照してください。

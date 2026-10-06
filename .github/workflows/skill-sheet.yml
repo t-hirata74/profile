@@ -1,0 +1,39 @@
+name: Skill sheet Excel
+
+on:
+  pull_request:
+    branches: [master]
+    paths:
+      - 'README.md'
+      - 'project/**'
+      - 'excel/skill-sheet.xlsx'
+      - 'scripts/**'
+      - 'tests/**'
+      - 'requirements.txt'
+      - '.github/workflows/skill-sheet.yml'
+  push:
+    branches: [master]
+    paths:
+      - 'README.md'
+      - 'project/**'
+      - 'excel/skill-sheet.xlsx'
+      - 'scripts/**'
+      - 'tests/**'
+      - 'requirements.txt'
+      - '.github/workflows/skill-sheet.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check-excel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements.txt
+      - run: python -m unittest discover -s tests -v
+      - run: python scripts/export_skill_sheet.py --check
