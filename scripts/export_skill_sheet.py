@@ -23,7 +23,7 @@ os.environ["OPENPYXL_LXML"] = "False"
 from openpyxl import load_workbook
 from openpyxl.cell.cell import ILLEGAL_CHARACTERS_RE, MergedCell
 from openpyxl.packaging.core import DocumentProperties
-from openpyxl.styles import Alignment, Font, PatternFill
+from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils.cell import range_boundaries
 from openpyxl.worksheet.datavalidation import DataValidationList
 from openpyxl.worksheet.page import PageMargins
@@ -40,8 +40,12 @@ SECTIONS = (
     "【現案件】", "【過去案件: フルタイム案件】", "【過去案件: 副業案件】",
 )
 PROFILE_CELLS = {
-    "D4": "稼働希望", "D5": "最寄駅", "I3": "キャリア年数",
-    "I4": "性別", "I5": "年齢", "I6": "学歴",
+    "D4": "年齢", "D5": "最寄駅", "I3": "性別",
+    "I4": "キャリア年数", "I5": "稼働希望", "I6": "学歴",
+}
+PROFILE_LABELS = {
+    "B3": "氏名", "G3": "性別", "B4": "年齢", "G4": "業界経験",
+    "B5": "最寄駅", "G5": "稼働希望", "B6": "資格", "G6": "学歴",
 }
 TECH_FIELDS = {"FW/ライブラリ", "エディタ/IDE", "AIエージェント", "生成AI",
                "その他", "コミュニケーション", "アプリ"}
@@ -415,6 +419,40 @@ def prepare_template(wb):
     return ws, styles, merges
 
 
+def style_header_borders(ws) -> None:
+    """見出しの結合範囲を囲み、濃紺の背景でも項目間の境界を見せる。"""
+    outer = Side(style="medium", color=BLUE_DARK)
+    line = Side(style="thin", color=BLUE_DARK)
+    divider = Side(style="thin", color=BLUE_LIGHT)
+
+    def frame(region: str, *, left=line, right=line, top=line, bottom=line) -> None:
+        first_col, first_row, last_col, last_row = range_boundaries(region)
+        for cells in ws[region]:
+            for cell in cells:
+                cell.border = Border(
+                    left=left if cell.column == first_col else None,
+                    right=right if cell.column == last_col else None,
+                    top=top if cell.row == first_row else None,
+                    bottom=bottom if cell.row == last_row else None,
+                )
+        # 結合セルの基点にも四辺を保持し、保存・再読込後も外周を欠かさない。
+        ws.cell(first_row, first_col).border = Border(left=left, right=right, top=top, bottom=bottom)
+
+    frame("B2:S2", left=outer, right=outer, top=outer, bottom=outer)
+    for row in range(3, 7):
+        for first, last in (("B", "C"), ("G", "H")):
+            frame(f"{first}{row}:{last}{row}", left=outer if first == "B" else line,
+                  top=outer if row == 3 else line, bottom=outer if row == 6 else line)
+    for row in (8, 9, 10):
+        frame(f"B{row}:C{row}", left=outer, top=outer, bottom=outer)
+    for region in ("B12:E13", "F12:F13", "G12:G13", "H12:H13", "I12:I13", "J12:J13", "K12:K13"):
+        frame(region, left=outer if region.startswith("B") else divider,
+              right=divider, top=outer, bottom=outer)
+    frame("L12:S12", left=divider, right=outer, top=outer)
+    for column in "LMNOPQRS":
+        frame(f"{column}13:{column}13", right=outer if column == "S" else line, bottom=outer)
+
+
 def style_phase_header(ws) -> None:
     """担当工程を回転なしで読める列幅と2行見出しにする。"""
     for index, (column, label) in enumerate(zip("LMNOPQRS", PHASE_HEADERS), 12):
@@ -448,14 +486,14 @@ def engineer_sheet(wb, updated: str, sections: dict[str, str]) -> None:
     put(ws, "M1", updated)
     ws["M1"].font = Font(name="メイリオ", size=11)
     ws["M1"].alignment = Alignment(horizontal="right", vertical="center")
-    put(ws, "B3", "氏名")
+    for address, label in PROFILE_LABELS.items():
+        put(ws, address, label)
     put(ws, "D3", profile["氏名"] + "（" + profile["フリガナ"] + "）")
-    put(ws, "B4", "稼働希望")
     for address, key in PROFILE_CELLS.items():
         put(ws, address, profile[key])
     career = skills.get("キャリア", [])
     if career:
-        put(ws, "I3", profile["キャリア年数"] + "：" + "、".join(career))
+        put(ws, "I4", profile["キャリア年数"] + "：" + "、".join(career))
     put(ws, "D6", "\n".join(skills["業務資格"]))
     put(ws, "D8", plain(sections[SECTIONS[1]]))
     put(ws, "D9", plain(sections[SECTIONS[2]]))
@@ -575,6 +613,7 @@ def engineer_sheet(wb, updated: str, sections: dict[str, str]) -> None:
     ws.print_area = f"B1:S{row}"
     ws.oddFooter.center.text = "&P / &N"
     apply_blue_theme(ws)
+    style_header_borders(ws)
 
 
 def normalize_archive(raw: BytesIO) -> bytes:

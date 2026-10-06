@@ -149,19 +149,40 @@ class ExportSkillSheetTest(unittest.TestCase):
         self.assertEqual(len(sheet.data_validations.dataValidation), 0)
         self.assertNotIn('言語ゲンゴ', all_text(sheet))
         self.assertTrue(sheet.print_area)
+        header_edges = [
+            ('F12', 'left', 'thin', 'E9F1F8'),
+            ('F13', 'left', 'thin', 'E9F1F8'),
+            ('B2', 'left', 'medium', '17365D'),
+            ('B2', 'top', 'medium', '17365D'),
+            ('S2', 'right', 'medium', '17365D'),
+            ('S2', 'bottom', 'medium', '17365D'),
+        ]
+        for address, edge, style, color in header_edges:
+            with self.subTest(cell=address, edge=edge):
+                border = getattr(sheet[address].border, edge)
+                self.assertEqual(border.style, style)
+                self.assertIsNotNone(border.color)
+                self.assertEqual(border.color.type, 'rgb')
+                self.assertEqual(border.color.rgb[-6:], color)
         source.close()
         result.close()
 
     def test_current_profile_all_projects_and_past_side_job(self):
         book = open_sheet(self.generated)
         sheet = book.active
-        self.assertEqual(sheet['B3'].value, '氏名')
-        self.assertEqual(sheet['D3'].value, 'テスト 太郎（テスト タロウ）')
-        self.assertEqual(sheet['B4'].value, '稼働希望')
-        self.assertEqual(sheet['D4'].value, 'フルリモート')
-        self.assertEqual(sheet['D5'].value, 'テスト駅')
-        self.assertEqual(sheet['I5'].value, '38歳')
-        self.assertEqual(sheet['I3'].value, '14年目：フリーランス 2017/10 ~ 現在')
+        profile_cells = {
+            'B3': '氏名', 'D3': 'テスト 太郎（テスト タロウ）',
+            'G3': '性別', 'I3': '男性',
+            'B4': '年齢', 'D4': '38歳',
+            'G4': '業界経験', 'I4': '14年目：フリーランス 2017/10 ~ 現在',
+            'B5': '最寄駅', 'D5': 'テスト駅',
+            'G5': '稼働希望', 'I5': 'フルリモート',
+            'B6': '資格', 'D6': 'テスト資格',
+            'G6': '学歴', 'I6': 'テスト大学卒',
+        }
+        for address, expected in profile_cells.items():
+            with self.subTest(cell=address):
+                self.assertEqual(sheet[address].value, expected)
         self.assertNotIn('フリーランス 2017/10 ~ 現在', sheet['D10'].value)
         content = all_text(sheet)
         self.assertIn('2026/10 更新', content)
@@ -243,7 +264,7 @@ class ExportSkillSheetTest(unittest.TestCase):
             data = workbook_bytes(root)
             self.assertNotEqual(data, self.generated)
             book = open_sheet(data)
-            self.assertEqual(book.active['I5'].value, '39歳')
+            self.assertEqual(book.active['D4'].value, '39歳')
             self.assertEqual(book.active['D3'].value, '=1+1（テスト タロウ）')
             self.assertEqual(book.active['D3'].data_type, 's')
             self.assertIn('追加した内容を消さずに反映', all_text(book.active))
