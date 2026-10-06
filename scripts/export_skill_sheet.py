@@ -452,7 +452,7 @@ def engineer_sheet(wb, updated: str, sections: dict[str, str]) -> None:
         put(ws, address, profile[key])
     career = skills.get("キャリア", [])
     if career:
-        put(ws, "I3", profile["キャリア年数"] + "（" + "、".join(career) + "）")
+        put(ws, "I3", profile["キャリア年数"] + "：" + "、".join(career))
     put(ws, "D5", profile["最寄駅"] + " / " + profile["稼働希望"])
     put(ws, "D6", "\n".join(skills["業務資格"]))
     put(ws, "D8", plain(sections[SECTIONS[1]]))
