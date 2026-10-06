@@ -453,10 +453,7 @@ def engineer_sheet(wb, updated: str, sections: dict[str, str]) -> None:
     put(ws, "D5", profile["最寄駅"] + " / " + profile["稼働希望"])
     put(ws, "D6", "\n".join(skills["業務資格"]))
     put(ws, "D8", plain(sections[SECTIONS[1]]))
-    displayed = set(PROFILE_CELLS.values()) | {"最寄駅", "稼働希望"}
-    extra = [f"{key}：{value}" for key, value in profile.items() if key not in displayed]
-    strength = plain(sections[SECTIONS[2]])
-    put(ws, "D9", strength + ("\n\n" + "\n".join(extra) if extra else ""))
+    put(ws, "D9", plain(sections[SECTIONS[2]]))
     put(ws, "D10", "\n".join("・" + category + "：" + "、".join(items)
                               for category, items in skills.items() if category != "業務資格"))
     for row in (3, 4, 5, 6):

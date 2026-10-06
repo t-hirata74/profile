@@ -172,9 +172,10 @@ class ExportSkillSheetTest(unittest.TestCase):
         self.assertEqual(sheet.cell(crm, 5).value, '2026/06')
         self.assertEqual(sheet.cell(crm + 2, 3).value, '11ヶ月')
         for text in ['Cursor', 'Orca', 'Langfuse', 'Amazon Transcribe',
-                     'Kotlin 1年未満', '稼働時期', '即日 or 相談',
-                     'テスト大学卒']:
+                     'Kotlin 1年未満', 'テスト大学卒']:
             self.assertIn(text, content)
+        for label in ['エリア：', '稼働時期：', '所属：']:
+            self.assertNotIn(label, sheet['D9'].value)
         self.assertEqual(sum(sheet.cell(row, 6).hyperlink is not None for row in rows), 1)
         book.close()
 
