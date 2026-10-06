@@ -45,8 +45,14 @@ PROFILE_CELLS = {
 }
 TECH_FIELDS = {"FW/ライブラリ", "エディタ/IDE", "AIエージェント", "生成AI",
                "その他", "コミュニケーション", "アプリ"}
+PHASE_NAMES = ("要件定義", "基本設計", "詳細設計", "実装",
+               "単体テスト", "結合テスト", "総合テスト", "保守運用")
 PHASE_HEADERS = ("要件\n定義", "基本\n設計", "詳細\n設計", "実装",
                  "単体\nテスト", "結合\nテスト", "総合\nテスト", "保守\n運用")
+BLUE_DARK = "17365D"
+BLUE_LIGHT = "E9F1F8"
+WHITE = "FFFFFF"
+BLACK = "000000"
 FIXED_TIME = datetime(2000, 1, 1)
 XSI_TYPE = "{http://www.w3.org/2001/XMLSchema-instance}type"
 
@@ -296,6 +302,75 @@ def phase_marks(text: str) -> list[bool]:
             stated("保守運用", "保守・運用", "保守/運用")]
 
 
+def project_phase_marks(fields: dict[str, str]) -> list[bool]:
+    """明示した担当工程を優先し、項目自体がない案件だけ従来の作業説明から判定する。"""
+    if "担当工程" not in fields:
+        return phase_marks(fields["工程/作業"])
+    text = fields["担当工程"].strip()
+    if not text:
+        return [False] * len(PHASE_NAMES)
+    names = {name for name in re.split(r"[、,，\s]+", text) if name}
+    if not names:
+        raise ValueError("担当工程が区切り文字だけです。工程名を記載するか空欄にしてください")
+    unknown = sorted(names - set(PHASE_NAMES))
+    if unknown:
+        raise ValueError("担当工程に未対応の工程名があります: " + "、".join(unknown)
+                         + "（指定可能: " + "、".join(PHASE_NAMES) + "）")
+    return [name in names for name in PHASE_NAMES]
+
+
+def apply_blue_theme(ws) -> None:
+    """罫線の形状・文字サイズ・レイアウトを保ち、生成シートだけを青系に統一する。"""
+    white_fill = PatternFill("solid", fgColor=WHITE)
+
+    def base_style(target, *, marked: bool = False) -> None:
+        target.fill = white_fill
+        font = copy(target.font)
+        font.color = BLACK if marked else BLUE_DARK
+        target.font = font
+        border = copy(target.border)
+        for edge in ("left", "right", "top", "bottom", "diagonal", "vertical", "horizontal", "start", "end"):
+            side = getattr(border, edge)
+            if side is not None and (side.style is not None or side.color is not None):
+                side = copy(side)
+                side.color = BLUE_DARK
+                setattr(border, edge, side)
+        target.border = border
+
+    # 列・行の既定書式に含まれる緑色も置き換える。幅・高さ等は変更しない。
+    for dimension in list(ws.column_dimensions.values()) + list(ws.row_dimensions.values()):
+        base_style(dimension)
+    for cells in ws:
+        for cell in cells:
+            base_style(cell, marked=cell.value == "●")
+
+    def shade(region: str, fill: str, text: str | None = None) -> None:
+        for cells in ws[region]:
+            for cell in cells:
+                cell.fill = PatternFill("solid", fgColor=fill)
+                if text is not None:
+                    font = copy(cell.font)
+                    font.color = text
+                    cell.font = font
+
+    shade("B2:S2", BLUE_DARK, WHITE)
+    for region in ("B3:C6", "G3:H6", "B8:C10"):
+        shade(region, BLUE_LIGHT, BLUE_DARK)
+    shade("B12:K13", BLUE_DARK, WHITE)
+    shade("L12:S12", BLUE_DARK, WHITE)
+    shade("L13:S13", BLUE_LIGHT, BLUE_DARK)
+    for row in range(14, ws.max_row + 1):
+        if ws.cell(row, 2).value == "副業案件":
+            shade(f"B{row}:S{row}", BLUE_DARK, WHITE)
+        elif isinstance(ws.cell(row, 2).value, int):
+            shade(f"B{row}:B{row + 2}", BLUE_DARK, WHITE)
+            shade(f"F{row}:G{row}", BLUE_LIGHT, BLUE_DARK)
+            for column in "LMNOPQRS":
+                if ws[f"{column}{row}"].value == "●":
+                    shade(f"{column}{row}:{column}{row + 2}", BLUE_LIGHT)
+    ws.sheet_properties.tabColor = BLUE_DARK
+
+
 def prepare_template(wb):
     if SHEET_NAME not in wb.sheetnames:
         raise ValueError(f"指定のテンプレートに {SHEET_NAME} シートがありません")
@@ -348,13 +423,13 @@ def style_phase_header(ws) -> None:
         dimension.min = index
         dimension.max = index
         dimension.width = 8.5
-        ws.cell(12, index).fill = PatternFill("solid", fgColor="17365D")
+        ws.cell(12, index).fill = PatternFill("solid", fgColor=BLUE_DARK)
         cell = put(ws, f"{column}13", label)
-        cell.font = Font(name="メイリオ", size=11, bold=True, color="17365D")
-        cell.fill = PatternFill("solid", fgColor="E9F1F8")
+        cell.font = Font(name="メイリオ", size=11, bold=True, color=BLUE_DARK)
+        cell.fill = PatternFill("solid", fgColor=BLUE_LIGHT)
         cell.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True,
                                    textRotation=0, shrink_to_fit=False)
-    ws["L12"].font = Font(name="メイリオ", size=12, bold=True, color="FFFFFF")
+    ws["L12"].font = Font(name="メイリオ", size=12, bold=True, color=WHITE)
     ws["L12"].alignment = Alignment(horizontal="center", vertical="center")
 
 
@@ -405,10 +480,10 @@ def engineer_sheet(wb, updated: str, sections: dict[str, str]) -> None:
                 ws.row_breaks.append(Break(id=row - 1))
             for column in range(2, 20):
                 ws.cell(row, column)._style = copy(styles[(0, column)])
-                ws.cell(row, column).fill = PatternFill("solid", fgColor="DCE6F1")
+                ws.cell(row, column).fill = PatternFill("solid", fgColor=BLUE_LIGHT)
             ws.merge_cells(start_row=row, start_column=2, end_row=row, end_column=19)
             put(ws, f"B{row}", "副業案件")
-            ws[f"B{row}"].font = Font(name="メイリオ", size=11, bold=True, color="17365D")
+            ws[f"B{row}"].font = Font(name="メイリオ", size=11, bold=True, color=BLUE_DARK)
             row_height(ws, row, 28)
             row += 1
             used_height = 28
@@ -418,7 +493,7 @@ def engineer_sheet(wb, updated: str, sections: dict[str, str]) -> None:
             ws.merge_cells(start_row=row + first, end_row=row + last,
                            start_column=left, end_column=right)
         fields = project.fields
-        consumed = {"担当", "言語", "DB", "インフラ", "チーム体制"} | TECH_FIELDS
+        consumed = {"担当", "言語", "DB", "インフラ", "チーム体制", "担当工程"} | TECH_FIELDS
         paragraphs = ["≪プロジェクト内容≫\n" + project.title]
         # 新規の案件項目も省略せず、業務内容欄に追加する。
         for key, value in fields.items():
@@ -436,17 +511,17 @@ def engineer_sheet(wb, updated: str, sections: dict[str, str]) -> None:
         put(ws, f"F{row + 1}", body)
         put(ws, f"G{row + 1}", team)
         put(ws, f"C{row + 2}", project.duration)
-        for column, marked in zip("LMNOPQRS", phase_marks(fields["工程/作業"])):
+        for column, marked in zip("LMNOPQRS", project_phase_marks(fields)):
             cell = put(ws, f"{column}{row}", "●" if marked else None)
-            cell.font = Font(name="メイリオ", size=18, bold=True, color="000000")
+            cell.font = Font(name="メイリオ", size=18, bold=True, color=BLACK)
             cell.alignment = Alignment(horizontal="center", vertical="center")
-            fill = PatternFill("solid", fgColor="E9F1F8" if marked else "FFFFFF")
+            fill = PatternFill("solid", fgColor=BLUE_LIGHT if marked else WHITE)
             for offset in range(3):
                 ws[f"{column}{row + offset}"].fill = fill
         for column in "FG":
             cell = ws[f"{column}{row}"]
-            cell.fill = PatternFill("solid", fgColor="EDF3F8")
-            cell.font = Font(name="メイリオ", size=11, bold=True, color="17365D")
+            cell.fill = PatternFill("solid", fgColor=BLUE_LIGHT)
+            cell.font = Font(name="メイリオ", size=11, bold=True, color=BLUE_DARK)
         if project.url:
             ws[f"F{row}"].hyperlink = project.url
         title_height = max(text_height(ws, values["F"], 6, 6), text_height(ws, fields["担当"], 7, 7))
@@ -467,8 +542,8 @@ def engineer_sheet(wb, updated: str, sections: dict[str, str]) -> None:
         row += 3
 
     ws.merge_cells(start_row=row, start_column=2, end_row=row, end_column=19)
-    put(ws, f"B{row}", "●：READMEの工程/作業に明記された担当工程。空欄：未記載（経験なしを意味しません）。案件名のリンクから詳細を確認できます。")
-    ws[f"B{row}"].font = Font(name="メイリオ", size=10, color="53657A")
+    put(ws, f"B{row}", "●：担当工程。空欄：未記載（経験なしを意味しません）。案件名のリンクから詳細を確認できます。")
+    ws[f"B{row}"].font = Font(name="メイリオ", size=10, color=BLUE_DARK)
     row_height(ws, row, 28)
     if used_height + 28 > project_capacity:
         ws.row_breaks.append(Break(id=row - 1))
@@ -496,6 +571,7 @@ def engineer_sheet(wb, updated: str, sections: dict[str, str]) -> None:
     ws.print_title_rows = "12:13"
     ws.print_area = f"B1:S{row}"
     ws.oddFooter.center.text = "&P / &N"
+    apply_blue_theme(ws)
 
 
 def normalize_archive(raw: BytesIO) -> bytes:

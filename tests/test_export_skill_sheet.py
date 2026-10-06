@@ -189,6 +189,41 @@ class ExportSkillSheetTest(unittest.TestCase):
                          [None, None, None, '●', None, None, None, None])
         book.close()
 
+    def test_explicit_phases_override_work_descriptions(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = self.fixture(directory)
+            path = root / 'README.md'
+            work = '要件定義、基本設計、詳細設計、開発、単体テスト、結合テスト、総合テスト、保守運用、コードレビュー'
+            path.write_text(FIXTURE.replace(
+                '  - 工程/作業：設計、開発、単体テスト、結合テスト、障害対応',
+                f'  - 工程/作業：{work}\n  - 担当工程：実装、単体テスト', 1))
+            book = open_sheet(workbook_bytes(root))
+            sheet = book.active
+            row = project_row(sheet, '継続開発')
+            self.assertEqual([sheet.cell(row, col).value for col in range(12, 20)],
+                             [None, None, None, '●', '●', None, None, None])
+            self.assertIn(work, sheet.cell(row + 1, 6).value)
+            book.close()
+            with self.subTest('一般的な設計を明示工程として受け付けない'):
+                path.write_text(path.read_text().replace('  - 担当工程：実装、単体テスト',
+                                                        '  - 担当工程：設計', 1))
+                with self.assertRaises(ValueError):
+                    workbook_bytes(root)
+
+    def test_explicit_empty_phases_do_not_fall_back_to_work_descriptions(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = self.fixture(directory)
+            path = root / 'README.md'
+            path.write_text(FIXTURE.replace(
+                '  - 工程/作業：設計、開発、単体テスト、結合テスト、障害対応',
+                '  - 工程/作業：設計、開発、単体テスト、結合テスト、障害対応\n  - 担当工程：', 1))
+            book = open_sheet(workbook_bytes(root))
+            sheet = book.active
+            row = project_row(sheet, '継続開発')
+            self.assertEqual([sheet.cell(row, col).value for col in range(12, 20)], [None] * 8)
+            self.assertIn('設計、開発、単体テスト、結合テスト、障害対応', sheet.cell(row + 1, 6).value)
+            book.close()
+
     def test_updates_unknown_fields_and_formula_like_text_are_preserved(self):
         with tempfile.TemporaryDirectory() as directory:
             root = self.fixture(directory)
