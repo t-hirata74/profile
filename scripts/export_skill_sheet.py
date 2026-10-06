@@ -40,7 +40,7 @@ SECTIONS = (
     "【現案件】", "【過去案件: フルタイム案件】", "【過去案件: 副業案件】",
 )
 PROFILE_CELLS = {
-    "D3": "フリガナ", "D4": "氏名", "I3": "キャリア年数",
+    "D4": "稼働希望", "D5": "最寄駅", "I3": "キャリア年数",
     "I4": "性別", "I5": "年齢", "I6": "学歴",
 }
 TECH_FIELDS = {"FW/ライブラリ", "エディタ/IDE", "AIエージェント", "生成AI",
@@ -117,7 +117,7 @@ def parse_profile(text: str) -> dict[str, str]:
         if not key or key in profile:
             raise ValueError(f"プロフィールの項目名が空または重複しています: {key}")
         profile[key] = value
-    required = set(PROFILE_CELLS.values()) | {"最寄駅", "稼働希望"}
+    required = set(PROFILE_CELLS.values()) | {"氏名", "フリガナ"}
     missing = sorted(key for key in required if not profile.get(key))
     if not header_seen or missing:
         raise ValueError("プロフィールの必須項目を確認してください: " + "、".join(missing))
@@ -448,12 +448,14 @@ def engineer_sheet(wb, updated: str, sections: dict[str, str]) -> None:
     put(ws, "M1", updated)
     ws["M1"].font = Font(name="メイリオ", size=11)
     ws["M1"].alignment = Alignment(horizontal="right", vertical="center")
+    put(ws, "B3", "氏名")
+    put(ws, "D3", profile["氏名"] + "（" + profile["フリガナ"] + "）")
+    put(ws, "B4", "稼働希望")
     for address, key in PROFILE_CELLS.items():
         put(ws, address, profile[key])
     career = skills.get("キャリア", [])
     if career:
         put(ws, "I3", profile["キャリア年数"] + "：" + "、".join(career))
-    put(ws, "D5", profile["最寄駅"] + " / " + profile["稼働希望"])
     put(ws, "D6", "\n".join(skills["業務資格"]))
     put(ws, "D8", plain(sections[SECTIONS[1]]))
     put(ws, "D9", plain(sections[SECTIONS[2]]))

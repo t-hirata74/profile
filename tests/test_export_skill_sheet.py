@@ -155,7 +155,11 @@ class ExportSkillSheetTest(unittest.TestCase):
     def test_current_profile_all_projects_and_past_side_job(self):
         book = open_sheet(self.generated)
         sheet = book.active
-        self.assertEqual(sheet['D4'].value, 'テスト 太郎')
+        self.assertEqual(sheet['B3'].value, '氏名')
+        self.assertEqual(sheet['D3'].value, 'テスト 太郎（テスト タロウ）')
+        self.assertEqual(sheet['B4'].value, '稼働希望')
+        self.assertEqual(sheet['D4'].value, 'フルリモート')
+        self.assertEqual(sheet['D5'].value, 'テスト駅')
         self.assertEqual(sheet['I5'].value, '38歳')
         self.assertEqual(sheet['I3'].value, '14年目：フリーランス 2017/10 ~ 現在')
         self.assertNotIn('フリーランス 2017/10 ~ 現在', sheet['D10'].value)
@@ -240,8 +244,8 @@ class ExportSkillSheetTest(unittest.TestCase):
             self.assertNotEqual(data, self.generated)
             book = open_sheet(data)
             self.assertEqual(book.active['I5'].value, '39歳')
-            self.assertEqual(book.active['D4'].value, '=1+1')
-            self.assertEqual(book.active['D4'].data_type, 's')
+            self.assertEqual(book.active['D3'].value, '=1+1（テスト タロウ）')
+            self.assertEqual(book.active['D3'].data_type, 's')
             self.assertIn('追加した内容を消さずに反映', all_text(book.active))
             book.close()
 
