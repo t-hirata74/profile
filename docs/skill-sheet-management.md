@@ -11,6 +11,8 @@ Markdownで経歴を更新し、同じ内容を指定のExcel書式へ出力す�
 | `project/side-job/*.md` | 副業案件の詳細の正本 | READMEの要約・期間・リンクと整合させる |
 | `excel/templates/スキルシート_当てはめ済み_202605_最寄駅修正.xlsx` | 指定された原本。2026年5月時点の経歴を含む書式見本 | 元ファイルをバイト単位で保持する |
 | `excel/skill-sheet.xlsx` | READMEから生成した提出用Excel | スクリプトで再生成する |
+| `docs/skill-sheet.pdf` | Excelの印刷書式を維持した閲覧・提出用PDF（個人情報を含む可能性あり） | `bash scripts/export_skill_sheet_pdf.sh` で再生成する |
+| `scripts/export_skill_sheet_pdf.sh` | LibreOfficeを利用してExcelをPDFへ変換する | PDFの出力方法を変更するときに更新する |
 | `scripts/export_skill_sheet.py` | Markdownの読み取りとExcel生成 | 項目や出力方法を変更するときに更新する |
 
 原本の経歴・プロフィールは過去の内容であり、最新経歴の正本ではない。原本を提出用に使わず、生成Excelと区別する。保管した原本のSHA-256は以下のとおり。
@@ -49,6 +51,20 @@ READMEの`【スキル経験】`にある`キャリア`は、「業界経験」�
 担当工程の表示例（先頭2案件の抜粋）：
 
 ![担当工程の横書き見出しと大きな黒丸](images/skill-sheet-phases.png)
+
+## PDFのプレビューと再生成
+
+GitHubでは[PDF版のスキルシート](skill-sheet.pdf)をブラウザ上で閲覧できる。元のExcelは`excel/skill-sheet.xlsx`にあり、PDFはA3横向きの印刷設定を維持して出力する。Excelを更新した場合はPDFも再生成する。
+
+LibreOffice Calcと日本語フォントを導入した環境で次を実行する。
+
+```bash
+bash scripts/export_skill_sheet_pdf.sh
+```
+
+GitHub Actions「Export skill sheet PDF」は、master以外のブランチにおけるExcelやPDF生成処理の変更を検知し、PDFを自動生成・コミットする。手動起動する場合も作業ブランチを選ぶ。PRが完成したらPDFのプレビュー・ページ数・文字の見切れを確認する。
+
+**注意:** PDFやExcelには氏名・学歴などの個人情報が含まれる場合がある。リポジトリがPublicの場合、PDF・ExcelはURLを知る第三者を含め誰でも閲覧可能。READMEに個人情報を記載する必要はなく、READMEの匿名化を維持する。公開範囲の変更は所有者の判断で行う。
 
 ## セットアップと生成
 
