@@ -471,7 +471,7 @@ def style_phase_header(ws) -> None:
     ws["L12"].alignment = Alignment(horizontal="center", vertical="center")
 
 
-def engineer_sheet(wb, updated: str, sections: dict[str, str]) -> None:
+def engineer_sheet(wb, sections: dict[str, str]) -> None:
     profile = parse_profile(sections[SECTIONS[0]])
     skills = parse_skills(sections[SECTIONS[3]])
     entries = (parse_projects(sections[SECTIONS[4]])
@@ -483,7 +483,6 @@ def engineer_sheet(wb, updated: str, sections: dict[str, str]) -> None:
     ws, styles, merges = prepare_template(wb)
     style_phase_header(ws)
     ws.merge_cells("M1:S1")
-    put(ws, "M1", updated)
     ws["M1"].font = Font(name="メイリオ", size=11)
     ws["M1"].alignment = Alignment(horizontal="right", vertical="center")
     for address, label in PROFILE_LABELS.items():
@@ -645,12 +644,12 @@ def normalize_archive(raw: BytesIO) -> bytes:
 
 def workbook_bytes(root: Path = ROOT) -> bytes:
     root = Path(root)
-    updated, sections = read_sections(root)
+    _, sections = read_sections(root)
     wb = load_workbook(root / TEMPLATE)
     try:
         wb.properties = DocumentProperties(creator="profile", lastModifiedBy="profile", title="スキルシート",
                                            language="ja-JP", created=FIXED_TIME, modified=FIXED_TIME)
-        engineer_sheet(wb, updated, sections)
+        engineer_sheet(wb, sections)
         raw = BytesIO()
         wb.save(raw)
         return normalize_archive(raw)

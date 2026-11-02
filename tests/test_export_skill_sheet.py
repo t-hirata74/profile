@@ -185,7 +185,7 @@ class ExportSkillSheetTest(unittest.TestCase):
                 self.assertEqual(sheet[address].value, expected)
         self.assertNotIn('フリーランス 2017/10 ~ 現在', sheet['D10'].value)
         content = all_text(sheet)
-        self.assertIn('2026/10 更新', content)
+        self.assertNotIn('2026/10 更新', content)
         self.assertNotIn('基本リモード', content)
         self.assertEqual(len(project_rows(sheet)), 3)
         rows = project_rows(sheet)
@@ -204,6 +204,20 @@ class ExportSkillSheetTest(unittest.TestCase):
             self.assertNotIn(label, sheet['D9'].value)
         self.assertEqual(sum(sheet.cell(row, 6).hyperlink is not None for row in rows), 1)
         book.close()
+
+    def test_readme_update_month_is_not_displayed_in_excel(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = self.fixture(directory)
+            path = root / 'README.md'
+            for updated in ['2026/10 更新', '2026/11 更新', '2027/1 更新']:
+                with self.subTest(updated=updated):
+                    path.write_text(FIXTURE.replace('2026/10 更新', updated), encoding='utf-8')
+                    data = workbook_bytes(root)
+                    self.assertEqual(data, self.generated)
+                    book = open_sheet(data)
+                    self.assertTrue(all(cell.value is None for cell in book.active[1]))
+                    self.assertNotIn(updated, all_text(book.active))
+                    book.close()
 
     def test_phase_marks_do_not_inherit_unstated_experience(self):
         book = open_sheet(self.generated)

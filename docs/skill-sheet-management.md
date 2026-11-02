@@ -2,6 +2,8 @@
 
 Markdownで経歴を更新し、同じ内容を指定のExcel書式へ出力する。提出時は`excel/skill-sheet.xlsx`を使用する。
 
+提出用Excelには更新年月を表示しない。README先頭の更新年月はMarkdownの管理用とし、提出する月に合わせたExcelの更新を不要にする。
+
 ## ファイルの役割
 
 | ファイル | 役割 | 更新方法 |
