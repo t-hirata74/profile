@@ -14,4 +14,4 @@ Claude Codeは、作業前に[AGENTS.md](AGENTS.md)を読み、共通のコン�
 4. `python scripts/export_skill_sheet.py --check`と`python -m unittest discover -s tests -v`を実行し、Excelの表示も確認する。
 5. 正本と生成Excelを同じPRに含める。
 
-原本Excelは過去の経歴を含む書式見本として保持し、最新経歴の情報源にしない。セットアップ、項目追加、案件終了時の手順は[スキルシート管理ガイド](docs/skill-sheet-management.md)を参照する。
+原本Excelは過去の経歴を含む書式見本として保持し、最新経歴の情報源にしない。ただしREADMEから省略した氏名・フリガナ・最寄駅だけは、AGENTS.mdのセル対応に従って提出用の既定値を取得する。セットアップ、項目追加、案件終了時の手順は[スキルシート管理ガイド](docs/skill-sheet-management.md)を参照する。

@@ -29,6 +29,32 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends libreoffice-calc fonts-noto-cjk poppler-utils
+      - name: Verify Excel opens and saves with merged cells intact
+        run: |
+          temp_dir="$(mktemp -d)"
+          trap 'rm -rf "$temp_dir"' EXIT
+          mkdir -p "$temp_dir/roundtrip"
+          libreoffice "-env:UserInstallation=file://$temp_dir/lo-profile" \
+            --headless --convert-to 'xlsx:Calc MS Excel 2007 XML' \
+            --outdir "$temp_dir/roundtrip" excel/skill-sheet.xlsx
+          python3 - "$temp_dir/roundtrip/skill-sheet.xlsx" <<'PY'
+          import sys
+          from xml.etree import ElementTree as ET
+          from zipfile import ZipFile
+
+          def merged_ranges(path):
+              with ZipFile(path) as archive:
+                  assert archive.testzip() is None, 'Invalid XLSX archive'
+                  root = ET.fromstring(archive.read('xl/worksheets/sheet1.xml'))
+              ns = {'x': 'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
+              return {cell.attrib['ref'] for cell in root.findall('x:mergeCells/x:mergeCell', ns)}
+
+          expected = merged_ranges('excel/skill-sheet.xlsx')
+          assert {'B2:S2', 'D3:F3', 'D8:S8', 'B12:E13'} <= expected, 'Missing required merged cells'
+          actual = merged_ranges(sys.argv[1])
+          assert actual == expected, 'Merged cells changed after opening and saving'
+          print(f'Excel round-trip successful: {len(actual)} merged ranges preserved')
+          PY
       - name: Generate PDF
         run: bash scripts/export_skill_sheet_pdf.sh
       - name: Verify PDF

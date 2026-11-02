@@ -11,7 +11,7 @@ from shutil import copy2, copytree
 
 from openpyxl import load_workbook
 
-from scripts.export_skill_sheet import workbook_bytes
+from scripts.export_skill_sheet import normalize_archive, workbook_bytes
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -185,7 +185,8 @@ class ExportSkillSheetTest(unittest.TestCase):
                 self.assertEqual(sheet[address].value, expected)
         self.assertNotIn('フリーランス 2017/10 ~ 現在', sheet['D10'].value)
         content = all_text(sheet)
-        self.assertIn('2026/10 更新', content)
+        self.assertNotIn('2026/10 更新', content)
+        self.assertNotIn('案件名のリンクから詳細を確認できます', content)
         self.assertNotIn('基本リモード', content)
         self.assertEqual(len(project_rows(sheet)), 3)
         rows = project_rows(sheet)
@@ -203,6 +204,57 @@ class ExportSkillSheetTest(unittest.TestCase):
         for label in ['エリア：', '稼働時期：', '所属：']:
             self.assertNotIn(label, sheet['D9'].value)
         self.assertEqual(sum(sheet.cell(row, 6).hyperlink is not None for row in rows), 1)
+        book.close()
+
+    def test_readme_update_month_is_not_displayed_in_excel(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = self.fixture(directory)
+            path = root / 'README.md'
+            for updated in ['2026/10 更新', '2026/11 更新', '2027/1 更新']:
+                with self.subTest(updated=updated):
+                    path.write_text(FIXTURE.replace('2026/10 更新', updated), encoding='utf-8')
+                    data = workbook_bytes(root)
+                    self.assertEqual(data, self.generated)
+                    book = open_sheet(data)
+                    self.assertTrue(all(cell.value is None for cell in book.active[1]))
+                    self.assertNotIn(updated, all_text(book.active))
+                    book.close()
+
+    def test_anonymized_readme_uses_only_template_identity_defaults(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = self.fixture(directory)
+            path = root / 'README.md'
+            text = '\n'.join(line for line in FIXTURE.splitlines()
+                             if not line.startswith(('| 氏名 |', '| フリガナ |', '| 最寄駅 |')))
+            path.write_text(text, encoding='utf-8')
+            source = load_workbook(self.original)
+            book = open_sheet(workbook_bytes(root))
+            self.assertEqual(book.active['D3'].value,
+                             source.active['D4'].value + '（' + source.active['D3'].value + '）')
+            self.assertEqual(book.active['D5'].value,
+                             source.active['D5'].value.split(' / ', 1)[0])
+            self.assertEqual(book.active['D4'].value, '38歳')
+            self.assertEqual(book.active['I5'].value, 'フルリモート')
+            self.assertEqual(book.active['I6'].value, 'テスト大学卒')
+            self.assertEqual(path.read_text(encoding='utf-8'), text)
+            source.close()
+            book.close()
+
+    def test_normalization_is_idempotent_and_preserves_merged_cells(self):
+        normalized = normalize_archive(BytesIO(self.generated))
+        self.assertEqual(normalized, self.generated)
+        book = open_sheet(normalized)
+        merges = {str(value) for value in book.active.merged_cells.ranges}
+        for region in ['B2:S2', 'D3:F3', 'D8:S8', 'B12:E13', 'F15:F16']:
+            self.assertIn(region, merges)
+        book.close()
+
+    def test_committed_workbook_matches_generation_and_has_merged_cells(self):
+        data = (ROOT / 'excel/skill-sheet.xlsx').read_bytes()
+        self.assertEqual(data, workbook_bytes(ROOT))
+        book = open_sheet(data)
+        self.assertIn('D3:F3', {str(value) for value in book.active.merged_cells.ranges})
+        self.assertIsNone(book.active['M1'].value)
         book.close()
 
     def test_phase_marks_do_not_inherit_unstated_experience(self):

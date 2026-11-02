@@ -2,6 +2,8 @@
 
 Markdownで経歴を更新し、同じ内容を指定のExcel書式へ出力する。提出時は`excel/skill-sheet.xlsx`を使用する。
 
+提出用Excelには更新年月を表示しない。README先頭の更新年月はMarkdownの管理用とし、提出する月に合わせたExcelの更新を不要にする。
+
 ## ファイルの役割
 
 | ファイル | 役割 | 更新方法 |
@@ -9,13 +11,13 @@ Markdownで経歴を更新し、同じ内容を指定のExcel書式へ出力す�
 | `README.md` | プロフィール、職務要約、スキル、案件一覧の正本 | 直接編集する |
 | `project/main-job/*.md` | 本業案件の詳細の正本 | READMEの要約・期間・リンクと整合させる |
 | `project/side-job/*.md` | 副業案件の詳細の正本 | READMEの要約・期間・リンクと整合させる |
-| `excel/templates/スキルシート_当てはめ済み_202605_最寄駅修正.xlsx` | 指定された原本。2026年5月時点の経歴を含む書式見本 | 元ファイルをバイト単位で保持する |
+| `excel/templates/スキルシート_当てはめ済み_202605_最寄駅修正.xlsx` | 指定された原本。2026年5月時点の書式見本。省略された氏名・フリガナ・最寄駅の提出用既定値 | 元ファイルをバイト単位で保持する |
 | `excel/skill-sheet.xlsx` | READMEから生成した提出用Excel | スクリプトで再生成する |
 | `docs/skill-sheet.pdf` | Excelの印刷書式を維持した閲覧・提出用PDF（個人情報を含む可能性あり） | `bash scripts/export_skill_sheet_pdf.sh` で再生成する |
 | `scripts/export_skill_sheet_pdf.sh` | LibreOfficeを利用してExcelをPDFへ変換する | PDFの出力方法を変更するときに更新する |
 | `scripts/export_skill_sheet.py` | Markdownの読み取りとExcel生成 | 項目や出力方法を変更するときに更新する |
 
-原本の経歴・プロフィールは過去の内容であり、最新経歴の正本ではない。原本を提出用に使わず、生成Excelと区別する。保管した原本のSHA-256は以下のとおり。
+原本の経歴は過去の内容であり、最新経歴の正本ではない。原本を提出用に使わず、生成Excelと区別する。READMEを匿名化したまま生成できるよう、氏名・フリガナ・最寄駅の3項目をREADMEから省略した場合だけ原本のD4・D3・D5を参照する。D5は` / `より前の駅情報だけを取得する。READMEの明示値を優先し、年齢・経歴・稼働希望・学歴などは原本から補完しない。保管した原本のSHA-256は以下のとおり。
 
 ```text
 bc10cb1906270e4c16cd6f15cf55b494036993b61e7d0772ef5389e68f7812db
@@ -63,6 +65,8 @@ bash scripts/export_skill_sheet_pdf.sh
 ```
 
 GitHub Actions「Export skill sheet PDF」は、master以外のブランチにおけるExcelやPDF生成処理の変更を検知し、PDFを自動生成・コミットする。手動起動する場合も作業ブランチを選ぶ。PRが完成したらPDFのプレビュー・ページ数・文字の見切れを確認する。
+
+PDF変換前には、LibreOfficeでXLSXを開いて別のXLSXへ保存し直し、必要な見出し・プロフィールの結合と全結合範囲が維持されることを自動確認する。通常のテストでも、保存済みExcelと生成結果の一致、およびZIP/XMLの正規化を繰り返しても結合が失われないことを検証する。
 
 **注意:** PDFやExcelには氏名・学歴などの個人情報が含まれる場合がある。リポジトリがPublicの場合、PDF・ExcelはURLを知る第三者を含め誰でも閲覧可能。READMEに個人情報を記載する必要はなく、READMEの匿名化を維持する。公開範囲の変更は所有者の判断で行う。
 

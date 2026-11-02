@@ -47,6 +47,8 @@ PROFILE_LABELS = {
     "B3": "氏名", "G3": "性別", "B4": "年齢", "G4": "業界経験",
     "B5": "最寄駅", "G5": "稼働希望", "B6": "資格", "G6": "学歴",
 }
+# READMEで省略する提出用の個人情報だけ、指定原本の固定セルを参照する。
+TEMPLATE_PROFILE_CELLS = {"氏名": "D4", "フリガナ": "D3", "最寄駅": "D5"}
 TECH_FIELDS = {"FW/ライブラリ", "エディタ/IDE", "AIエージェント", "生成AI",
                "その他", "コミュニケーション", "アプリ"}
 PHASE_NAMES = ("要件定義", "基本設計", "詳細設計", "実装",
@@ -101,7 +103,7 @@ def read_sections(root: Path) -> tuple[str, dict[str, str]]:
     return first_line, sections
 
 
-def parse_profile(text: str) -> dict[str, str]:
+def parse_profile(text: str, defaults: dict[str, str] | None = None) -> dict[str, str]:
     profile: dict[str, str] = {}
     header_seen = False
     for line in text.splitlines():
@@ -121,6 +123,8 @@ def parse_profile(text: str) -> dict[str, str]:
         if not key or key in profile:
             raise ValueError(f"プロフィールの項目名が空または重複しています: {key}")
         profile[key] = value
+    for key, value in (defaults or {}).items():
+        profile.setdefault(key, value)
     required = set(PROFILE_CELLS.values()) | {"氏名", "フリガナ"}
     missing = sorted(key for key in required if not profile.get(key))
     if not header_seen or missing:
@@ -471,8 +475,13 @@ def style_phase_header(ws) -> None:
     ws["L12"].alignment = Alignment(horizontal="center", vertical="center")
 
 
-def engineer_sheet(wb, updated: str, sections: dict[str, str]) -> None:
-    profile = parse_profile(sections[SECTIONS[0]])
+def engineer_sheet(wb, sections: dict[str, str]) -> None:
+    template = wb[SHEET_NAME]
+    defaults = {key: str(template[address].value or "").strip()
+                for key, address in TEMPLATE_PROFILE_CELLS.items()}
+    # 原本の最寄駅セルには稼働希望も併記されているため、駅情報だけを取得する。
+    defaults["最寄駅"] = defaults["最寄駅"].split(" / ", 1)[0].strip()
+    profile = parse_profile(sections[SECTIONS[0]], defaults)
     skills = parse_skills(sections[SECTIONS[3]])
     entries = (parse_projects(sections[SECTIONS[4]])
                + parse_projects(sections[SECTIONS[5]])
@@ -483,7 +492,6 @@ def engineer_sheet(wb, updated: str, sections: dict[str, str]) -> None:
     ws, styles, merges = prepare_template(wb)
     style_phase_header(ws)
     ws.merge_cells("M1:S1")
-    put(ws, "M1", updated)
     ws["M1"].font = Font(name="メイリオ", size=11)
     ws["M1"].alignment = Alignment(horizontal="right", vertical="center")
     for address, label in PROFILE_LABELS.items():
@@ -582,12 +590,6 @@ def engineer_sheet(wb, updated: str, sections: dict[str, str]) -> None:
         used_height += total
         row += 3
 
-    ws.merge_cells(start_row=row, start_column=2, end_row=row, end_column=19)
-    put(ws, f"B{row}", "●：担当工程。空欄：未記載（経験なしを意味しません）。案件名のリンクから詳細を確認できます。")
-    ws[f"B{row}"].font = Font(name="メイリオ", size=10, color=BLUE_DARK)
-    row_height(ws, row, 28)
-    if used_height + 28 > project_capacity:
-        ws.row_breaks.append(Break(id=row - 1))
     for cells in ws:
         for cell in cells:
             if isinstance(cell, MergedCell):
@@ -610,7 +612,7 @@ def engineer_sheet(wb, updated: str, sections: dict[str, str]) -> None:
     ws.page_setup.fitToHeight = 0
     ws.page_margins = PageMargins(left=0.25, right=0.25, top=0.35, bottom=0.35, header=0.15, footer=0.15)
     ws.print_title_rows = "12:13"
-    ws.print_area = f"B1:S{row}"
+    ws.print_area = f"B1:S{row - 1}"
     ws.oddFooter.center.text = "&P / &N"
     apply_blue_theme(ws)
     style_header_borders(ws)
@@ -626,7 +628,8 @@ def normalize_archive(raw: BytesIO) -> bytes:
             if name.startswith("xl/worksheets/") and name.endswith(".xml"):
                 # openpyxl の結合範囲は set。PYTHONHASHSEED による順序差を取り除く。
                 def sort_merges(match):
-                    cells = re.findall(rb'<mergeCell ref="([^"]+)"\s*/>', match[1])
+                    # 正規化済みのXMLは終了タグを持つ。両方の表記から結合を保持する。
+                    cells = re.findall(rb'<mergeCell\b[^>]*\bref="([^"]+)"', match[1])
                     cells.sort(key=lambda ref: range_boundaries(ref.decode()))
                     return (b'<mergeCells count="' + str(len(cells)).encode() + b'">'
                             + b"".join(b'<mergeCell ref="' + ref + b'"/>' for ref in cells)
@@ -645,12 +648,12 @@ def normalize_archive(raw: BytesIO) -> bytes:
 
 def workbook_bytes(root: Path = ROOT) -> bytes:
     root = Path(root)
-    updated, sections = read_sections(root)
+    _, sections = read_sections(root)
     wb = load_workbook(root / TEMPLATE)
     try:
         wb.properties = DocumentProperties(creator="profile", lastModifiedBy="profile", title="スキルシート",
                                            language="ja-JP", created=FIXED_TIME, modified=FIXED_TIME)
-        engineer_sheet(wb, updated, sections)
+        engineer_sheet(wb, sections)
         raw = BytesIO()
         wb.save(raw)
         return normalize_archive(raw)
