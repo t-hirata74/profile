@@ -47,6 +47,8 @@ PROFILE_LABELS = {
     "B3": "氏名", "G3": "性別", "B4": "年齢", "G4": "業界経験",
     "B5": "最寄駅", "G5": "稼働希望", "B6": "資格", "G6": "学歴",
 }
+# READMEで省略する提出用の個人情報だけ、指定原本の固定セルを参照する。
+TEMPLATE_PROFILE_CELLS = {"氏名": "D4", "フリガナ": "D3", "最寄駅": "D5"}
 TECH_FIELDS = {"FW/ライブラリ", "エディタ/IDE", "AIエージェント", "生成AI",
                "その他", "コミュニケーション", "アプリ"}
 PHASE_NAMES = ("要件定義", "基本設計", "詳細設計", "実装",
@@ -101,7 +103,7 @@ def read_sections(root: Path) -> tuple[str, dict[str, str]]:
     return first_line, sections
 
 
-def parse_profile(text: str) -> dict[str, str]:
+def parse_profile(text: str, defaults: dict[str, str] | None = None) -> dict[str, str]:
     profile: dict[str, str] = {}
     header_seen = False
     for line in text.splitlines():
@@ -121,6 +123,8 @@ def parse_profile(text: str) -> dict[str, str]:
         if not key or key in profile:
             raise ValueError(f"プロフィールの項目名が空または重複しています: {key}")
         profile[key] = value
+    for key, value in (defaults or {}).items():
+        profile.setdefault(key, value)
     required = set(PROFILE_CELLS.values()) | {"氏名", "フリガナ"}
     missing = sorted(key for key in required if not profile.get(key))
     if not header_seen or missing:
@@ -472,7 +476,12 @@ def style_phase_header(ws) -> None:
 
 
 def engineer_sheet(wb, sections: dict[str, str]) -> None:
-    profile = parse_profile(sections[SECTIONS[0]])
+    template = wb[SHEET_NAME]
+    defaults = {key: str(template[address].value or "").strip()
+                for key, address in TEMPLATE_PROFILE_CELLS.items()}
+    # 原本の最寄駅セルには稼働希望も併記されているため、駅情報だけを取得する。
+    defaults["最寄駅"] = defaults["最寄駅"].split(" / ", 1)[0].strip()
+    profile = parse_profile(sections[SECTIONS[0]], defaults)
     skills = parse_skills(sections[SECTIONS[3]])
     entries = (parse_projects(sections[SECTIONS[4]])
                + parse_projects(sections[SECTIONS[5]])
@@ -625,7 +634,8 @@ def normalize_archive(raw: BytesIO) -> bytes:
             if name.startswith("xl/worksheets/") and name.endswith(".xml"):
                 # openpyxl の結合範囲は set。PYTHONHASHSEED による順序差を取り除く。
                 def sort_merges(match):
-                    cells = re.findall(rb'<mergeCell ref="([^"]+)"\s*/>', match[1])
+                    # 正規化済みのXMLは終了タグを持つ。両方の表記から結合を保持する。
+                    cells = re.findall(rb'<mergeCell\b[^>]*\bref="([^"]+)"', match[1])
                     cells.sort(key=lambda ref: range_boundaries(ref.decode()))
                     return (b'<mergeCells count="' + str(len(cells)).encode() + b'">'
                             + b"".join(b'<mergeCell ref="' + ref + b'"/>' for ref in cells)

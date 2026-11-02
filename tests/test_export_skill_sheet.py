@@ -11,7 +11,7 @@ from shutil import copy2, copytree
 
 from openpyxl import load_workbook
 
-from scripts.export_skill_sheet import workbook_bytes
+from scripts.export_skill_sheet import normalize_archive, workbook_bytes
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -218,6 +218,43 @@ class ExportSkillSheetTest(unittest.TestCase):
                     self.assertTrue(all(cell.value is None for cell in book.active[1]))
                     self.assertNotIn(updated, all_text(book.active))
                     book.close()
+
+    def test_anonymized_readme_uses_only_template_identity_defaults(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = self.fixture(directory)
+            path = root / 'README.md'
+            text = '\n'.join(line for line in FIXTURE.splitlines()
+                             if not line.startswith(('| 氏名 |', '| フリガナ |', '| 最寄駅 |')))
+            path.write_text(text, encoding='utf-8')
+            source = load_workbook(self.original)
+            book = open_sheet(workbook_bytes(root))
+            self.assertEqual(book.active['D3'].value,
+                             source.active['D4'].value + '（' + source.active['D3'].value + '）')
+            self.assertEqual(book.active['D5'].value,
+                             source.active['D5'].value.split(' / ', 1)[0])
+            self.assertEqual(book.active['D4'].value, '38歳')
+            self.assertEqual(book.active['I5'].value, 'フルリモート')
+            self.assertEqual(book.active['I6'].value, 'テスト大学卒')
+            self.assertEqual(path.read_text(encoding='utf-8'), text)
+            source.close()
+            book.close()
+
+    def test_normalization_is_idempotent_and_preserves_merged_cells(self):
+        normalized = normalize_archive(BytesIO(self.generated))
+        self.assertEqual(normalized, self.generated)
+        book = open_sheet(normalized)
+        merges = {str(value) for value in book.active.merged_cells.ranges}
+        for region in ['B2:S2', 'D3:F3', 'D8:S8', 'B12:E13', 'F15:F16']:
+            self.assertIn(region, merges)
+        book.close()
+
+    def test_committed_workbook_matches_generation_and_has_merged_cells(self):
+        data = (ROOT / 'excel/skill-sheet.xlsx').read_bytes()
+        self.assertEqual(data, workbook_bytes(ROOT))
+        book = open_sheet(data)
+        self.assertIn('D3:F3', {str(value) for value in book.active.merged_cells.ranges})
+        self.assertIsNone(book.active['M1'].value)
+        book.close()
 
     def test_phase_marks_do_not_inherit_unstated_experience(self):
         book = open_sheet(self.generated)

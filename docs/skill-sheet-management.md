@@ -11,13 +11,13 @@ Markdownで経歴を更新し、同じ内容を指定のExcel書式へ出力す�
 | `README.md` | プロフィール、職務要約、スキル、案件一覧の正本 | 直接編集する |
 | `project/main-job/*.md` | 本業案件の詳細の正本 | READMEの要約・期間・リンクと整合させる |
 | `project/side-job/*.md` | 副業案件の詳細の正本 | READMEの要約・期間・リンクと整合させる |
-| `excel/templates/スキルシート_当てはめ済み_202605_最寄駅修正.xlsx` | 指定された原本。2026年5月時点の経歴を含む書式見本 | 元ファイルをバイト単位で保持する |
+| `excel/templates/スキルシート_当てはめ済み_202605_最寄駅修正.xlsx` | 指定された原本。2026年5月時点の書式見本。省略された氏名・フリガナ・最寄駅の提出用既定値 | 元ファイルをバイト単位で保持する |
 | `excel/skill-sheet.xlsx` | READMEから生成した提出用Excel | スクリプトで再生成する |
 | `docs/skill-sheet.pdf` | Excelの印刷書式を維持した閲覧・提出用PDF（個人情報を含む可能性あり） | `bash scripts/export_skill_sheet_pdf.sh` で再生成する |
 | `scripts/export_skill_sheet_pdf.sh` | LibreOfficeを利用してExcelをPDFへ変換する | PDFの出力方法を変更するときに更新する |
 | `scripts/export_skill_sheet.py` | Markdownの読み取りとExcel生成 | 項目や出力方法を変更するときに更新する |
 
-原本の経歴・プロフィールは過去の内容であり、最新経歴の正本ではない。原本を提出用に使わず、生成Excelと区別する。保管した原本のSHA-256は以下のとおり。
+原本の経歴は過去の内容であり、最新経歴の正本ではない。原本を提出用に使わず、生成Excelと区別する。READMEを匿名化したまま生成できるよう、氏名・フリガナ・最寄駅の3項目をREADMEから省略した場合だけ原本のD4・D3・D5を参照する。D5は` / `より前の駅情報だけを取得する。READMEの明示値を優先し、年齢・経歴・稼働希望・学歴などは原本から補完しない。保管した原本のSHA-256は以下のとおり。
 
 ```text
 bc10cb1906270e4c16cd6f15cf55b494036993b61e7d0772ef5389e68f7812db
