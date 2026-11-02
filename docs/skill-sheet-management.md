@@ -66,6 +66,8 @@ bash scripts/export_skill_sheet_pdf.sh
 
 GitHub Actions「Export skill sheet PDF」は、master以外のブランチにおけるExcelやPDF生成処理の変更を検知し、PDFを自動生成・コミットする。手動起動する場合も作業ブランチを選ぶ。PRが完成したらPDFのプレビュー・ページ数・文字の見切れを確認する。
 
+PDF変換前には、LibreOfficeでXLSXを開いて別のXLSXへ保存し直し、必要な見出し・プロフィールの結合と全結合範囲が維持されることを自動確認する。通常のテストでも、保存済みExcelと生成結果の一致、およびZIP/XMLの正規化を繰り返しても結合が失われないことを検証する。
+
 **注意:** PDFやExcelには氏名・学歴などの個人情報が含まれる場合がある。リポジトリがPublicの場合、PDF・ExcelはURLを知る第三者を含め誰でも閲覧可能。READMEに個人情報を記載する必要はなく、READMEの匿名化を維持する。公開範囲の変更は所有者の判断で行う。
 
 ## セットアップと生成
