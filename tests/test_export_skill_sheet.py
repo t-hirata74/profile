@@ -186,6 +186,7 @@ class ExportSkillSheetTest(unittest.TestCase):
         self.assertNotIn('フリーランス 2017/10 ~ 現在', sheet['D10'].value)
         content = all_text(sheet)
         self.assertNotIn('2026/10 更新', content)
+        self.assertNotIn('案件名のリンクから詳細を確認できます', content)
         self.assertNotIn('基本リモード', content)
         self.assertEqual(len(project_rows(sheet)), 3)
         rows = project_rows(sheet)

@@ -590,12 +590,6 @@ def engineer_sheet(wb, sections: dict[str, str]) -> None:
         used_height += total
         row += 3
 
-    ws.merge_cells(start_row=row, start_column=2, end_row=row, end_column=19)
-    put(ws, f"B{row}", "●：担当工程。空欄：未記載（経験なしを意味しません）。案件名のリンクから詳細を確認できます。")
-    ws[f"B{row}"].font = Font(name="メイリオ", size=10, color=BLUE_DARK)
-    row_height(ws, row, 28)
-    if used_height + 28 > project_capacity:
-        ws.row_breaks.append(Break(id=row - 1))
     for cells in ws:
         for cell in cells:
             if isinstance(cell, MergedCell):
@@ -618,7 +612,7 @@ def engineer_sheet(wb, sections: dict[str, str]) -> None:
     ws.page_setup.fitToHeight = 0
     ws.page_margins = PageMargins(left=0.25, right=0.25, top=0.35, bottom=0.35, header=0.15, footer=0.15)
     ws.print_title_rows = "12:13"
-    ws.print_area = f"B1:S{row}"
+    ws.print_area = f"B1:S{row - 1}"
     ws.oddFooter.center.text = "&P / &N"
     apply_blue_theme(ws)
     style_header_borders(ws)
