@@ -149,21 +149,29 @@ class ExportSkillSheetTest(unittest.TestCase):
         self.assertEqual(len(sheet.data_validations.dataValidation), 0)
         self.assertNotIn('言語ゲンゴ', all_text(sheet))
         self.assertTrue(sheet.print_area)
-        header_edges = [
+        visible_edges = [
             ('F12', 'left', 'thin', 'E9F1F8'),
             ('F13', 'left', 'thin', 'E9F1F8'),
             ('B2', 'left', 'medium', '17365D'),
             ('B2', 'top', 'medium', '17365D'),
             ('S2', 'right', 'medium', '17365D'),
             ('S2', 'bottom', 'medium', '17365D'),
+            ('F14', 'bottom', 'thin', '17365D'),
+            ('F15', 'top', 'thin', '17365D'),
+            ('H15', 'right', 'thin', '17365D'),
+            ('I15', 'left', 'thin', '17365D'),
+            ('S16', 'right', 'medium', '17365D'),
+            ('S16', 'bottom', 'thin', '17365D'),
         ]
-        for address, edge, style, color in header_edges:
+        for address, edge, style, color in visible_edges:
             with self.subTest(cell=address, edge=edge):
                 border = getattr(sheet[address].border, edge)
                 self.assertEqual(border.style, style)
                 self.assertIsNotNone(border.color)
                 self.assertEqual(border.color.type, 'rgb')
                 self.assertEqual(border.color.rgb[-6:], color)
+        self.assertIsNone(getattr(sheet['H15'].border.top, 'style', None))
+        self.assertIsNone(getattr(sheet['H15'].border.bottom, 'style', None))
         source.close()
         result.close()
 

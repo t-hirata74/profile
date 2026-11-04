@@ -423,6 +423,20 @@ def prepare_template(wb):
     return ws, styles, merges
 
 
+def frame_cells(ws, region: str, *, left, right, top, bottom) -> None:
+    first_col, first_row, last_col, last_row = range_boundaries(region)
+    for cells in ws.iter_rows(min_row=first_row, max_row=last_row, min_col=first_col, max_col=last_col):
+        for cell in cells:
+            cell.border = Border(
+                left=left if cell.column == first_col else None,
+                right=right if cell.column == last_col else None,
+                top=top if cell.row == first_row else None,
+                bottom=bottom if cell.row == last_row else None,
+            )
+    # 結合セルの基点にも四辺を保持し、保存・再読込後も外周を欠かさない。
+    ws.cell(first_row, first_col).border = Border(left=left, right=right, top=top, bottom=bottom)
+
+
 def style_header_borders(ws) -> None:
     """見出しの結合範囲を囲み、濃紺の背景でも項目間の境界を見せる。"""
     outer = Side(style="medium", color=BLUE_DARK)
@@ -430,17 +444,7 @@ def style_header_borders(ws) -> None:
     divider = Side(style="thin", color=BLUE_LIGHT)
 
     def frame(region: str, *, left=line, right=line, top=line, bottom=line) -> None:
-        first_col, first_row, last_col, last_row = range_boundaries(region)
-        for cells in ws[region]:
-            for cell in cells:
-                cell.border = Border(
-                    left=left if cell.column == first_col else None,
-                    right=right if cell.column == last_col else None,
-                    top=top if cell.row == first_row else None,
-                    bottom=bottom if cell.row == last_row else None,
-                )
-        # 結合セルの基点にも四辺を保持し、保存・再読込後も外周を欠かさない。
-        ws.cell(first_row, first_col).border = Border(left=left, right=right, top=top, bottom=bottom)
+        frame_cells(ws, region, left=left, right=right, top=top, bottom=bottom)
 
     frame("B2:S2", left=outer, right=outer, top=outer, bottom=outer)
     for row in range(3, 7):
@@ -455,6 +459,26 @@ def style_header_borders(ws) -> None:
     frame("L12:S12", left=divider, right=outer, top=outer)
     for column in "LMNOPQRS":
         frame(f"{column}13:{column}13", right=outer if column == "S" else line, bottom=outer)
+
+
+def style_project_borders(ws, first_row: int, last_row: int) -> None:
+    """結合セルの内側には線を引かず、印刷時も各セルの境界をつなぐ。"""
+    edge = Side(style="medium", color=BLUE_DARK)
+    divider = Side(style="thin", color=BLUE_DARK)
+    merged = {(region.min_row, region.min_col): region
+              for region in ws.merged_cells.ranges if region.min_row >= first_row}
+    for row in ws.iter_rows(min_row=first_row, max_row=last_row, min_col=2, max_col=19):
+        for cell in row:
+            if isinstance(cell, MergedCell):
+                continue
+            region = merged.get((cell.row, cell.column))
+            last_column = region.max_col if region else cell.column
+            frame_cells(
+                ws, region.coord if region else cell.coordinate,
+                left=edge if cell.column == 2 else divider,
+                right=edge if last_column == 19 else divider,
+                top=divider, bottom=divider,
+            )
 
 
 def style_phase_header(ws) -> None:
@@ -616,6 +640,7 @@ def engineer_sheet(wb, sections: dict[str, str]) -> None:
     ws.oddFooter.center.text = "&P / &N"
     apply_blue_theme(ws)
     style_header_borders(ws)
+    style_project_borders(ws, 14, row - 1)
 
 
 def normalize_archive(raw: BytesIO) -> bytes:
