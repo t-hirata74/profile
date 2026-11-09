@@ -13,8 +13,9 @@ Markdownで経歴を更新し、同じ内容を指定のExcel書式へ出力す�
 | `project/side-job/*.md` | 副業案件の詳細の正本 | READMEの要約・期間・リンクと整合させる |
 | `excel/templates/スキルシート_当てはめ済み_202605_最寄駅修正.xlsx` | 指定された原本。2026年5月時点の書式見本。省略された氏名・フリガナ・最寄駅の提出用既定値 | 元ファイルをバイト単位で保持する |
 | `excel/skill-sheet.xlsx` | READMEから生成した提出用Excel | スクリプトで再生成する |
-| `docs/skill-sheet.pdf` | Excelの印刷書式を維持した閲覧・提出用PDF（個人情報を含む可能性あり） | `bash scripts/export_skill_sheet_pdf.sh` で再生成する |
-| `scripts/export_skill_sheet_pdf.sh` | LibreOfficeを利用してExcelをPDFへ変換する | PDFの出力方法を変更するときに更新する |
+| `docs/skill-sheet.pdf` | 同じ正本から生成するA4縦の閲覧・提出用PDF（個人情報を含む可能性あり） | `bash scripts/export_skill_sheet_pdf.sh` で再生成する |
+| `scripts/export_skill_sheet_pdf.sh` | Excelの同期を確認し、PDF生成処理を実行する | PDFの出力方法を変更するときに更新する |
+| `scripts/render_skill_sheet_pdf.py` | 結合セルの表と小さいセル余白でA4縦のPDFを組版する | PDFレイアウトを変更するときに更新する |
 | `scripts/export_skill_sheet.py` | Markdownの読み取りとExcel生成 | 項目や出力方法を変更するときに更新する |
 
 原本の経歴は過去の内容であり、最新経歴の正本ではない。原本を提出用に使わず、生成Excelと区別する。READMEを匿名化したまま生成できるよう、氏名・フリガナ・最寄駅の3項目をREADMEから省略した場合だけ原本のD4・D3・D5を参照する。D5は` / `より前の駅情報だけを取得する。READMEの明示値を優先し、年齢・経歴・稼働希望・学歴などは原本から補完しない。保管した原本のSHA-256は以下のとおり。
@@ -56,15 +57,21 @@ READMEの`【スキル経験】`にある`キャリア`は、「業界経験」�
 
 ## PDFのプレビューと再生成
 
-GitHubでは[PDF版のスキルシート](skill-sheet.pdf)をブラウザ上で閲覧できる。元のExcelは`excel/skill-sheet.xlsx`にあり、PDFはA3横向きの印刷設定を維持して出力する。Excelを更新した場合はPDFも再生成する。
+GitHubでは[PDF版のスキルシート](skill-sheet.pdf)をブラウザ上で閲覧できる。Excelは元の書式を保ち、PDFは横長の表をA4縦向きへ組み直して出力する。README・Excel生成処理を共有するため、プロフィール、スキル、案件の記載内容は同じになる。Excelを更新した場合はPDFも再生成する。
 
-LibreOffice Calcと日本語フォントを導入した環境で次を実行する。
+PDFの1ページ目はプロフィール・職務要約・スキル。2ページ目以降はメインと副業を分け、最大6件ずつ均等に配置する。現在の16件は、メイン5件＋5件の2ページ、副業6件の1ページで、全4ページになる。案件名と期間の重複表示を省き、本文は10pt、セル内の上下余白は2ptとする。担当工程は各案件の下に8項目の横書きで表示し、案件途中では改ページしない。案件名リンク、技術・体制・追加項目も保持する。全文がページを超える場合はエラーにし、内容の切り捨てや自動的な文字縮小は行わない。
+
+依存関係とIPAゴシックを導入した環境で次を実行する。
 
 ```bash
+python -m pip install -r requirements.txt
+# Ubuntu: sudo apt-get install fonts-ipafont-gothic
 bash scripts/export_skill_sheet_pdf.sh
 ```
 
-GitHub Actions「Export skill sheet PDF」は、master以外のブランチにおけるExcelやPDF生成処理の変更を検知し、PDFを自動生成・コミットする。手動起動する場合も作業ブランチを選ぶ。PRが完成したらPDFのプレビュー・ページ数・文字の見切れを確認する。
+フォントを既定の場所へ導入しない環境では、`--font /path/to/ipag.ttf`または環境変数`SKILL_SHEET_PDF_FONT`で指定する。日本語フォントはPDFへ埋め込む。
+
+GitHub Actions「Export skill sheet PDF」は、master以外のブランチにおける正本、Excel、PDF生成処理、依存関係の変更を検知し、PDFを自動生成・コミットする。手動起動する場合も作業ブランチを選ぶ。PRが完成したらPDFのプレビュー・ページ数・文字の見切れを確認する。テストではA4縦、5件＋5件＋6件の改ページ、記載内容・リンク・担当工程の保持、フォント埋め込み、ページ超過時のエラーを検証する。
 
 PDF変換前には、LibreOfficeでXLSXを開いて別のXLSXへ保存し直し、必要な見出し・プロフィールの結合と全結合範囲が維持されることを自動確認する。通常のテストでも、保存済みExcelと生成結果の一致、およびZIP/XMLの正規化を繰り返しても結合が失われないことを検証する。
 

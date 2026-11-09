@@ -5,8 +5,13 @@ on:
     branches-ignore:
       - master
     paths:
+      - 'README.md'
       - 'excel/skill-sheet.xlsx'
+      - 'excel/templates/**'
+      - 'scripts/export_skill_sheet.py'
       - 'scripts/export_skill_sheet_pdf.sh'
+      - 'scripts/render_skill_sheet_pdf.py'
+      - 'requirements.txt'
       - '.github/workflows/export-skill-sheet-pdf.yml'
   workflow_dispatch:
 
@@ -28,7 +33,14 @@ jobs:
       - name: Install PDF dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends libreoffice-calc fonts-noto-cjk poppler-utils
+          sudo apt-get install -y --no-install-recommends libreoffice-calc fonts-noto-cjk fonts-ipafont-gothic poppler-utils
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements.txt
+      - name: Install Python dependencies
+        run: python -m pip install -r requirements.txt
       - name: Verify Excel opens and saves with merged cells intact
         run: |
           temp_dir="$(mktemp -d)"
@@ -61,10 +73,7 @@ jobs:
         run: |
           test -s docs/skill-sheet.pdf
           pdfinfo docs/skill-sheet.pdf | grep -E '^Pages:|^Page size:'
-          if ! pdfinfo docs/skill-sheet.pdf | grep -q 'A3'; then
-            echo 'PDF must retain A3 page size' >&2
-            exit 1
-          fi
+          python -m unittest discover -s tests -p 'test_skill_sheet_pdf.py' -v
       - name: Commit generated PDF
         env:
           TARGET_BRANCH: ${{ github.ref_name }}
@@ -76,5 +85,5 @@ jobs:
             echo 'PDF is already up to date'
             exit 0
           fi
-          git commit -m 'Excelに対応するPDFスキルシートを更新'
+          git commit -m '縦向きのPDFスキルシートを更新'
           git push origin "HEAD:${TARGET_BRANCH}"
