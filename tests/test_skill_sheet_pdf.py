@@ -72,6 +72,25 @@ class SkillSheetPDFTest(unittest.TestCase):
             self.assertTrue(any("/FontFile2" in font.get("/FontDescriptor", {})
                                 for font in fonts))
 
+    def test_project_numbers_and_development_methods_are_separate_lines(self):
+        entries = projects(ROOT)
+        ordered = ([p for p in entries if not p.side_job]
+                   + [p for p in entries if p.side_job])
+        reader = PdfReader(BytesIO(self.generated))
+        text = "\n".join(page.extract_text() for page in reader.pages[1:])
+        blocks = re.split(r"(?m)^\s*No\.(\d+)\s*$", text)
+        numbers = [int(number) for number in blocks[1::2]]
+        self.assertEqual(numbers, list(range(1, len(ordered) + 1)))
+        for project, block in zip(ordered, blocks[2::2]):
+            lines = [line.strip() for line in block.splitlines()]
+            self.assertIn("担当業務", lines)
+            if project.fields.get("開発手法"):
+                with self.subTest(project=project.name):
+                    self.assertEqual(lines.count("開発手法"), 1)
+                    method_line = lines.index("開発手法")
+                    self.assertTrue(lines[method_line + 1])
+                    self.assertNotIn("開発手法：", block)
+
     def test_ten_main_projects_and_six_side_projects_fit_five_five_six(self):
         with tempfile.TemporaryDirectory() as directory:
             root = excel_tests.ExportSkillSheetTest.fixture(directory)
