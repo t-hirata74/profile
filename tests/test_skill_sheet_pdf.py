@@ -6,13 +6,14 @@ from io import BytesIO
 from pathlib import Path
 
 from pypdf import PdfReader
+from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfgen.canvas import Canvas
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
 from export_skill_sheet import ROOT, SECTIONS, parse_projects, project_phase_marks, read_sections
 from render_skill_sheet_pdf import (
-    PAGE_HEIGHT, PAGE_WIDTH, balanced_pages,
+    CONTENT_WIDTH, FONT_NAME, PAGE_HEIGHT, PAGE_WIDTH, balanced_pages,
     draw_page, paragraph, pdf_bytes,
 )
 import test_export_skill_sheet as excel_tests
@@ -109,6 +110,15 @@ class SkillSheetPDFTest(unittest.TestCase):
         # 全文を残すとページを超える場合はエラーにし、下端を切って出力しない。
         with self.assertRaisesRegex(ValueError, "1ページに収まりません"):
             draw_page(canvas, "検証", [paragraph("長い本文\n" * 200)], 1, 1)
+
+    def test_japanese_hanging_characters_stay_inside_cell_width(self):
+        text = ("工程/作業：タスク見積もり、基本設計、詳細設計、開発、単体テスト、結合テスト　"
+                "開発手法：フルリモート、issue駆動開発、スクラム（1週間スプリント）")
+        body = paragraph(text)
+        width = CONTENT_WIDTH - 68 - 8
+        body.wrap(width, PAGE_HEIGHT)
+        for _, line in body.blPara.lines:
+            self.assertLessEqual(pdfmetrics.stringWidth(line[0], FONT_NAME, 10), width)
 
 
 if __name__ == "__main__":

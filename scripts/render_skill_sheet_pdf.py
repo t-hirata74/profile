@@ -53,6 +53,8 @@ def paragraph(text: str, *, size: float = 10, color=DARK, center: bool = False,
         "compact", fontName=FONT_NAME, fontSize=size, leading=leading or size * 1.25,
         textColor=color, wordWrap="CJK", splitLongWords=True,
         alignment=TA_CENTER if center else 0, spaceBefore=0, spaceAfter=0,
+        # 日本語の禁則処理で長音・小書き仮名が1字ぶら下がっても罫線を越えない。
+        rightIndent=0 if center else size,
     )
     return Paragraph(escape(str(text)).replace("\n", "<br/>"), style)
 
@@ -82,8 +84,10 @@ def table_style() -> list:
 
 
 def profile_flowables(sheet) -> list:
-    rows = [[paragraph(sheet[a].value or ""), paragraph(sheet[b].value or ""),
-             paragraph(sheet[c].value or ""), paragraph(sheet[d].value or "")]
+    rows = [[paragraph(sheet[a].value or "", size=9.5, center=True),
+             paragraph(sheet[b].value or "", size=9.5),
+             paragraph(sheet[c].value or "", size=9.5, center=True),
+             paragraph(sheet[d].value or "", size=9.5)]
             for a, b, c, d in [(f"B{row}", f"D{row}", f"G{row}", f"I{row}")
                                for row in range(3, 7)]]
     profile = Table(rows, colWidths=[44, 210, 48, CONTENT_WIDTH - 302])
