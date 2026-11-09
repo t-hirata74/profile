@@ -108,24 +108,49 @@ def profile_flowables(sheet) -> list:
 
 def project_table(project: Project, number: int) -> Table:
     fields = project.fields
-    period = f"{number}\n{project.start}\n-\n{project.end}"
+    period = f"期間：{project.start} - {project.end}"
     if project.duration:
-        period += "\n" + project.duration
-    title = paragraph(project.name, size=10.5)
+        period += "（" + project.duration + "）"
+    title = paragraph(project.name, size=10.5, color=colors.white)
     if project.url:
         # リンク先もエスケープし、READMEの文字列をPDFマークアップとして解釈しない。
         title = Paragraph(
-            f'<link href="{escape(project.url, quote=True)}" color="#{BLUE_DARK}">'
+            f'<link href="{escape(project.url, quote=True)}" color="#FFFFFF">'
             f'{escape(project.name)}</link>', title.style,
         )
-    role = "担当：" + fields["担当"]
-    if fields.get("チーム体制"):
-        role += "　チーム体制：" + fields["チーム体制"]
-    work = "　".join(f"{key}：{fields[key]}" for key in ("工程/作業", "開発手法") if key in fields)
-    excluded = {"担当", "チーム体制", "担当工程", "工程/作業", "開発手法"}
-    tech = "　".join(f"{key}：{value}" for key, value in fields.items() if key not in excluded)
-    details = [paragraph(text) for text in (role, work, tech) if text]
-    right_width = CONTENT_WIDTH - 68
+    metadata = Table([[
+        paragraph(period, size=9), paragraph("担当：" + fields["担当"], size=9),
+    ]], colWidths=[248, CONTENT_WIDTH - 256])
+    metadata.setStyle(TableStyle([
+        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+        ("LEFTPADDING", (0, 0), (-1, -1), 0),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 0),
+        ("TOPPADDING", (0, 0), (-1, -1), 0),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 0),
+    ]))
+    rows = [[paragraph(f"No.{number}", size=10.5, center=True, color=colors.white), title],
+            [metadata, ""]]
+
+    def detail(label: str, value: str) -> None:
+        if value:
+            rows.append([paragraph(label, size=8.5, center=True), paragraph(value)])
+
+    detail("担当業務", fields["工程/作業"])
+    detail("開発手法", fields.get("開発手法", ""))
+    detail("チーム体制", fields.get("チーム体制", ""))
+    technology_keys = {"言語", "FW/ライブラリ", "DB", "インフラ", "生成AI", "アプリ"}
+    environment_keys = {"エディタ/IDE", "AIエージェント", "その他", "コミュニケーション"}
+    display_labels = {"FW/ライブラリ": "FW", "エディタ/IDE": "IDE", "コミュニケーション": "連絡"}
+    for label, keys in (("使用技術", technology_keys), ("開発環境", environment_keys)):
+        value = "　/　".join(f"{display_labels.get(key, key)}：{value}"
+                            for key, value in fields.items() if key in keys and value)
+        detail(label, value)
+    known = technology_keys | environment_keys | {"担当", "工程/作業", "開発手法", "チーム体制", "担当工程"}
+    for key, value in fields.items():
+        if key not in known:
+            detail(key, value)
+
+    right_width = CONTENT_WIDTH - 54
     phases = Table([[
         paragraph(name + (" ●" if marked else ""), size=7.6, center=True)
         for name, marked in zip(PHASE_NAMES, project_phase_marks(fields))
@@ -139,15 +164,20 @@ def project_table(project: Project, number: int) -> Table:
         ("TOPPADDING", (0, 0), (-1, -1), 2),
         ("BOTTOMPADDING", (0, 0), (-1, -1), 2),
     ]))
-    table = Table([
-        [paragraph(period, size=9, center=True), title],
-        ["", details],
-        ["", phases],
-    ], colWidths=[68, right_width])
-    table.setStyle(TableStyle(table_style() + [
-        ("SPAN", (0, 0), (0, 2)),
-        ("BACKGROUND", (0, 0), (0, 2), LIGHT),
-        ("BACKGROUND", (1, 0), (1, 0), LIGHT),
+    rows.append([paragraph("担当工程", size=8.5, center=True), phases])
+    table = Table(rows, colWidths=[54, right_width])
+    table.setStyle(TableStyle([
+        ("BOX", (0, 0), (-1, -1), 0.6, DARK),
+        ("LINEBELOW", (0, 1), (-1, -2), 0.25, colors.HexColor("#CEDAE7")),
+        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+        ("LEFTPADDING", (0, 0), (-1, -1), 4),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 4),
+        ("TOPPADDING", (0, 0), (-1, -1), 1),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 1),
+        ("SPAN", (0, 1), (1, 1)),
+        ("BACKGROUND", (0, 0), (-1, 0), DARK),
+        ("BACKGROUND", (0, 1), (-1, 1), LIGHT),
+        ("BACKGROUND", (0, 2), (0, -1), colors.HexColor("#F3F6FA")),
     ]))
     return table
 
@@ -188,6 +218,8 @@ def pdf_bytes(root: Path = ROOT, font: Path | None = None) -> bytes:
             tables = []
             first = number
             for project in group:
+                if tables:
+                    tables.append(Spacer(1, 5))
                 tables.append(project_table(project, number))
                 number += 1
             title = f"{label} {index} / {len(groups)}　（No.{first}-{number - 1}・{len(group)}件）"
